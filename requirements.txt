@@ -1,4 +1,4 @@
-flights>=0.10.0
+flights @ git+https://github.com/punitarani/fli.git
 fast-flights>=3.1.0
 pyyaml>=6.0
 requests>=2.32.0
