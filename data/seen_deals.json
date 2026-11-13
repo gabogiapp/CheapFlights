@@ -753,6 +753,19 @@
     "return_date": "2027-05-07",
     "source": "google_flights_explore"
   },
+  "JFK-Abu Dhabi, UAE-2026-11-13-Flexible-b675": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "Abu Dhabi, UAE",
+    "first_seen": "2026-11-13T22:32:44.651858+00:00",
+    "last_seen": "2026-11-13T22:32:44.651858+00:00",
+    "origin": "JFK",
+    "price": 683.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-Abu Dhabi, UAE-November 2026 to March 20-Flexible-b675": {
     "airline": "Royal Jordanian",
     "currency": "USD",
@@ -1637,6 +1650,19 @@
     "return_date": "2027-05-07",
     "source": "google_flights_explore"
   },
+  "JFK-Liberia, Costa Rica-2026-11-13-Flexible-b275": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "Liberia, Costa Rica",
+    "first_seen": "2026-11-13T22:32:44.651802+00:00",
+    "last_seen": "2026-11-13T22:32:44.651802+00:00",
+    "origin": "JFK",
+    "price": 291.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-Liberia, Costa Rica-Limited availability from-Flexible-b275": {
     "airline": "United Airlines",
     "currency": "USD",
@@ -1767,6 +1793,32 @@
     "return_date": "2027-05-14",
     "source": "google_flights_explore"
   },
+  "JFK-New York, USA-2026-11-13-Flexible-b325": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-13T22:32:44.651849+00:00",
+    "last_seen": "2026-11-13T22:32:44.651849+00:00",
+    "origin": "JFK",
+    "price": 338.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-2026-11-13-Flexible-b350": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-13T22:32:44.651844+00:00",
+    "last_seen": "2026-11-13T22:32:44.651844+00:00",
+    "origin": "JFK",
+    "price": 359.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-New York, USA-January to March 2027-Flexible-b350": {
     "airline": "American Airlines",
     "currency": "USD",
@@ -1790,6 +1842,19 @@
     "last_seen": "2026-11-13T21:31:40.392535+00:00",
     "origin": "JFK",
     "price": 338.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-Porto, Portugal-2026-11-13-Flexible-b200": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "Porto, Portugal",
+    "first_seen": "2026-11-13T22:32:44.651839+00:00",
+    "last_seen": "2026-11-13T22:32:44.651839+00:00",
+    "origin": "JFK",
+    "price": 215.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
@@ -1871,6 +1936,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-St. Martin-2026-11-13-Flexible-b250": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "St. Martin",
+    "first_seen": "2026-11-13T22:32:44.651829+00:00",
+    "last_seen": "2026-11-13T22:32:44.651829+00:00",
+    "origin": "JFK",
+    "price": 250.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-St. Martin-December 2026-Flexible-b250": {
     "airline": "JetBlue",
     "currency": "USD",
@@ -1881,6 +1959,19 @@
     "last_seen": "2026-11-13T21:31:40.392488+00:00",
     "origin": "JFK",
     "price": 250.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-the Dominican Republ-2026-11-13-Flexible-b275": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-13",
+    "destination": "the Dominican Republ",
+    "first_seen": "2026-11-13T22:32:44.651854+00:00",
+    "last_seen": "2026-11-13T22:32:44.651854+00:00",
+    "origin": "JFK",
+    "price": 295.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
