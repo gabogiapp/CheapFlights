@@ -1,0 +1,814 @@
+{
+  "EWR-AMS": [
+    {
+      "date": "2026-11-13",
+      "price": 360.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-ATH": [
+    {
+      "date": "2026-11-13",
+      "price": 468.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-BCN": [
+    {
+      "date": "2026-11-13",
+      "price": 341.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-BER": [
+    {
+      "date": "2026-11-13",
+      "price": 635.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-BKK": [
+    {
+      "date": "2026-11-13",
+      "price": 1106.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-BOM": [
+    {
+      "date": "2026-11-13",
+      "price": 526.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-BUD": [
+    {
+      "date": "2026-11-13",
+      "price": 365.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-CDG": [
+    {
+      "date": "2026-11-13",
+      "price": 310.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-CGK": [
+    {
+      "date": "2026-11-13",
+      "price": 3653.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-CPT": [
+    {
+      "date": "2026-11-13",
+      "price": 1311.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-DUB": [
+    {
+      "date": "2026-11-13",
+      "price": 304.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-DXB": [
+    {
+      "date": "2026-11-13",
+      "price": 1052.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-EDI": [
+    {
+      "date": "2026-11-13",
+      "price": 384.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-EZE": [
+    {
+      "date": "2026-11-13",
+      "price": 869.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-FCO": [
+    {
+      "date": "2026-11-13",
+      "price": 331.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-FLR": [
+    {
+      "date": "2026-11-13",
+      "price": 444.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-GIG": [
+    {
+      "date": "2026-11-13",
+      "price": 565.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-HKG": [
+    {
+      "date": "2026-11-13",
+      "price": 583.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-HND": [
+    {
+      "date": "2026-11-13",
+      "price": 878.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-IST": [
+    {
+      "date": "2026-11-13",
+      "price": 512.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-ITM": [
+    {
+      "date": "2026-11-13",
+      "price": 884.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-JNB": [
+    {
+      "date": "2026-11-13",
+      "price": 1263.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-JTR": [
+    {
+      "date": "2026-11-13",
+      "price": 634.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-KIX": [
+    {
+      "date": "2026-11-13",
+      "price": 882.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-LGW": [
+    {
+      "date": "2026-11-13",
+      "price": 378.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-LHR": [
+    {
+      "date": "2026-11-13",
+      "price": 310.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-LIS": [
+    {
+      "date": "2026-11-13",
+      "price": 422.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-MAD": [
+    {
+      "date": "2026-11-13",
+      "price": 305.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-MEL": [
+    {
+      "date": "2026-11-13",
+      "price": 1058.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-MLA": [
+    {
+      "date": "2026-11-13",
+      "price": 705.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-MRU": [
+    {
+      "date": "2026-11-13",
+      "price": 2309.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-NRT": [
+    {
+      "date": "2026-11-13",
+      "price": 878.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-ORY": [
+    {
+      "date": "2026-11-13",
+      "price": 305.0,
+      "timestamp": 1794605366
+    }
+  ],
+  "EWR-PRG": [
+    {
+      "date": "2026-11-13",
+      "price": 559.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-SIN": [
+    {
+      "date": "2026-11-13",
+      "price": 1484.0,
+      "timestamp": 1794605370
+    }
+  ],
+  "EWR-SSA": [
+    {
+      "date": "2026-11-13",
+      "price": 889.0,
+      "timestamp": 1794605354
+    }
+  ],
+  "EWR-SYD": [
+    {
+      "date": "2026-11-13",
+      "price": 852.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "EWR-UBN": [
+    {
+      "date": "2026-11-13",
+      "price": 1246.0,
+      "timestamp": 1794605371
+    }
+  ],
+  "EWR-VCE": [
+    {
+      "date": "2026-11-13",
+      "price": 689.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-VIE": [
+    {
+      "date": "2026-11-13",
+      "price": 860.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-YQB": [
+    {
+      "date": "2026-11-13",
+      "price": 379.0,
+      "timestamp": 1794605366
+    }
+  ],
+  "EWR-YTZ": [
+    {
+      "date": "2026-11-13",
+      "price": 165.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-YUL": [
+    {
+      "date": "2026-11-13",
+      "price": 149.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-YVR": [
+    {
+      "date": "2026-11-13",
+      "price": 248.0,
+      "timestamp": 1794605388
+    }
+  ],
+  "EWR-YYZ": [
+    {
+      "date": "2026-11-13",
+      "price": 137.0,
+      "timestamp": 1794605373
+    }
+  ],
+  "JFK-AEP": [
+    {
+      "date": "2026-11-13",
+      "price": 744.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-AMS": [
+    {
+      "date": "2026-11-13",
+      "price": 364.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-ATH": [
+    {
+      "date": "2026-11-13",
+      "price": 492.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-BCN": [
+    {
+      "date": "2026-11-13",
+      "price": 345.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-BER": [
+    {
+      "date": "2026-11-13",
+      "price": 594.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-BKK": [
+    {
+      "date": "2026-11-13",
+      "price": 490.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-BOM": [
+    {
+      "date": "2026-11-13",
+      "price": 581.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-BUD": [
+    {
+      "date": "2026-11-13",
+      "price": 394.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-CDG": [
+    {
+      "date": "2026-11-13",
+      "price": 310.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-CGK": [
+    {
+      "date": "2026-11-13",
+      "price": 562.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-CPT": [
+    {
+      "date": "2026-11-13",
+      "price": 1236.0,
+      "timestamp": 1794605418
+    }
+  ],
+  "JFK-DUB": [
+    {
+      "date": "2026-11-13",
+      "price": 304.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-DUD": [
+    {
+      "date": "2026-11-13",
+      "price": 1690.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-DXB": [
+    {
+      "date": "2026-11-13",
+      "price": 824.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-EDI": [
+    {
+      "date": "2026-11-13",
+      "price": 334.0,
+      "timestamp": 1794605414
+    }
+  ],
+  "JFK-EZE": [
+    {
+      "date": "2026-11-13",
+      "price": 590.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-FCO": [
+    {
+      "date": "2026-11-13",
+      "price": 328.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-FLR": [
+    {
+      "date": "2026-11-13",
+      "price": 462.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-GIG": [
+    {
+      "date": "2026-11-13",
+      "price": 456.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-HKG": [
+    {
+      "date": "2026-11-13",
+      "price": 608.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-HND": [
+    {
+      "date": "2026-11-13",
+      "price": 878.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-IPC": [
+    {
+      "date": "2026-11-13",
+      "price": 1251.0,
+      "timestamp": 1794605414
+    }
+  ],
+  "JFK-IST": [
+    {
+      "date": "2026-11-13",
+      "price": 651.0,
+      "timestamp": 1794605414
+    }
+  ],
+  "JFK-ITM": [
+    {
+      "date": "2026-11-13",
+      "price": 891.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-JNB": [
+    {
+      "date": "2026-11-13",
+      "price": 693.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-JTR": [
+    {
+      "date": "2026-11-13",
+      "price": 619.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-KIX": [
+    {
+      "date": "2026-11-13",
+      "price": 893.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-KZN": [
+    {
+      "date": "2026-11-13",
+      "price": 960.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-LGW": [
+    {
+      "date": "2026-11-13",
+      "price": 335.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-LHR": [
+    {
+      "date": "2026-11-13",
+      "price": 310.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-LIS": [
+    {
+      "date": "2026-11-13",
+      "price": 524.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-MAD": [
+    {
+      "date": "2026-11-13",
+      "price": 305.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-MEL": [
+    {
+      "date": "2026-11-13",
+      "price": 895.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-MLA": [
+    {
+      "date": "2026-11-13",
+      "price": 588.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-MRU": [
+    {
+      "date": "2026-11-13",
+      "price": 868.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-NRT": [
+    {
+      "date": "2026-11-13",
+      "price": 617.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-PRG": [
+    {
+      "date": "2026-11-13",
+      "price": 559.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-SAW": [
+    {
+      "date": "2026-11-13",
+      "price": 728.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-SDU": [
+    {
+      "date": "2026-11-13",
+      "price": 631.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-SEZ": [
+    {
+      "date": "2026-11-13",
+      "price": 859.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-SIN": [
+    {
+      "date": "2026-11-13",
+      "price": 648.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-SSA": [
+    {
+      "date": "2026-11-13",
+      "price": 752.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-SYD": [
+    {
+      "date": "2026-11-13",
+      "price": 824.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-UBN": [
+    {
+      "date": "2026-11-13",
+      "price": 775.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-VCE": [
+    {
+      "date": "2026-11-13",
+      "price": 576.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-VIE": [
+    {
+      "date": "2026-11-13",
+      "price": 484.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-YUL": [
+    {
+      "date": "2026-11-13",
+      "price": 505.0,
+      "timestamp": 1794605433
+    }
+  ],
+  "JFK-YVR": [
+    {
+      "date": "2026-11-13",
+      "price": 270.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-YYZ": [
+    {
+      "date": "2026-11-13",
+      "price": 325.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "JFK-ZQN": [
+    {
+      "date": "2026-11-13",
+      "price": 1350.0,
+      "timestamp": 1794605435
+    }
+  ],
+  "LGA-AMS": [
+    {
+      "date": "2026-11-13",
+      "price": 364.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-ATH": [
+    {
+      "date": "2026-11-13",
+      "price": 496.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-BCN": [
+    {
+      "date": "2026-11-13",
+      "price": 475.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-CDG": [
+    {
+      "date": "2026-11-13",
+      "price": 314.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-DUB": [
+    {
+      "date": "2026-11-13",
+      "price": 314.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-EDI": [
+    {
+      "date": "2026-11-13",
+      "price": 406.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-EZE": [
+    {
+      "date": "2026-11-13",
+      "price": 869.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-FCO": [
+    {
+      "date": "2026-11-13",
+      "price": 373.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-HKG": [
+    {
+      "date": "2026-11-13",
+      "price": 4686.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-HND": [
+    {
+      "date": "2026-11-13",
+      "price": 882.0,
+      "timestamp": 1794605475
+    }
+  ],
+  "LGA-IST": [
+    {
+      "date": "2026-11-13",
+      "price": 1100.0,
+      "timestamp": 1794605475
+    }
+  ],
+  "LGA-LHR": [
+    {
+      "date": "2026-11-13",
+      "price": 313.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-MAD": [
+    {
+      "date": "2026-11-13",
+      "price": 413.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-NRT": [
+    {
+      "date": "2026-11-13",
+      "price": 882.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-SYD": [
+    {
+      "date": "2026-11-13",
+      "price": 852.0,
+      "timestamp": 1794605466
+    }
+  ],
+  "LGA-YOW": [
+    {
+      "date": "2026-11-13",
+      "price": 199.0,
+      "timestamp": 1794605461
+    }
+  ],
+  "LGA-YQB": [
+    {
+      "date": "2026-11-13",
+      "price": 401.0,
+      "timestamp": 1794605461
+    }
+  ],
+  "LGA-YTZ": [
+    {
+      "date": "2026-11-13",
+      "price": 128.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-YUL": [
+    {
+      "date": "2026-11-13",
+      "price": 162.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-YVR": [
+    {
+      "date": "2026-11-13",
+      "price": 283.0,
+      "timestamp": 1794605476
+    }
+  ],
+  "LGA-YYZ": [
+    {
+      "date": "2026-11-13",
+      "price": 128.0,
+      "timestamp": 1794605476
+    }
+  ]
+}

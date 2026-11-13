@@ -1,0 +1,69 @@
+# ==============================================================================
+# Serverless EWR / NYC International Flight Deal Tracker Configuration
+# ==============================================================================
+
+# Origin airports to monitor (ordered by priority, Newark EWR prioritized)
+origins:
+  - "EWR"
+  - "JFK"
+  - "LGA"
+
+# Locale & currency settings for Google Flights queries
+currency: "USD"
+country: "US"
+language: "en-US"
+
+# Itinerary filters
+max_stops: "ONE_STOP_OR_FEWER" # NONSTOP or ONE_STOP_OR_FEWER
+max_layover_hours: 6.0         # Discard itineraries with layovers longer than 6 hours
+
+# Target price ceilings for open-ended "Explore" discovery (USD round-trip)
+explore_price_ceilings:
+  Europe: 420
+  Caribbean / Mexico / Central America: 260
+  South America: 450
+  Asia / Japan: 680
+
+# Default international drop threshold (% below the rolling 14-day baseline recorded in data/price_history.json)
+drop_threshold_pct: 35.0
+
+# Deduplication bucket size in dollars (e.g. $25 groups $326-$350 so minor fluctuations don't re-alert)
+price_bucket_size: 25.0
+
+# Flexible explore scan configuration
+explore_scan:
+  window_weeks: [1, 2]         # 1-week (7 nights) and 2-week (14 nights) round trips
+  months_ahead: 6              # Lookahead window in months
+  sample_interval_days: 21     # Spacing between sampled departure dates (covers season efficiently)
+
+# Pinned flight watches for trips already booked in Main Cabin
+# If the current price drops below target_price or booked_price, receive an instant
+# alert to cancel and rebook for an airline eCredit voucher.
+pinned_watches:
+  - origin: "EWR"
+    destination: "LIS"
+    departure_date: "2027-01-12"
+    return_date: "2027-01-19"
+    cabin_class: "ECONOMY"
+    target_price: 550.0
+    booked_price: 650.0
+    notes: "Main cabin booked to Lisbon - watch for eCredit drop"
+  - origin: "JFK"
+    destination: "LHR"
+    departure_date: "2027-02-05"
+    return_date: "2027-02-12"
+    cabin_class: "ECONOMY"
+    target_price: 450.0
+    booked_price: 520.0
+    notes: "Main cabin booked to London - watch for eCredit drop"
+
+# Secondary mistake-fare feed: Secret Flying NYC monitor
+secret_flying:
+  enabled: true
+  keywords:
+    - "EWR"
+    - "JFK"
+    - "LGA"
+    - "New York"
+    - "Newark"
+    - "NYC"
