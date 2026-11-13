@@ -62,6 +62,7 @@ class ExploreScanConfig:
     window_weeks: list[int] = field(default_factory=lambda: [1, 2])
     months_ahead: int = 6
     sample_interval_days: int = 21
+    max_dates_per_run: int = 2
 
 
 @dataclass
@@ -165,6 +166,7 @@ def load_config(config_path: str | Path = "config.yaml") -> TrackerConfig:
         window_weeks=scan_data.get("window_weeks", [1, 2]),
         months_ahead=int(scan_data.get("months_ahead", 6)),
         sample_interval_days=int(scan_data.get("sample_interval_days", 21)),
+        max_dates_per_run=int(scan_data.get("max_dates_per_run", 2)),
     )
 
     pinned_watches = []

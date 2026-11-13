@@ -961,6 +961,19 @@
     "return_date": "2027-05-07",
     "source": "google_flights_explore"
   },
+  "JFK-BUD-2027-02-26-2027-03-12-b350": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "BUD",
+    "first_seen": "2026-11-13T22:30:39.650884+00:00",
+    "last_seen": "2026-11-13T22:30:39.650884+00:00",
+    "origin": "JFK",
+    "price": 354.0,
+    "return_date": "2027-03-12",
+    "source": "google_flights_explore"
+  },
   "JFK-BUD-2027-04-30-2027-05-14-b375": {
     "airline": "SWISS",
     "currency": "USD",
@@ -1156,6 +1169,19 @@
     "return_date": "2027-02-19",
     "source": "google_flights_explore"
   },
+  "JFK-CGK-2027-02-26-2027-03-12-b550": {
+    "airline": "Korean Air",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "CGK",
+    "first_seen": "2026-11-13T22:30:39.650888+00:00",
+    "last_seen": "2026-11-13T22:30:39.650888+00:00",
+    "origin": "JFK",
+    "price": 562.0,
+    "return_date": "2027-03-12",
+    "source": "google_flights_explore"
+  },
   "JFK-DUB-2026-12-04-2026-12-11-b375": {
     "airline": "Aer Lingus",
     "currency": "USD",
@@ -1245,6 +1271,19 @@
     "origin": "JFK",
     "price": 314.0,
     "return_date": "2027-03-05",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2027-02-26-2027-03-12-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "DUB",
+    "first_seen": "2026-11-13T22:30:39.650871+00:00",
+    "last_seen": "2026-11-13T22:30:39.650871+00:00",
+    "origin": "JFK",
+    "price": 304.0,
+    "return_date": "2027-03-12",
     "source": "google_flights_explore"
   },
   "JFK-DUB-2027-03-19-2027-03-26-b300": {
@@ -1349,6 +1388,19 @@
     "origin": "JFK",
     "price": 331.0,
     "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
+  "JFK-FCO-2027-02-26-2027-03-12-b325": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "FCO",
+    "first_seen": "2026-11-13T22:30:39.650876+00:00",
+    "last_seen": "2026-11-13T22:30:39.650876+00:00",
+    "origin": "JFK",
+    "price": 331.0,
+    "return_date": "2027-03-12",
     "source": "google_flights_explore"
   },
   "JFK-FCO-2027-04-30-2027-05-14-b325": {
@@ -1520,6 +1572,19 @@
     "return_date": "2027-03-05",
     "source": "google_flights_explore"
   },
+  "JFK-LHR-2027-02-26-2027-03-12-b325": {
+    "airline": "Delta and KLM",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "LHR",
+    "first_seen": "2026-11-13T22:30:39.650765+00:00",
+    "last_seen": "2026-11-13T22:30:39.650765+00:00",
+    "origin": "JFK",
+    "price": 339.0,
+    "return_date": "2027-03-12",
+    "source": "google_flights_explore"
+  },
   "JFK-LHR-2027-03-19-2027-03-26-b300": {
     "airline": "Virgin Atlantic",
     "currency": "USD",
@@ -1571,6 +1636,19 @@
     "price": 310.0,
     "return_date": "2027-05-07",
     "source": "google_flights_explore"
+  },
+  "JFK-Liberia, Costa Rica-Limited availability from-Flexible-b275": {
+    "airline": "United Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "Limited availability from",
+    "destination": "Liberia, Costa Rica",
+    "first_seen": "2026-11-13T22:30:39.650909+00:00",
+    "last_seen": "2026-11-13T22:30:39.650909+00:00",
+    "origin": "JFK",
+    "price": 291.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
   },
   "JFK-MAD-2027-01-15-2027-01-22-b400": {
     "airline": "Delta",
@@ -1637,6 +1715,19 @@
     "return_date": "2027-03-05",
     "source": "google_flights_explore"
   },
+  "JFK-MAD-2027-02-26-2027-03-12-b300": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "MAD",
+    "first_seen": "2026-11-13T22:30:39.650880+00:00",
+    "last_seen": "2026-11-13T22:30:39.650880+00:00",
+    "origin": "JFK",
+    "price": 305.0,
+    "return_date": "2027-03-12",
+    "source": "google_flights_explore"
+  },
   "JFK-NRT-2027-02-05-2027-02-19-b600": {
     "airline": "Cathay Pacific",
     "currency": "USD",
@@ -1648,6 +1739,19 @@
     "origin": "JFK",
     "price": 617.0,
     "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
+  "JFK-NRT-2027-02-26-2027-03-12-b650": {
+    "airline": "Cathay Pacific",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "NRT",
+    "first_seen": "2026-11-13T22:30:39.650858+00:00",
+    "last_seen": "2026-11-13T22:30:39.650858+00:00",
+    "origin": "JFK",
+    "price": 662.0,
+    "return_date": "2027-03-12",
     "source": "google_flights_explore"
   },
   "JFK-NRT-2027-04-30-2027-05-14-b600": {
@@ -1739,6 +1843,19 @@
     "origin": "JFK",
     "price": 648.0,
     "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
+  "JFK-SIN-2027-02-26-2027-03-12-b625": {
+    "airline": "Qatar Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-26",
+    "destination": "SIN",
+    "first_seen": "2026-11-13T22:30:39.650867+00:00",
+    "last_seen": "2026-11-13T22:30:39.650867+00:00",
+    "origin": "JFK",
+    "price": 648.0,
+    "return_date": "2027-03-12",
     "source": "google_flights_explore"
   },
   "JFK-San Juan, Puerto Ric-December 2026 to February-Flexible-b175": {

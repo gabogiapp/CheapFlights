@@ -6,7 +6,7 @@
 origins:
   - "EWR"
   - "JFK"
-  - "LGA"
+  # - "LGA"  # LaGuardia has no international border facility; omit to keep scans blazing fast
 
 # Locale & currency settings for Google Flights queries
 currency: "USD"
@@ -43,6 +43,7 @@ explore_scan:
   window_weeks: [1, 2]         # 1-week (7 nights) and 2-week (14 nights) round trips
   months_ahead: 6              # Lookahead window in months
   sample_interval_days: 21     # Spacing between sampled departure dates (covers season efficiently)
+  max_dates_per_run: 2         # Rotate 2 dates per run to stay fast (~35s) and avoid Google rate limits
 
 # Pinned flight watches for trips already booked in Main Cabin
 # If the current price drops below target_price or booked_price, receive an instant

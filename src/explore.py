@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import time
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
@@ -43,9 +44,9 @@ class ExploreScanner:
         self.max_layover_minutes = int(config.max_layover_hours * 60)
 
     def generate_scan_dates(self) -> list[str]:
-        """Generate sampled departure dates across the configured lookahead window."""
+        """Generate sampled departure dates rotated by hour to maintain speed and avoid rate limits."""
         today = datetime.now(timezone.utc)
-        dates: list[str] = []
+        all_dates: list[str] = []
         months = self.config.explore_scan.months_ahead
         interval_days = self.config.explore_scan.sample_interval_days
 
@@ -54,10 +55,19 @@ class ExploreScanner:
         end_date = today + timedelta(days=months * 30)
 
         while current <= end_date:
-            dates.append(current.strftime("%Y-%m-%d"))
+            all_dates.append(current.strftime("%Y-%m-%d"))
             current += timedelta(days=interval_days)
 
-        return dates
+        max_dates = self.config.explore_scan.max_dates_per_run
+        if not all_dates or len(all_dates) <= max_dates:
+            return all_dates
+
+        # Rotate slice based on current hour so the hourly cron scans across
+        # the entire 6 months throughout the day without overloading Google's RPC
+        hour = today.hour
+        offset = (hour * max_dates) % len(all_dates)
+        rotated = all_dates[offset:] + all_dates[:offset]
+        return rotated[:max_dates]
 
     def scan_origin(self, origin_code: str) -> list[FlightDeal]:
         """Run flexible Explore search across dates and windows for a specific origin airport."""
@@ -99,10 +109,12 @@ class ExploreScanner:
                         language=self.config.language,
                         country=self.config.country,
                     )
+                    time.sleep(2.0)
                 except Exception as e:
                     logger.debug(
                         f"Explore search refused or failed for {origin_code} {dep_date} ({nights}n): {e}"
                     )
+                    time.sleep(2.0)
                     continue
 
                 if not res or not res.destinations:
@@ -223,7 +235,10 @@ class ExploreScanner:
     def scan_all_origins(self) -> list[FlightDeal]:
         """Scan all configured origins with EWR prioritized."""
         all_deals: list[FlightDeal] = []
-        for origin in self.config.origins:
+        import time as _t
+        for idx, origin in enumerate(self.config.origins):
+            if idx > 0:
+                _t.sleep(1.5)  # Graceful pause between airport hubs
             logger.info(f"--- Processing Explore search for {origin} ---")
             origin_deals = self.scan_origin(origin)
             all_deals.extend(origin_deals)
