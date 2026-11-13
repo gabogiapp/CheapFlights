@@ -86,6 +86,7 @@ class TrackerConfig:
     baseline_window_days: int = 90
     history_retention_days: int = 180
     min_baseline_observations: int = 3
+    max_sms_alerts_per_run: int = 5
     price_bucket_size: float = 25.0
     explore_scan: ExploreScanConfig = field(default_factory=ExploreScanConfig)
     pinned_watches: list[PinnedWatch] = field(default_factory=list)
@@ -156,6 +157,7 @@ def load_config(config_path: str | Path = "config.yaml") -> TrackerConfig:
     baseline_window = int(data.get("baseline_window_days", 90))
     history_retention = int(data.get("history_retention_days", 180))
     min_observations = int(data.get("min_baseline_observations", 3))
+    max_sms = int(data.get("max_sms_alerts_per_run", 5))
     bucket_size = float(data.get("price_bucket_size", 25.0))
 
     scan_data = data.get("explore_scan", {})
@@ -196,6 +198,7 @@ def load_config(config_path: str | Path = "config.yaml") -> TrackerConfig:
         baseline_window_days=baseline_window,
         history_retention_days=history_retention,
         min_baseline_observations=min_observations,
+        max_sms_alerts_per_run=max_sms,
         price_bucket_size=bucket_size,
         explore_scan=explore_scan,
         pinned_watches=pinned_watches,

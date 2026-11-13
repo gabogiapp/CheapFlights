@@ -32,6 +32,9 @@ baseline_window_days: 90       # Evaluate price drops against a 90-day historica
 history_retention_days: 180    # Retain up to 6 months (180 days) of historical price observations
 min_baseline_observations: 3   # Minimum observations needed before triggering % drop alerts
 
+# Maximum SMS text alerts dispatched per run (prevents carrier spam-filter rate limits and phone flooding)
+max_sms_alerts_per_run: 5
+
 # Deduplication bucket size in dollars (e.g. $25 groups $326-$350 so minor fluctuations don't re-alert)
 price_bucket_size: 25.0
 

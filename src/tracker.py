@@ -10,7 +10,7 @@ from typing import Optional
 
 from src.config import TrackerConfig, load_config
 from src.explore import ExploreScanner
-from src.models import FlightDeal
+from src.models import DealType, FlightDeal
 from src.notifier import Notifier
 from src.pinned import PinnedWatcher
 from src.secret_flying import SecretFlyingScanner
@@ -105,11 +105,27 @@ def run_tracker(
         f"{skipped_duplicates} duplicate/already-alerted, {len(new_alert_deals)} new deals."
     )
 
-    # Dispatch alerts for new deals
+    # Dispatch alerts for new deals (prioritized and rate-limited to protect carrier SMS limits)
     if new_alert_deals:
-        logger.info(f"\n>>> Dispatching {len(new_alert_deals)} new deal alerts...")
-        for deal in new_alert_deals:
+        # Prioritize reprice credits and mistake fares first, then lowest price
+        new_alert_deals.sort(
+            key=lambda d: (
+                0 if d.deal_type == DealType.REPRICE_CREDIT else (1 if d.deal_type == DealType.MISTAKE_FARE else 2),
+                d.price,
+            )
+        )
+
+        max_alerts = config.max_sms_alerts_per_run
+        alerts_to_send = new_alert_deals[:max_alerts] if len(new_alert_deals) > max_alerts else new_alert_deals
+
+        logger.info(
+            f"\n>>> Dispatching {len(alerts_to_send)} of {len(new_alert_deals)} "
+            f"new deal alerts (capped at {max_alerts} max per run)..."
+        )
+        import time as _t
+        for deal in alerts_to_send:
             notifier.notify(deal)
+            _t.sleep(2)  # Spacing between sends prevents carrier gateway flood blocks
     else:
         logger.info("No new non-duplicate deals to alert in this run.")
 
