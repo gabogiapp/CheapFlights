@@ -1,14 +1,20 @@
-"""Multi-channel push notification module supporting Telegram, Discord, and ntfy.sh."""
+"""Multi-channel push notification module supporting SMS Email Gateway, Telegram, Discord, and ntfy.sh."""
 
 from __future__ import annotations
 
 import logging
 import os
+import smtplib
+from email.message import EmailMessage
 from typing import Any
 
 import requests
+from dotenv import load_dotenv
 
 from src.models import DealType, FlightDeal
+
+# Automatically load .env if present
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
@@ -22,12 +28,26 @@ class Notifier:
         telegram_chat_id: str | None = None,
         discord_webhook_url: str | None = None,
         ntfy_topic: str | None = None,
+        sms_gateway_email: str | None = None,
         dry_run: bool = False,
     ):
         self.telegram_token = telegram_token or os.getenv("TELEGRAM_BOT_TOKEN")
         self.telegram_chat_id = telegram_chat_id or os.getenv("TELEGRAM_CHAT_ID")
         self.discord_webhook_url = discord_webhook_url or os.getenv("DISCORD_WEBHOOK_URL")
         self.ntfy_topic = ntfy_topic or os.getenv("NTFY_TOPIC")
+
+        # Carrier Email-to-SMS Gateway settings
+        self.sms_gateway_email = sms_gateway_email or os.getenv("SMS_GATEWAY_EMAIL")
+        self.smtp_host = os.getenv("SMTP_HOST")
+        self.smtp_port = int(os.getenv("SMTP_PORT", "587"))
+        self.smtp_user = os.getenv("SMTP_USER")
+        self.smtp_password = os.getenv("SMTP_PASSWORD")
+        self.smtp_from = os.getenv("SMTP_FROM") or self.smtp_user or "flight-tracker@deals.local"
+
+        # Optional Mailgun API settings
+        self.mailgun_api_key = os.getenv("MAILGUN_API_KEY")
+        self.mailgun_domain = os.getenv("MAILGUN_DOMAIN")
+
         self.dry_run = dry_run or os.getenv("DRY_RUN", "").lower() in ("1", "true", "yes")
 
     @property
@@ -37,7 +57,100 @@ class Notifier:
             (self.telegram_token and self.telegram_chat_id)
             or self.discord_webhook_url
             or self.ntfy_topic
+            or self.sms_gateway_email
         )
+
+    def send_sms_email(self, deal: FlightDeal) -> bool:
+        """Send formatted SMS text message via carrier Email-to-SMS gateway."""
+        if not self.sms_gateway_email:
+            return False
+
+        # Format concise body optimized for phone SMS display
+        if deal.deal_type == DealType.REPRICE_CREDIT:
+            subject = f"💳 CREDIT: {deal.origin}->{deal.destination} dropped to ${deal.price:,.0f}"
+            body = (
+                f"💳 AIRLINE CREDIT ALERT!\n"
+                f"{deal.origin} -> {deal.destination}\n"
+                f"Price: ${deal.price:,.0f} (Was ${deal.booked_price:,.0f})\n"
+                f"Savings: ${deal.potential_savings:,.0f} eCredit!\n"
+                f"{deal.airline} • {deal.formatted_stops}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n\n"
+                f"Rebook: {deal.deep_link}"
+            )
+        elif deal.deal_type == DealType.SECRET_FLYING:
+            subject = f"🚨 DEAL: {deal.destination_name or deal.destination} ${deal.price:,.0f}"
+            body = (
+                f"🚨 SECRET FLYING FLASH DEAL!\n"
+                f"{deal.origin} -> {deal.destination_name or deal.destination}\n"
+                f"Price: ${deal.price:,.0f} {deal.currency}\n"
+                f"{deal.airline}\n"
+                f"Dates: {deal.departure_date}\n\n"
+                f"View: {deal.deep_link}"
+            )
+        else:
+            drop_info = f" ({deal.drop_pct:.0f}% drop)" if deal.drop_pct else ""
+            subject = f"🔥 DEAL: {deal.origin}->{deal.destination} ${deal.price:,.0f}{drop_info}"
+            body = (
+                f"🔥 FLIGHT DEAL ALERT!\n"
+                f"{deal.origin} -> {deal.destination} ({deal.destination_name})\n"
+                f"Price: ${deal.price:,.0f} round-trip{drop_info}\n"
+                f"{deal.airline} • {deal.formatted_stops} • {deal.formatted_duration}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n\n"
+                f"Book: {deal.deep_link}"
+            )
+
+        if self.dry_run:
+            logger.info(
+                f"[DRY_RUN SMS] To: {self.sms_gateway_email} | Subject: {subject}\n{body}"
+            )
+            return True
+
+        # Method 1: Mailgun API (if configured)
+        if self.mailgun_api_key and self.mailgun_domain:
+            try:
+                resp = requests.post(
+                    f"https://api.mailgun.net/v3/{self.mailgun_domain}/messages",
+                    auth=("api", self.mailgun_api_key),
+                    data={
+                        "from": self.smtp_from,
+                        "to": self.sms_gateway_email,
+                        "subject": subject,
+                        "text": body,
+                    },
+                    timeout=10,
+                )
+                resp.raise_for_status()
+                logger.info(f"Sent SMS text via Mailgun to {self.sms_gateway_email}")
+                return True
+            except Exception as e:
+                logger.error(f"Mailgun SMS delivery failed: {e}")
+
+        # Method 2: Authenticated SMTP relay (e.g. Gmail App Password, Brevo, Outlook)
+        if self.smtp_host and self.smtp_user and self.smtp_password:
+            try:
+                msg = EmailMessage()
+                msg.set_content(body)
+                msg["Subject"] = subject
+                msg["From"] = self.smtp_from
+                msg["To"] = self.sms_gateway_email
+
+                with smtplib.SMTP(self.smtp_host, self.smtp_port, timeout=10) as server:
+                    server.starttls()
+                    server.login(self.smtp_user, self.smtp_password)
+                    server.send_message(msg)
+
+                logger.info(f"Sent SMS text via SMTP to {self.sms_gateway_email}")
+                return True
+            except Exception as e:
+                logger.error(f"SMTP SMS delivery failed: {e}")
+                return False
+
+        logger.warning(
+            f"SMS Gateway configured ({self.sms_gateway_email}), but no authenticated SMTP relay "
+            f"(SMTP_HOST, SMTP_USER, SMTP_PASSWORD) or MAILGUN_API_KEY was provided. "
+            f"Carrier filters require authenticated relay to deliver SMS texts."
+        )
+        return False
 
     def send_telegram(self, deal: FlightDeal) -> bool:
         """Send formatted HTML deal alert to Telegram bot channel."""
@@ -109,7 +222,6 @@ class Notifier:
         if not self.discord_webhook_url:
             return False
 
-        # Colors: Red for mistake fare, Gold for explore drop, Blue for reprice credit, Purple for Secret Flying
         if deal.deal_type == DealType.REPRICE_CREDIT:
             color = 0x3498DB  # Blue
             title = f"{deal.headline_badge}: {deal.origin} → {deal.destination}"
@@ -204,7 +316,7 @@ class Notifier:
 
     def notify(self, deal: FlightDeal) -> dict[str, bool]:
         """Dispatch deal alert to all active channels."""
-        results = {"telegram": False, "discord": False, "ntfy": False}
+        results = {"sms": False, "telegram": False, "discord": False, "ntfy": False}
 
         if self.dry_run:
             logger.info(
@@ -212,8 +324,12 @@ class Notifier:
                 f"(${deal.price:,.0f} {deal.currency}) | Airline: {deal.airline} | "
                 f"Dates: {deal.departure_date} to {deal.return_date} | Link: {deal.deep_link}"
             )
-            return {"telegram": True, "discord": True, "ntfy": True}
+            if self.sms_gateway_email:
+                results["sms"] = self.send_sms_email(deal)
+            return {"sms": True, "telegram": True, "discord": True, "ntfy": True}
 
+        if self.sms_gateway_email:
+            results["sms"] = self.send_sms_email(deal)
         if self.telegram_token and self.telegram_chat_id:
             results["telegram"] = self.send_telegram(deal)
         if self.discord_webhook_url:
