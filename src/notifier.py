@@ -130,7 +130,8 @@ class Notifier:
             try:
                 msg = EmailMessage()
                 msg.set_content(body)
-                msg["Subject"] = subject
+                # Intentionally omit msg["Subject"] for mobile SMS gateways!
+                # Setting a subject causes T-Mobile to prepend '/ =?utf-8?q?... /' MIME garbage to the text message.
                 msg["From"] = self.smtp_from
                 msg["To"] = self.sms_gateway_email
 
