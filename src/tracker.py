@@ -43,11 +43,15 @@ def run_tracker(
     config = load_config(config_path)
     logger.info(
         f"Loaded config: origins={config.origins}, currency={config.currency}, "
-        f"drop_threshold={config.drop_threshold_pct}%, max_layover={config.max_layover_hours}h"
+        f"drop_threshold={config.drop_threshold_pct}%, baseline_window={config.baseline_window_days}d, "
+        f"max_layover={config.max_layover_hours}h"
     )
 
     # 2. Initialize state manager and notifier
-    state_mgr = StateManager(bucket_size=config.price_bucket_size)
+    state_mgr = StateManager(
+        bucket_size=config.price_bucket_size,
+        retention_days=config.history_retention_days,
+    )
     notifier = Notifier(dry_run=dry_run)
 
     all_candidate_deals: list[FlightDeal] = []

@@ -83,6 +83,9 @@ class TrackerConfig:
         }
     )
     drop_threshold_pct: float = 35.0
+    baseline_window_days: int = 90
+    history_retention_days: int = 180
+    min_baseline_observations: int = 3
     price_bucket_size: float = 25.0
     explore_scan: ExploreScanConfig = field(default_factory=ExploreScanConfig)
     pinned_watches: list[PinnedWatch] = field(default_factory=list)
@@ -150,6 +153,9 @@ def load_config(config_path: str | Path = "config.yaml") -> TrackerConfig:
     max_layover_hours = float(data.get("max_layover_hours", 6.0))
     ceilings = data.get("explore_price_ceilings", {})
     drop_threshold = float(data.get("drop_threshold_pct", 35.0))
+    baseline_window = int(data.get("baseline_window_days", 90))
+    history_retention = int(data.get("history_retention_days", 180))
+    min_observations = int(data.get("min_baseline_observations", 3))
     bucket_size = float(data.get("price_bucket_size", 25.0))
 
     scan_data = data.get("explore_scan", {})
@@ -187,6 +193,9 @@ def load_config(config_path: str | Path = "config.yaml") -> TrackerConfig:
         max_layover_hours=max_layover_hours,
         explore_price_ceilings=ceilings,
         drop_threshold_pct=drop_threshold,
+        baseline_window_days=baseline_window,
+        history_retention_days=history_retention,
+        min_baseline_observations=min_observations,
         price_bucket_size=bucket_size,
         explore_scan=explore_scan,
         pinned_watches=pinned_watches,

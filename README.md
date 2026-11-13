@@ -11,7 +11,7 @@ Runs entirely on **GitHub Actions** on an automated cron schedule, with zero ext
 * **Google Flights Internal RPC Integration**: Powered by [`punitarani/fli`](https://github.com/punitarani/fli) to directly query Google Flights' internal RPC endpoints (`GetExploreDestinations` for open-ended flexible discovery and `search_flights` for pinned date/route watches) without headless browsers, Selenium, or paid API keys.
 * **Secondary Mistake-Fare Feed**: Scrapes and parses the **Secret Flying New York** feed so human-spotted error fares and flash sales are captured in real-time.
 * **Post-Booking Reprice Credit Alerts**: Pinned watches for trips you've already booked in Main Cabin—alerts you when the price drops below what you paid so you can cancel and rebook for an instant airline eCredit voucher.
-* **Zero-Database Git Persistence**: Tracks already-alerted deals in `data/seen_deals.json` and records rolling 14-day price baselines in `data/price_history.json`, automatically committed back to the repository after each run.
+* **Zero-Database Git Persistence**: Tracks already-alerted deals in `data/seen_deals.json` and records rolling 90-day price baselines (with 180-day retention) in `data/price_history.json`, automatically committed back to the repository after each run.
 * **Multi-Channel Push Notifications**: Formatted alerts for Telegram bots, Discord webhooks (rich embeds), or ntfy.sh with one-tap Google Flights booking deep links.
 * **Resilient Architecture**: Includes [`fast-flights`](https://github.com/AWeirdDev/flights) as an automatic fallback if an endpoint schema fluctuates.
 
@@ -68,8 +68,11 @@ explore_price_ceilings:
   South America: 450
   Asia / Japan: 680
 
-# Trigger drop alert when fare is 35%+ below the 14-day rolling baseline
+# Trigger drop alert when fare is 35%+ below the rolling 90-day baseline
 drop_threshold_pct: 35.0
+baseline_window_days: 90
+history_retention_days: 180
+min_baseline_observations: 3
 
 # Pinned watches for booked flights (reprice credit monitor)
 pinned_watches:

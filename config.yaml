@@ -24,8 +24,13 @@ explore_price_ceilings:
   South America: 450
   Asia / Japan: 680
 
-# Default international drop threshold (% below the rolling 14-day baseline recorded in data/price_history.json)
+# Default international drop threshold (% below the rolling 90-day baseline recorded in data/price_history.json)
 drop_threshold_pct: 35.0
+
+# Rolling baseline parameters
+baseline_window_days: 90       # Evaluate price drops against a 90-day historical window (was 14 days)
+history_retention_days: 180    # Retain up to 6 months (180 days) of historical price observations
+min_baseline_observations: 3   # Minimum observations needed before triggering % drop alerts
 
 # Deduplication bucket size in dollars (e.g. $25 groups $326-$350 so minor fluctuations don't re-alert)
 price_bucket_size: 25.0

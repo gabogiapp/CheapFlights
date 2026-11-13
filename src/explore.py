@@ -131,11 +131,14 @@ class ExploreScanner:
                     ):
                         continue
 
+                    dep_month = (dest.departure_date or dep_date)[:7]
+
                     # Record price into historical baseline tracker
                     self.state_mgr.record_price(
                         origin=origin_code,
                         destination=dest_code,
                         price=dest.price,
+                        dep_month=dep_month,
                     )
 
                     # Classify region and retrieve price ceiling
@@ -146,12 +149,14 @@ class ExploreScanner:
                     )
                     ceiling = self.config.get_ceiling_for_region(region)
 
-                    # Compute price drop percentage against rolling 14-day baseline
+                    # Compute price drop percentage against rolling baseline (e.g. 90-day window)
                     drop_pct, baseline = self.state_mgr.evaluate_price_drop(
                         origin=origin_code,
                         destination=dest_code,
                         current_price=dest.price,
-                        days=14,
+                        days=self.config.baseline_window_days,
+                        min_observations=self.config.min_baseline_observations,
+                        dep_month=dep_month,
                     )
 
                     # Evaluate alert qualification
