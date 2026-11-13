@@ -45,6 +45,7 @@ jobs:
       - name: Run flight deal orchestrator
         env:
           SMS_GATEWAY_EMAIL: ${{ secrets.SMS_GATEWAY_EMAIL }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}

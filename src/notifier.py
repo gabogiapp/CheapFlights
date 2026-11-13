@@ -29,12 +29,16 @@ class Notifier:
         discord_webhook_url: str | None = None,
         ntfy_topic: str | None = None,
         sms_gateway_email: str | None = None,
+        alert_email: str | None = None,
         dry_run: bool = False,
     ):
         self.telegram_token = telegram_token or os.getenv("TELEGRAM_BOT_TOKEN")
         self.telegram_chat_id = telegram_chat_id or os.getenv("TELEGRAM_CHAT_ID")
         self.discord_webhook_url = discord_webhook_url or os.getenv("DISCORD_WEBHOOK_URL")
         self.ntfy_topic = ntfy_topic or os.getenv("NTFY_TOPIC")
+
+        # Direct Personal Email alerts (e.g. gabogiapp@gmail.com)
+        self.alert_email = alert_email or os.getenv("ALERT_EMAIL")
 
         # Carrier Email-to-SMS Gateway settings
         self.sms_gateway_email = sms_gateway_email or os.getenv("SMS_GATEWAY_EMAIL")
@@ -58,6 +62,7 @@ class Notifier:
             or self.discord_webhook_url
             or self.ntfy_topic
             or self.sms_gateway_email
+            or self.alert_email
         )
 
     def send_sms_email(self, deal: FlightDeal) -> bool:
@@ -152,6 +157,73 @@ class Notifier:
             f"Carrier filters require authenticated relay to deliver SMS texts."
         )
         return False
+
+    def send_direct_email(self, deal: FlightDeal) -> bool:
+        """Send rich HTML/text deal alert directly to user's personal inbox (e.g. Gmail)."""
+        if not self.alert_email:
+            return False
+
+        if not (self.smtp_host and self.smtp_user and self.smtp_password):
+            logger.warning(
+                f"Direct email recipient configured ({self.alert_email}), but SMTP credentials are missing."
+            )
+            return False
+
+        if deal.deal_type == DealType.REPRICE_CREDIT:
+            subject = f"💳 AIRLINE CREDIT: {deal.origin} -> {deal.destination} dropped to ${deal.price:,.0f}!"
+            body = (
+                f"💳 AIRLINE CREDIT ALERT!\n"
+                f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+                f"Route: {deal.origin} -> {deal.destination}\n"
+                f"Current Price: ${deal.price:,.0f} (Originally booked at ${deal.booked_price:,.0f})\n"
+                f"Your eCredit Voucher: ${deal.potential_savings:,.0f}\n"
+                f"Airline: {deal.airline} • {deal.formatted_stops}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n\n"
+                f"👉 Rebook now to claim voucher:\n{deal.deep_link}\n"
+            )
+        elif deal.deal_type == DealType.SECRET_FLYING:
+            subject = f"🚨 MISTAKE FARE: {deal.destination_name or deal.destination} ${deal.price:,.0f}!"
+            body = (
+                f"🚨 SECRET FLYING MISTAKE FARE / FLASH SALE\n"
+                f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+                f"Route: {deal.origin} -> {deal.destination_name or deal.destination}\n"
+                f"Price: ${deal.price:,.0f} {deal.currency} round-trip\n"
+                f"Airline: {deal.airline}\n"
+                f"Dates: {deal.departure_date}\n\n"
+                f"👉 View deal details:\n{deal.deep_link}\n"
+            )
+        else:
+            drop_str = f" ({deal.drop_pct:.0f}% drop below baseline)" if deal.drop_pct else ""
+            subject = f"🔥 DEAL ALERT: {deal.origin} -> {deal.destination_name or deal.destination} ${deal.price:,.0f}{drop_str}"
+            body = (
+                f"🔥 FLIGHT DEAL ALERT!\n"
+                f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+                f"Route: {deal.origin} -> {deal.destination_name or deal.destination} ({deal.destination})\n"
+                f"Price: ${deal.price:,.0f} {deal.currency} round-trip{drop_str}\n"
+                f"Airline: {deal.airline}\n"
+                f"Stops: {deal.formatted_stops}\n"
+                f"Duration: {deal.formatted_duration}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n\n"
+                f"👉 Book directly on Google Flights:\n{deal.deep_link}\n"
+            )
+
+        try:
+            msg = EmailMessage()
+            msg["Subject"] = subject
+            msg["From"] = self.smtp_from
+            msg["To"] = self.alert_email
+            msg.set_content(body)
+
+            with smtplib.SMTP(self.smtp_host, self.smtp_port, timeout=10) as server:
+                server.starttls()
+                server.login(self.smtp_user, self.smtp_password)
+                server.send_message(msg)
+
+            logger.info(f"Sent direct email deal alert to {self.alert_email}")
+            return True
+        except Exception as e:
+            logger.error(f"Direct email delivery failed: {e}")
+            return False
 
     def send_telegram(self, deal: FlightDeal) -> bool:
         """Send formatted HTML deal alert to Telegram bot channel."""
@@ -317,7 +389,7 @@ class Notifier:
 
     def notify(self, deal: FlightDeal) -> dict[str, bool]:
         """Dispatch deal alert to all active channels."""
-        results = {"sms": False, "telegram": False, "discord": False, "ntfy": False}
+        results = {"sms": False, "email": False, "telegram": False, "discord": False, "ntfy": False}
 
         if self.dry_run:
             logger.info(
@@ -327,8 +399,12 @@ class Notifier:
             )
             if self.sms_gateway_email:
                 results["sms"] = self.send_sms_email(deal)
-            return {"sms": True, "telegram": True, "discord": True, "ntfy": True}
+            if self.alert_email:
+                results["email"] = self.send_direct_email(deal)
+            return {"sms": True, "email": True, "telegram": True, "discord": True, "ntfy": True}
 
+        if self.alert_email:
+            results["email"] = self.send_direct_email(deal)
         if self.sms_gateway_email:
             results["sms"] = self.send_sms_email(deal)
         if self.telegram_token and self.telegram_chat_id:
