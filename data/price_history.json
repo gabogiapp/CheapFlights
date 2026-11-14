@@ -21,13 +21,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 360.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 568.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 549.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-ATH": [
@@ -52,13 +58,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 404.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 404.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 666.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-BCN": [
@@ -82,14 +94,20 @@
     {
       "date": "2026-11-14",
       "dep_month": "2027-02",
-      "price": 504.0,
-      "timestamp": 1794651399
+      "price": 468.0,
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 492.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 468.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-BER": [
@@ -114,13 +132,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 635.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 805.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 635.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-BKK": [
@@ -145,13 +169,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 1088.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 1247.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1247.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-BOM": [
@@ -176,13 +206,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 606.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 996.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 921.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-BUD": [
@@ -207,13 +243,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 424.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 414.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 512.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-CDG": [
@@ -238,13 +280,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 310.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 345.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 310.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-CGK": [
@@ -276,13 +324,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 1320.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 1320.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1320.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-DUB": [
@@ -307,13 +361,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 310.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 344.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 394.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-DXB": [
@@ -338,13 +398,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 1052.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 1052.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1052.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-EDI": [
@@ -369,13 +435,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 394.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 398.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 428.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-EZE": [
@@ -400,13 +472,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 887.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 925.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 869.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-FCO": [
@@ -430,14 +508,20 @@
     {
       "date": "2026-11-14",
       "dep_month": "2027-02",
-      "price": 355.0,
-      "timestamp": 1794651399
+      "price": 331.0,
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 590.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 331.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-FLR": [
@@ -462,13 +546,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 444.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 608.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 608.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-GIG": [
@@ -488,6 +578,18 @@
       "dep_month": "2027-03",
       "price": 565.0,
       "timestamp": 1794609501
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 965.0,
+      "timestamp": 1794675750
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-02",
+      "price": 655.0,
+      "timestamp": 1794675759
     }
   ],
   "EWR-HKG": [
@@ -512,13 +614,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 583.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 859.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 583.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-HND": [
@@ -543,13 +651,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 843.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 6297.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 832.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-IST": [
@@ -587,13 +701,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 884.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 1678.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 884.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-JNB": [
@@ -618,13 +738,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 704.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 704.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 704.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-JTR": [
@@ -649,13 +775,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 872.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 823.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 872.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-KIX": [
@@ -679,14 +811,28 @@
     {
       "date": "2026-11-14",
       "dep_month": "2027-02",
-      "price": 1023.0,
-      "timestamp": 1794651399
+      "price": 893.0,
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 2054.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 893.0,
+      "timestamp": 1794675750
+    }
+  ],
+  "EWR-LCY": [
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-02",
+      "price": 558.0,
+      "timestamp": 1794675759
     }
   ],
   "EWR-LGW": [
@@ -706,6 +852,12 @@
       "dep_month": "2027-03",
       "price": 4714.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 4714.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-LHR": [
@@ -730,13 +882,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 313.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 313.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 313.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-LIS": [
@@ -761,13 +919,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 422.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 527.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 422.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-MAD": [
@@ -791,14 +955,20 @@
     {
       "date": "2026-11-14",
       "dep_month": "2027-02",
-      "price": 410.0,
-      "timestamp": 1794651399
+      "price": 305.0,
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 341.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 305.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-MEL": [
@@ -812,6 +982,12 @@
       "dep_month": "2027-02",
       "price": 25131.0,
       "timestamp": 1794609493
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-02",
+      "price": 25880.0,
+      "timestamp": 1794675755
     }
   ],
   "EWR-MLA": [
@@ -830,7 +1006,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 746.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 746.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-MRU": [
@@ -864,6 +1046,18 @@
       "dep_month": "2027-02",
       "price": 341.0,
       "timestamp": 1794609496
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 305.0,
+      "timestamp": 1794675750
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-02",
+      "price": 305.0,
+      "timestamp": 1794675759
     }
   ],
   "EWR-PRG": [
@@ -888,13 +1082,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 603.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 603.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 603.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-SDU": [
@@ -928,6 +1128,12 @@
       "dep_month": "2027-03",
       "price": 839.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1243.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-SSA": [
@@ -953,13 +1159,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 852.0,
-      "timestamp": 1794651396
+      "timestamp": 1794675755
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 1042.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 2638.0,
+      "timestamp": 1794675748
     }
   ],
   "EWR-UBN": [
@@ -1003,13 +1215,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 576.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 549.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 576.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-VIE": [
@@ -1034,13 +1252,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 775.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 735.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 775.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-YQB": [
@@ -1059,13 +1283,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 433.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 502.0,
       "timestamp": 1794651405
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 438.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-YTZ": [
@@ -1115,13 +1345,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 195.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 210.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 211.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-YVR": [
@@ -1145,14 +1381,20 @@
     {
       "date": "2026-11-14",
       "dep_month": "2027-02",
-      "price": 402.0,
-      "timestamp": 1794651399
+      "price": 281.0,
+      "timestamp": 1794675759
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 437.0,
       "timestamp": 1794651408
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 256.0,
+      "timestamp": 1794675750
     }
   ],
   "EWR-YYZ": [
@@ -1177,7 +1419,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 172.0,
-      "timestamp": 1794651399
+      "timestamp": 1794675759
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 198.0,
+      "timestamp": 1794675750
     }
   ],
   "JFK-AEP": [
@@ -1202,7 +1450,7 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 921.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
@@ -1233,13 +1481,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 377.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 502.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 553.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-ATH": [
@@ -1295,13 +1549,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 451.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 468.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 494.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-BER": [
@@ -1357,13 +1617,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 490.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 1247.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 490.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-BOM": [
@@ -1388,7 +1654,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 581.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 581.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-BUD": [
@@ -1444,13 +1716,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 310.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 345.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 310.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-CGK": [
@@ -1475,13 +1753,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 562.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 562.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 915.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-CPT": [
@@ -1506,7 +1790,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 1320.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1320.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-DUB": [
@@ -1593,13 +1883,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 500.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 470.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1052.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-EDI": [
@@ -1624,7 +1920,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 344.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 428.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-EZE": [
@@ -1638,6 +1940,12 @@
       "dep_month": "2027-03",
       "price": 893.0,
       "timestamp": 1794609512
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 878.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-FCO": [
@@ -1662,13 +1970,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 355.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 460.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 595.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-FLR": [
@@ -1724,7 +2038,7 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 456.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     }
   ],
   "JFK-HKG": [
@@ -1749,13 +2063,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 583.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 749.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 583.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-HND": [
@@ -1780,7 +2100,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 6248.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 6248.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-IPC": [
@@ -1836,13 +2162,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 651.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 695.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 806.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-ITM": [
@@ -1873,7 +2205,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 891.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 891.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-JNB": [
@@ -1898,7 +2236,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 693.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 704.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-JTR": [
@@ -1981,13 +2325,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 310.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 592.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 310.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-LIS": [
@@ -2043,13 +2393,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 305.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 341.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 410.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-MEL": [
@@ -2074,7 +2430,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 895.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1275.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-MLA": [
@@ -2225,6 +2587,12 @@
       "dep_month": "2027-02",
       "price": 631.0,
       "timestamp": 1794651412
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 842.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-SEZ": [
@@ -2249,7 +2617,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 1364.0,
-      "timestamp": 1794651412
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1364.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-SIN": [
@@ -2274,13 +2648,19 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 648.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
     },
     {
       "date": "2026-11-14",
       "dep_month": "2027-03",
       "price": 648.0,
       "timestamp": 1794651441
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 997.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-SSA": [
@@ -2336,7 +2716,13 @@
       "date": "2026-11-14",
       "dep_month": "2027-02",
       "price": 902.0,
-      "timestamp": 1794651429
+      "timestamp": 1794675783
+    },
+    {
+      "date": "2026-11-14",
+      "dep_month": "2027-01",
+      "price": 1489.0,
+      "timestamp": 1794675770
     }
   ],
   "JFK-UBN": [
