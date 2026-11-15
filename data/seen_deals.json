@@ -103,6 +103,19 @@
     "return_date": "2027-01-31",
     "source": "google_flights_explore"
   },
+  "EWR-BCN-2027-02-07-2027-02-14-b400": {
+    "airline": "American",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-07",
+    "destination": "BCN",
+    "first_seen": "2026-11-15T09:17:56.898559+00:00",
+    "last_seen": "2026-11-15T09:17:56.898559+00:00",
+    "origin": "EWR",
+    "price": 418.0,
+    "return_date": "2027-02-14",
+    "source": "google_flights_explore"
+  },
   "EWR-BCN-2027-02-07-2027-02-21-b400": {
     "airline": "Air France",
     "currency": "USD",
@@ -324,6 +337,19 @@
     "return_date": "2027-02-13",
     "source": "google_flights_explore"
   },
+  "EWR-CDG-2027-02-07-2027-02-14-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-07",
+    "destination": "CDG",
+    "first_seen": "2026-11-15T09:17:56.898535+00:00",
+    "last_seen": "2026-11-15T09:17:56.898535+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-02-14",
+    "source": "google_flights_explore"
+  },
   "EWR-CDG-2027-02-07-2027-02-21-b300": {
     "airline": "British Airways",
     "currency": "USD",
@@ -543,6 +569,19 @@
     "origin": "EWR",
     "price": 394.0,
     "return_date": "2027-02-13",
+    "source": "google_flights_explore"
+  },
+  "EWR-DUB-2027-02-07-2027-02-14-b375": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-15T09:17:56.898526+00:00",
+    "last_seen": "2026-11-15T09:17:56.898526+00:00",
+    "origin": "EWR",
+    "price": 394.0,
+    "return_date": "2027-02-14",
     "source": "google_flights_explore"
   },
   "EWR-DUB-2027-02-07-2027-02-21-b375": {
@@ -935,6 +974,19 @@
     "return_date": "2027-02-13",
     "source": "google_flights_explore"
   },
+  "EWR-HKG-2027-02-07-2027-02-14-b575": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-07",
+    "destination": "HKG",
+    "first_seen": "2026-11-15T09:17:56.898542+00:00",
+    "last_seen": "2026-11-15T09:17:56.898542+00:00",
+    "origin": "EWR",
+    "price": 583.0,
+    "return_date": "2027-02-14",
+    "source": "google_flights_explore"
+  },
   "EWR-HKG-2027-02-26-2027-03-05-b575": {
     "airline": "United",
     "currency": "USD",
@@ -1115,6 +1167,19 @@
     "origin": "EWR",
     "price": 313.0,
     "return_date": "2027-02-13",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-02-07-2027-02-14-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-07",
+    "destination": "LHR",
+    "first_seen": "2026-11-15T09:17:56.898494+00:00",
+    "last_seen": "2026-11-15T09:17:56.898494+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2027-02-14",
     "source": "google_flights_explore"
   },
   "EWR-LHR-2027-02-07-2027-02-21-b325": {
@@ -3753,6 +3818,19 @@
     "last_seen": "2026-11-13T21:31:40.392525+00:00",
     "origin": "JFK",
     "price": 359.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-January to May 2027-Flexible-b300": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to May 2027",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-15T09:17:56.898605+00:00",
+    "last_seen": "2026-11-15T09:17:56.898605+00:00",
+    "origin": "JFK",
+    "price": 308.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
