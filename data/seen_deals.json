@@ -3860,6 +3860,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-Porto Alegre, Brazil-March to April 2027-Flexible-b450": {
+    "airline": "Copa Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "March to April 2027",
+    "destination": "Porto Alegre, Brazil",
+    "first_seen": "2026-11-15T21:46:02.962703+00:00",
+    "last_seen": "2026-11-15T21:46:02.962703+00:00",
+    "origin": "JFK",
+    "price": 465.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-Porto, Portugal-2026-11-13-Flexible-b200": {
     "airline": "Various Airlines",
     "currency": "USD",
