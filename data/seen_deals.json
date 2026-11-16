@@ -3379,6 +3379,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-Liberia, Costa Rica-2026-11-16-Flexible-b275": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "Liberia, Costa Rica",
+    "first_seen": "2026-11-16T02:03:31.343069+00:00",
+    "last_seen": "2026-11-16T02:03:31.343069+00:00",
+    "origin": "JFK",
+    "price": 291.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-Liberia, Costa Rica-Limited availability from-Flexible-b275": {
     "airline": "United Airlines",
     "currency": "USD",
@@ -3821,6 +3834,45 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-New York, USA-2026-11-16-Flexible-b300": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-16T02:03:31.343065+00:00",
+    "last_seen": "2026-11-16T02:03:31.343065+00:00",
+    "origin": "JFK",
+    "price": 308.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-2026-11-16-Flexible-b325": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-16T02:03:31.343083+00:00",
+    "last_seen": "2026-11-16T02:03:31.343083+00:00",
+    "origin": "JFK",
+    "price": 338.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-2026-11-16-Flexible-b350": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-16T02:03:31.343080+00:00",
+    "last_seen": "2026-11-16T02:03:31.343080+00:00",
+    "origin": "JFK",
+    "price": 359.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-New York, USA-January to March 2027-Flexible-b350": {
     "airline": "American Airlines",
     "currency": "USD",
@@ -3857,6 +3909,19 @@
     "last_seen": "2026-11-13T21:31:40.392535+00:00",
     "origin": "JFK",
     "price": 338.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-Porto Alegre, Brazil-2026-11-16-Flexible-b450": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "Porto Alegre, Brazil",
+    "first_seen": "2026-11-16T02:03:31.343060+00:00",
+    "last_seen": "2026-11-16T02:03:31.343060+00:00",
+    "origin": "JFK",
+    "price": 465.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
@@ -3907,6 +3972,19 @@
     "destination": "Porto, Portugal",
     "first_seen": "2026-11-15T01:52:43.509381+00:00",
     "last_seen": "2026-11-15T01:52:43.509381+00:00",
+    "origin": "JFK",
+    "price": 215.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-Porto, Portugal-2026-11-16-Flexible-b200": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "Porto, Portugal",
+    "first_seen": "2026-11-16T02:03:31.343076+00:00",
+    "last_seen": "2026-11-16T02:03:31.343076+00:00",
     "origin": "JFK",
     "price": 215.0,
     "return_date": "Flexible",
@@ -4107,6 +4185,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-St. Martin-2026-11-16-Flexible-b250": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "St. Martin",
+    "first_seen": "2026-11-16T02:03:31.343073+00:00",
+    "last_seen": "2026-11-16T02:03:31.343073+00:00",
+    "origin": "JFK",
+    "price": 250.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-St. Martin-December 2026-Flexible-b250": {
     "airline": "JetBlue",
     "currency": "USD",
@@ -4117,6 +4208,19 @@
     "last_seen": "2026-11-13T21:31:40.392488+00:00",
     "origin": "JFK",
     "price": 250.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-Tangier, Morocco-2026-11-16-Flexible-b675": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-16",
+    "destination": "Tangier, Morocco",
+    "first_seen": "2026-11-16T02:03:31.343030+00:00",
+    "last_seen": "2026-11-16T02:03:31.343030+00:00",
+    "origin": "JFK",
+    "price": 680.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
