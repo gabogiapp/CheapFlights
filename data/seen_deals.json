@@ -285,6 +285,32 @@
     "return_date": "2026-12-11",
     "source": "google_flights_explore"
   },
+  "EWR-CDG-2026-12-07-2026-12-14-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "CDG",
+    "first_seen": "2026-11-16T20:25:10.708178+00:00",
+    "last_seen": "2026-11-16T20:25:10.708178+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-CDG-2026-12-07-2026-12-21-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "CDG",
+    "first_seen": "2026-11-16T20:25:10.708191+00:00",
+    "last_seen": "2026-11-16T20:25:10.708191+00:00",
+    "origin": "EWR",
+    "price": 327.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "EWR-CDG-2027-01-15-2027-01-22-b300": {
     "airline": "Air France and Delta",
     "currency": "USD",
@@ -506,6 +532,32 @@
     "return_date": "2026-12-11",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2026-12-07-2026-12-14-b375": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708173+00:00",
+    "last_seen": "2026-11-16T20:25:10.708173+00:00",
+    "origin": "EWR",
+    "price": 394.0,
+    "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-DUB-2026-12-07-2026-12-21-b400": {
+    "airline": "Air France",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708189+00:00",
+    "last_seen": "2026-11-16T20:25:10.708189+00:00",
+    "origin": "EWR",
+    "price": 413.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2026-12-25-2027-01-01-b400": {
     "airline": "Air Canada",
     "currency": "USD",
@@ -517,6 +569,19 @@
     "origin": "EWR",
     "price": 402.0,
     "return_date": "2027-01-01",
+    "source": "google_flights_explore"
+  },
+  "EWR-DUB-2026-12-28-2027-01-04-b375": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-28",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708195+00:00",
+    "last_seen": "2026-11-16T20:25:10.708195+00:00",
+    "origin": "EWR",
+    "price": 394.0,
+    "return_date": "2027-01-04",
     "source": "google_flights_explore"
   },
   "EWR-DUB-2027-01-15-2027-01-22-b375": {
@@ -1182,6 +1247,32 @@
     "return_date": "2026-12-18",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2026-12-07-2026-12-14-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "LHR",
+    "first_seen": "2026-11-16T20:25:10.708152+00:00",
+    "last_seen": "2026-11-16T20:25:10.708152+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2026-12-07-2026-12-21-b325": {
+    "airline": "Austrian",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "LHR",
+    "first_seen": "2026-11-16T20:25:10.708185+00:00",
+    "last_seen": "2026-11-16T20:25:10.708185+00:00",
+    "origin": "EWR",
+    "price": 336.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2027-01-15-2027-01-22-b300": {
     "airline": "Delta",
     "currency": "USD",
@@ -1596,6 +1687,19 @@
     "origin": "EWR",
     "price": 341.0,
     "return_date": "2027-04-03",
+    "source": "google_flights_explore"
+  },
+  "EWR-MEL-2026-12-07-2026-12-14-b7350": {
+    "airline": "Qantas and United",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2026-12-07",
+    "destination": "MEL",
+    "first_seen": "2026-11-16T20:25:10.708182+00:00",
+    "last_seen": "2026-11-16T20:25:10.708182+00:00",
+    "origin": "EWR",
+    "price": 7369.0,
+    "return_date": "2026-12-14",
     "source": "google_flights_explore"
   },
   "EWR-ORY-2026-12-04-2026-12-18-b300": {
@@ -2378,6 +2482,32 @@
     "return_date": "2026-12-18",
     "source": "google_flights_explore"
   },
+  "JFK-CDG-2026-12-07-2026-12-14-b300": {
+    "airline": "Air France",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "CDG",
+    "first_seen": "2026-11-16T20:25:10.708203+00:00",
+    "last_seen": "2026-11-16T20:25:10.708203+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "JFK-CDG-2026-12-07-2026-12-21-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "CDG",
+    "first_seen": "2026-11-16T20:25:10.708212+00:00",
+    "last_seen": "2026-11-16T20:25:10.708212+00:00",
+    "origin": "JFK",
+    "price": 327.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "JFK-CDG-2027-01-15-2027-01-22-b300": {
     "airline": "Air France",
     "currency": "USD",
@@ -2703,6 +2833,19 @@
     "return_date": "2026-12-18",
     "source": "google_flights_explore"
   },
+  "JFK-CGK-2026-12-07-2026-12-21-b625": {
+    "airline": "Korean Air",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "CGK",
+    "first_seen": "2026-11-16T20:25:10.708214+00:00",
+    "last_seen": "2026-11-16T20:25:10.708214+00:00",
+    "origin": "JFK",
+    "price": 636.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "JFK-CGK-2027-01-15-2027-01-29-b625": {
     "airline": "Korean Air",
     "currency": "USD",
@@ -2870,6 +3013,58 @@
     "origin": "JFK",
     "price": 385.0,
     "return_date": "2026-12-18",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-07-2026-12-14-b375": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708201+00:00",
+    "last_seen": "2026-11-16T20:25:10.708201+00:00",
+    "origin": "JFK",
+    "price": 394.0,
+    "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-07-2026-12-21-b400": {
+    "airline": "Air France and Delta",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708208+00:00",
+    "last_seen": "2026-11-16T20:25:10.708208+00:00",
+    "origin": "JFK",
+    "price": 413.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-28-2027-01-04-b375": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-28",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708217+00:00",
+    "last_seen": "2026-11-16T20:25:10.708217+00:00",
+    "origin": "JFK",
+    "price": 394.0,
+    "return_date": "2027-01-04",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-28-2027-01-11-b400": {
+    "airline": "Air France",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-28",
+    "destination": "DUB",
+    "first_seen": "2026-11-16T20:25:10.708220+00:00",
+    "last_seen": "2026-11-16T20:25:10.708220+00:00",
+    "origin": "JFK",
+    "price": 413.0,
+    "return_date": "2027-01-11",
     "source": "google_flights_explore"
   },
   "JFK-DUB-2027-01-15-2027-01-22-b400": {
@@ -3457,6 +3652,19 @@
     "return_date": "2027-03-06",
     "source": "google_flights_explore"
   },
+  "JFK-HND-2026-12-07-2026-12-21-b825": {
+    "airline": "American",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2026-12-07",
+    "destination": "HND",
+    "first_seen": "2026-11-16T20:25:10.708206+00:00",
+    "last_seen": "2026-11-16T20:25:10.708206+00:00",
+    "origin": "JFK",
+    "price": 828.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "JFK-HND-2027-01-18-2027-02-01-b825": {
     "airline": "American",
     "currency": "USD",
@@ -3533,6 +3741,19 @@
     "origin": "JFK",
     "price": 339.0,
     "return_date": "2026-12-18",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2026-12-07-2026-12-14-b300": {
+    "airline": "Delta and Virgin Atlantic",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-07",
+    "destination": "LHR",
+    "first_seen": "2026-11-16T20:25:10.708198+00:00",
+    "last_seen": "2026-11-16T20:25:10.708198+00:00",
+    "origin": "JFK",
+    "price": 314.0,
+    "return_date": "2026-12-14",
     "source": "google_flights_explore"
   },
   "JFK-LHR-2027-01-15-2027-01-22-b300": {
