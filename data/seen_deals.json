@@ -51,6 +51,32 @@
     "return_date": "2027-04-16",
     "source": "google_flights_explore"
   },
+  "EWR-AMS-2027-05-04-2027-05-11-b325": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "AMS",
+    "first_seen": "2026-11-17T03:49:24.921676+00:00",
+    "last_seen": "2026-11-17T03:49:24.921676+00:00",
+    "origin": "EWR",
+    "price": 335.0,
+    "return_date": "2027-05-11",
+    "source": "google_flights_explore"
+  },
+  "EWR-AMS-2027-05-04-2027-05-18-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "AMS",
+    "first_seen": "2026-11-17T03:49:24.921751+00:00",
+    "last_seen": "2026-11-17T03:49:24.921751+00:00",
+    "origin": "EWR",
+    "price": 327.0,
+    "return_date": "2027-05-18",
+    "source": "google_flights_explore"
+  },
   "EWR-ATH-2027-02-27-2027-03-13-b400": {
     "airline": "British Airways",
     "currency": "USD",
@@ -181,6 +207,19 @@
     "return_date": "2027-05-14",
     "source": "google_flights_explore"
   },
+  "EWR-BCN-2027-05-04-2027-05-18-b375": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "BCN",
+    "first_seen": "2026-11-17T03:49:24.921745+00:00",
+    "last_seen": "2026-11-17T03:49:24.921745+00:00",
+    "origin": "EWR",
+    "price": 398.0,
+    "return_date": "2027-05-18",
+    "source": "google_flights_explore"
+  },
   "EWR-BOM-2027-01-17-2027-01-24-b600": {
     "airline": "Air India and United",
     "currency": "USD",
@@ -270,6 +309,19 @@
     "origin": "EWR",
     "price": 414.0,
     "return_date": "2027-04-03",
+    "source": "google_flights_explore"
+  },
+  "EWR-BUD-2027-05-04-2027-05-18-b350": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "BUD",
+    "first_seen": "2026-11-17T03:49:24.921771+00:00",
+    "last_seen": "2026-11-17T03:49:24.921771+00:00",
+    "origin": "EWR",
+    "price": 372.0,
+    "return_date": "2027-05-18",
     "source": "google_flights_explore"
   },
   "EWR-CDG-2026-12-04-2026-12-11-b300": {
@@ -517,6 +569,32 @@
     "origin": "EWR",
     "price": 360.0,
     "return_date": "2027-04-16",
+    "source": "google_flights_explore"
+  },
+  "EWR-CDG-2027-05-04-2027-05-11-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "CDG",
+    "first_seen": "2026-11-17T03:49:24.921655+00:00",
+    "last_seen": "2026-11-17T03:49:24.921655+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2027-05-11",
+    "source": "google_flights_explore"
+  },
+  "EWR-CDG-2027-05-04-2027-05-18-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "CDG",
+    "first_seen": "2026-11-17T03:49:24.921723+00:00",
+    "last_seen": "2026-11-17T03:49:24.921723+00:00",
+    "origin": "EWR",
+    "price": 327.0,
+    "return_date": "2027-05-18",
     "source": "google_flights_explore"
   },
   "EWR-DUB-2026-12-04-2026-12-11-b375": {
@@ -857,6 +935,32 @@
     "return_date": "2027-05-14",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2027-05-04-2027-05-11-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "DUB",
+    "first_seen": "2026-11-17T03:49:24.921644+00:00",
+    "last_seen": "2026-11-17T03:49:24.921644+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-05-11",
+    "source": "google_flights_explore"
+  },
+  "EWR-DUB-2027-05-04-2027-05-18-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "DUB",
+    "first_seen": "2026-11-17T03:49:24.921700+00:00",
+    "last_seen": "2026-11-17T03:49:24.921700+00:00",
+    "origin": "EWR",
+    "price": 304.0,
+    "return_date": "2027-05-18",
+    "source": "google_flights_explore"
+  },
   "EWR-EDI-2027-01-15-2027-01-22-b400": {
     "airline": "Aer Lingus",
     "currency": "USD",
@@ -933,6 +1037,32 @@
     "origin": "EWR",
     "price": 406.0,
     "return_date": "2027-04-16",
+    "source": "google_flights_explore"
+  },
+  "EWR-EDI-2027-05-04-2027-05-11-b350": {
+    "airline": "Air Canada and United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "EDI",
+    "first_seen": "2026-11-17T03:49:24.921663+00:00",
+    "last_seen": "2026-11-17T03:49:24.921663+00:00",
+    "origin": "EWR",
+    "price": 356.0,
+    "return_date": "2027-05-11",
+    "source": "google_flights_explore"
+  },
+  "EWR-EDI-2027-05-04-2027-05-18-b325": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "EDI",
+    "first_seen": "2026-11-17T03:49:24.921730+00:00",
+    "last_seen": "2026-11-17T03:49:24.921730+00:00",
+    "origin": "EWR",
+    "price": 340.0,
+    "return_date": "2027-05-18",
     "source": "google_flights_explore"
   },
   "EWR-FCO-2026-12-04-2026-12-18-b400": {
@@ -1050,6 +1180,32 @@
     "origin": "EWR",
     "price": 355.0,
     "return_date": "2027-03-13",
+    "source": "google_flights_explore"
+  },
+  "EWR-FCO-2027-05-04-2027-05-11-b375": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "FCO",
+    "first_seen": "2026-11-17T03:49:24.921670+00:00",
+    "last_seen": "2026-11-17T03:49:24.921670+00:00",
+    "origin": "EWR",
+    "price": 387.0,
+    "return_date": "2027-05-11",
+    "source": "google_flights_explore"
+  },
+  "EWR-FCO-2027-05-04-2027-05-18-b375": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "FCO",
+    "first_seen": "2026-11-17T03:49:24.921738+00:00",
+    "last_seen": "2026-11-17T03:49:24.921738+00:00",
+    "origin": "EWR",
+    "price": 375.0,
+    "return_date": "2027-05-18",
     "source": "google_flights_explore"
   },
   "EWR-HKG-2026-12-04-2026-12-11-b575": {
@@ -1182,6 +1338,19 @@
     "return_date": "2027-03-06",
     "source": "google_flights_explore"
   },
+  "EWR-IST-2027-05-04-2027-05-18-b325": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-05-04",
+    "destination": "IST",
+    "first_seen": "2026-11-17T03:49:24.921764+00:00",
+    "last_seen": "2026-11-17T03:49:24.921764+00:00",
+    "origin": "EWR",
+    "price": 340.0,
+    "return_date": "2027-05-18",
+    "source": "google_flights_explore"
+  },
   "EWR-JNB-2027-02-27-2027-03-06-b700": {
     "airline": "EgyptAir",
     "currency": "USD",
@@ -1219,6 +1388,19 @@
     "origin": "EWR",
     "price": 378.0,
     "return_date": "2027-05-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-LGW-2027-05-04-2027-05-18-b275": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-05-04",
+    "destination": "LGW",
+    "first_seen": "2026-11-17T03:49:24.921691+00:00",
+    "last_seen": "2026-11-17T03:49:24.921691+00:00",
+    "origin": "EWR",
+    "price": 280.0,
+    "return_date": "2027-05-18",
     "source": "google_flights_explore"
   },
   "EWR-LHR-2026-12-04-2026-12-11-b300": {
@@ -1481,6 +1663,19 @@
     "return_date": "2027-04-16",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2027-05-04-2027-05-11-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "LHR",
+    "first_seen": "2026-11-17T03:49:24.921609+00:00",
+    "last_seen": "2026-11-17T03:49:24.921609+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-05-11",
+    "source": "google_flights_explore"
+  },
   "EWR-LIS-2027-01-12-2027-01-19-b625": {
     "airline": "Tap Air Portugal",
     "currency": "USD",
@@ -1689,6 +1884,19 @@
     "return_date": "2027-04-03",
     "source": "google_flights_explore"
   },
+  "EWR-MAD-2027-05-04-2027-05-18-b350": {
+    "airline": "British Airways and Iberia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-04",
+    "destination": "MAD",
+    "first_seen": "2026-11-17T03:49:24.921757+00:00",
+    "last_seen": "2026-11-17T03:49:24.921757+00:00",
+    "origin": "EWR",
+    "price": 360.0,
+    "return_date": "2027-05-18",
+    "source": "google_flights_explore"
+  },
   "EWR-MEL-2026-12-07-2026-12-14-b7350": {
     "airline": "Qantas and United",
     "currency": "USD",
@@ -1700,6 +1908,19 @@
     "origin": "EWR",
     "price": 7369.0,
     "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-MEL-2027-05-04-2027-05-11-b7350": {
+    "airline": "Qantas and United",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-05-04",
+    "destination": "MEL",
+    "first_seen": "2026-11-17T03:49:24.921683+00:00",
+    "last_seen": "2026-11-17T03:49:24.921683+00:00",
+    "origin": "EWR",
+    "price": 7369.0,
+    "return_date": "2027-05-11",
     "source": "google_flights_explore"
   },
   "EWR-ORY-2026-12-04-2026-12-18-b300": {
