@@ -1572,6 +1572,19 @@
     "return_date": "2027-04-07",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2027-03-24-2027-04-07-b350": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-24",
+    "destination": "DUB",
+    "first_seen": "2026-11-18T22:28:57.666848+00:00",
+    "last_seen": "2026-11-18T22:28:57.666848+00:00",
+    "origin": "EWR",
+    "price": 363.0,
+    "return_date": "2027-04-07",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2027-04-09-2027-04-16-b300": {
     "airline": "United",
     "currency": "USD",
@@ -1975,6 +1988,19 @@
     "return_date": "2027-03-17",
     "source": "google_flights_explore"
   },
+  "EWR-FCO-2027-03-03-2027-03-17-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-03",
+    "destination": "FCO",
+    "first_seen": "2026-11-18T22:28:56.161809+00:00",
+    "last_seen": "2026-11-18T22:28:56.161809+00:00",
+    "origin": "EWR",
+    "price": 336.0,
+    "return_date": "2027-03-17",
+    "source": "google_flights_explore"
+  },
   "EWR-FCO-2027-03-23-2027-04-06-b300": {
     "airline": "British Airways",
     "currency": "USD",
@@ -2261,6 +2287,19 @@
     "return_date": "2027-03-09",
     "source": "google_flights_explore"
   },
+  "EWR-HKG-2027-03-03-2027-03-10-b525": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-03",
+    "destination": "HKG",
+    "first_seen": "2026-11-18T22:28:54.775738+00:00",
+    "last_seen": "2026-11-18T22:28:54.775738+00:00",
+    "origin": "EWR",
+    "price": 545.0,
+    "return_date": "2027-03-10",
+    "source": "google_flights_explore"
+  },
   "EWR-HKG-2027-03-03-2027-03-10-b575": {
     "airline": "United",
     "currency": "USD",
@@ -2285,6 +2324,19 @@
     "origin": "EWR",
     "price": 583.0,
     "return_date": "2027-03-30",
+    "source": "google_flights_explore"
+  },
+  "EWR-HKG-2027-03-24-2027-03-31-b525": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-24",
+    "destination": "HKG",
+    "first_seen": "2026-11-18T22:28:56.940015+00:00",
+    "last_seen": "2026-11-18T22:28:56.940015+00:00",
+    "origin": "EWR",
+    "price": 545.0,
+    "return_date": "2027-03-31",
     "source": "google_flights_explore"
   },
   "EWR-HKG-2027-03-24-2027-03-31-b575": {
@@ -3626,6 +3678,19 @@
     "return_date": "2027-03-16",
     "source": "google_flights_explore"
   },
+  "JFK-AMS-2027-03-03-2027-03-10-b300": {
+    "airline": "Delta and KLM",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-03",
+    "destination": "AMS",
+    "first_seen": "2026-11-18T22:28:58.881325+00:00",
+    "last_seen": "2026-11-18T22:28:58.881325+00:00",
+    "origin": "JFK",
+    "price": 318.0,
+    "return_date": "2027-03-10",
+    "source": "google_flights_explore"
+  },
   "JFK-AMS-2027-03-03-2027-03-10-b400": {
     "airline": "Delta",
     "currency": "USD",
@@ -3988,6 +4053,19 @@
     "origin": "JFK",
     "price": 400.0,
     "return_date": "2027-03-16",
+    "source": "google_flights_explore"
+  },
+  "JFK-BCN-2027-03-03-2027-03-10-b400": {
+    "airline": "American",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-03",
+    "destination": "BCN",
+    "first_seen": "2026-11-18T22:28:58.330911+00:00",
+    "last_seen": "2026-11-18T22:28:58.330911+00:00",
+    "origin": "JFK",
+    "price": 418.0,
+    "return_date": "2027-03-10",
     "source": "google_flights_explore"
   },
   "JFK-BCN-2027-03-03-2027-03-17-b400": {
@@ -5524,6 +5602,19 @@
     "return_date": "2027-04-07",
     "source": "google_flights_explore"
   },
+  "JFK-Cali, Colombia-January to March 2027-Flexible-b375": {
+    "airline": "Copa Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to March 2027",
+    "destination": "Cali, Colombia",
+    "first_seen": "2026-11-18T22:28:58.881383+00:00",
+    "last_seen": "2026-11-18T22:28:58.881383+00:00",
+    "origin": "JFK",
+    "price": 379.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-DUB-2026-12-04-2026-12-11-b375": {
     "airline": "Aer Lingus",
     "currency": "USD",
@@ -6433,6 +6524,19 @@
     "price": 394.0,
     "return_date": "2027-04-06",
     "source": "google_flights_explore"
+  },
+  "JFK-Frankfurt, Germany-January to February 2027-Flexible-b350": {
+    "airline": "Condor",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to February 2027",
+    "destination": "Frankfurt, Germany",
+    "first_seen": "2026-11-18T22:28:58.881411+00:00",
+    "last_seen": "2026-11-18T22:28:58.881411+00:00",
+    "origin": "JFK",
+    "price": 371.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
   },
   "JFK-GIG-2027-03-02-2027-03-16-b425": {
     "airline": "LATAM",
