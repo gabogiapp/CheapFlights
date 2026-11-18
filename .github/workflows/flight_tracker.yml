@@ -2,8 +2,8 @@ name: Flight Deal Tracker
 
 on:
   schedule:
-    # Run hourly at 15 minutes past the hour
-    - cron: '15 * * * *'
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
     # Optional Burst Schedule for Travel Deal Tuesday (December 1, 2026):
     # To run every 15 minutes during Deal Tuesday, uncomment the following line:
     # - cron: '*/15 * 1 12 *'

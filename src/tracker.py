@@ -15,6 +15,7 @@ from src.notifier import Notifier
 from src.pinned import PinnedWatcher
 from src.secret_flying import SecretFlyingScanner
 from src.state import StateManager
+from src.verifier import FlightVerifier
 
 # Configure clean logging
 LOG_FORMAT = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
@@ -87,23 +88,39 @@ def run_tracker(
     else:
         logger.info("\n>>> [3/3] Secret Flying feed disabled in config.yaml.")
 
-    # 6. Deduplication and Alert Dispatch
+    # 6. Deduplication, Live Verification, and Alert Dispatch
     logger.info("\n>>> Evaluating deals against seen_deals.json...")
-    new_alert_deals: list[FlightDeal] = []
+    unseen_candidates: list[FlightDeal] = []
     skipped_duplicates = 0
 
     for deal in all_candidate_deals:
         if state_mgr.is_deal_seen(deal):
             skipped_duplicates += 1
             continue
-
-        new_alert_deals.append(deal)
-        state_mgr.mark_deal_seen(deal)
+        unseen_candidates.append(deal)
 
     logger.info(
         f"Evaluation summary: {len(all_candidate_deals)} total candidates, "
-        f"{skipped_duplicates} duplicate/already-alerted, {len(new_alert_deals)} new deals."
+        f"{skipped_duplicates} duplicate/already-alerted, {len(unseen_candidates)} unseen candidates to verify."
     )
+
+    new_alert_deals: list[FlightDeal] = []
+    if unseen_candidates:
+        logger.info(f"\n>>> Running Live Verification on {len(unseen_candidates)} candidate deals...")
+        verifier = FlightVerifier(config)
+        for cand in unseen_candidates:
+            verified_deal = verifier.verify_deal(cand)
+            if verified_deal:
+                new_alert_deals.append(verified_deal)
+                state_mgr.mark_deal_seen(verified_deal)
+            else:
+                # Mark rejected/phantom candidates as seen so we don't repeatedly re-verify them
+                state_mgr.mark_deal_seen(cand)
+
+        logger.info(
+            f"Verification complete: {len(new_alert_deals)} of {len(unseen_candidates)} "
+            f"candidates confirmed live and bookable."
+        )
 
     # Dispatch alerts for new deals (prioritized and rate-limited to protect carrier SMS limits)
     if new_alert_deals:

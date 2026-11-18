@@ -171,10 +171,11 @@ class PinnedWatcher:
                 currency=self.currency,
             )
             res = get_flights(query)
-            if not res or not hasattr(res, "flights") or not res.flights:
+            flights = res.flights if hasattr(res, "flights") else res
+            if not flights:
                 return None
 
-            best_flight = min(res.flights, key=lambda f: getattr(f, "price", float("inf")))
+            best_flight = min(flights, key=lambda f: getattr(f, "price", float("inf")))
             price = float(getattr(best_flight, "price", 0.0))
             if price <= 0:
                 return None
