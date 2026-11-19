@@ -1312,6 +1312,19 @@
     "return_date": "2027-01-07",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2026-12-31-2027-01-14-b375": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "DUB",
+    "first_seen": "2026-11-19T20:30:37.180373+00:00",
+    "last_seen": "2026-11-19T20:30:37.180373+00:00",
+    "origin": "EWR",
+    "price": 388.0,
+    "return_date": "2027-01-14",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2027-01-15-2027-01-22-b375": {
     "airline": "United",
     "currency": "USD",
@@ -2116,6 +2129,19 @@
     "origin": "EWR",
     "price": 418.0,
     "return_date": "2026-12-18",
+    "source": "google_flights_explore"
+  },
+  "EWR-FCO-2026-12-31-2027-01-14-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "FCO",
+    "first_seen": "2026-11-19T20:30:40.589231+00:00",
+    "last_seen": "2026-11-19T20:30:40.589231+00:00",
+    "origin": "EWR",
+    "price": 324.0,
+    "return_date": "2027-01-14",
     "source": "google_flights_explore"
   },
   "EWR-FCO-2027-01-16-2027-01-30-b325": {
@@ -5225,6 +5251,19 @@
     "return_date": "2027-05-13",
     "source": "google_flights_explore"
   },
+  "JFK-BUD-2026-12-31-2027-01-14-b400": {
+    "airline": "Air Serbia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "BUD",
+    "first_seen": "2026-11-19T20:31:34.570365+00:00",
+    "last_seen": "2026-11-19T20:31:34.570365+00:00",
+    "origin": "JFK",
+    "price": 414.0,
+    "return_date": "2027-01-14",
+    "source": "google_flights_explore"
+  },
   "JFK-BUD-2027-01-17-2027-01-31-b350": {
     "airline": "Air Serbia",
     "currency": "USD",
@@ -5418,6 +5457,32 @@
     "origin": "JFK",
     "price": 327.0,
     "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
+  "JFK-CDG-2026-12-10-2026-12-17-b300": {
+    "airline": "Air France",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-10",
+    "destination": "CDG",
+    "first_seen": "2026-11-19T20:30:44.044554+00:00",
+    "last_seen": "2026-11-19T20:30:44.044554+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2026-12-17",
+    "source": "google_flights_explore"
+  },
+  "JFK-CDG-2026-12-10-2026-12-24-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-10",
+    "destination": "CDG",
+    "first_seen": "2026-11-19T20:30:57.504197+00:00",
+    "last_seen": "2026-11-19T20:30:57.504197+00:00",
+    "origin": "JFK",
+    "price": 327.0,
+    "return_date": "2026-12-24",
     "source": "google_flights_explore"
   },
   "JFK-CDG-2027-01-15-2027-01-22-b300": {
@@ -6330,6 +6395,32 @@
     "return_date": "2026-12-21",
     "source": "google_flights_explore"
   },
+  "JFK-DUB-2026-12-10-2026-12-17-b375": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-10",
+    "destination": "DUB",
+    "first_seen": "2026-11-19T20:30:43.413890+00:00",
+    "last_seen": "2026-11-19T20:30:43.413890+00:00",
+    "origin": "JFK",
+    "price": 394.0,
+    "return_date": "2026-12-17",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-10-2026-12-24-b375": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-10",
+    "destination": "DUB",
+    "first_seen": "2026-11-19T20:30:53.232150+00:00",
+    "last_seen": "2026-11-19T20:30:53.232150+00:00",
+    "origin": "JFK",
+    "price": 385.0,
+    "return_date": "2026-12-24",
+    "source": "google_flights_explore"
+  },
   "JFK-DUB-2026-12-28-2027-01-04-b375": {
     "airline": "Aer Lingus",
     "currency": "USD",
@@ -6354,6 +6445,32 @@
     "origin": "JFK",
     "price": 413.0,
     "return_date": "2027-01-11",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-31-2027-01-07-b375": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "DUB",
+    "first_seen": "2026-11-19T20:31:07.935116+00:00",
+    "last_seen": "2026-11-19T20:31:07.935116+00:00",
+    "origin": "JFK",
+    "price": 394.0,
+    "return_date": "2027-01-07",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2026-12-31-2027-01-14-b375": {
+    "airline": "American and British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "DUB",
+    "first_seen": "2026-11-19T20:31:23.010459+00:00",
+    "last_seen": "2026-11-19T20:31:23.010459+00:00",
+    "origin": "JFK",
+    "price": 388.0,
+    "return_date": "2027-01-14",
     "source": "google_flights_explore"
   },
   "JFK-DUB-2027-01-15-2027-01-22-b400": {
@@ -6941,6 +7058,19 @@
     "return_date": "2027-04-29",
     "source": "google_flights_explore"
   },
+  "JFK-Dublin, Ireland-February to March 2027-Flexible-b350": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "February to March 2027",
+    "destination": "Dublin, Ireland",
+    "first_seen": "2026-11-19T20:31:34.570468+00:00",
+    "last_seen": "2026-11-19T20:31:34.570468+00:00",
+    "origin": "JFK",
+    "price": 363.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-EDI-2027-02-26-2027-03-05-b325": {
     "airline": "Aer Lingus",
     "currency": "USD",
@@ -7082,6 +7212,32 @@
     "origin": "JFK",
     "price": 404.0,
     "return_date": "2027-05-20",
+    "source": "google_flights_explore"
+  },
+  "JFK-FCO-2026-12-31-2027-01-07-b350": {
+    "airline": "Air Serbia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "FCO",
+    "first_seen": "2026-11-19T20:31:13.934713+00:00",
+    "last_seen": "2026-11-19T20:31:13.934713+00:00",
+    "origin": "JFK",
+    "price": 372.0,
+    "return_date": "2027-01-07",
+    "source": "google_flights_explore"
+  },
+  "JFK-FCO-2026-12-31-2027-01-14-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "FCO",
+    "first_seen": "2026-11-19T20:31:26.073340+00:00",
+    "last_seen": "2026-11-19T20:31:26.073340+00:00",
+    "origin": "JFK",
+    "price": 324.0,
+    "return_date": "2027-01-14",
     "source": "google_flights_explore"
   },
   "JFK-FCO-2027-01-15-2027-01-29-b350": {
@@ -7357,6 +7513,19 @@
     "return_date": "2026-12-11",
     "source": "google_flights_explore"
   },
+  "JFK-HKG-2026-12-31-2027-01-07-b625": {
+    "airline": "Delta",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "HKG",
+    "first_seen": "2026-11-19T20:31:04.681561+00:00",
+    "last_seen": "2026-11-19T20:31:04.681561+00:00",
+    "origin": "JFK",
+    "price": 631.0,
+    "return_date": "2027-01-07",
+    "source": "google_flights_explore"
+  },
   "JFK-HKG-2027-01-15-2027-01-22-b600": {
     "airline": "Delta",
     "currency": "USD",
@@ -7552,6 +7721,32 @@
     "return_date": "2026-12-21",
     "source": "google_flights_explore"
   },
+  "JFK-HND-2026-12-10-2026-12-24-b1125": {
+    "airline": "Delta",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2026-12-10",
+    "destination": "HND",
+    "first_seen": "2026-11-19T20:30:50.113738+00:00",
+    "last_seen": "2026-11-19T20:30:50.113738+00:00",
+    "origin": "JFK",
+    "price": 1144.0,
+    "return_date": "2026-12-24",
+    "source": "google_flights_explore"
+  },
+  "JFK-HND-2026-12-31-2027-01-14-b875": {
+    "airline": "American",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2026-12-31",
+    "destination": "HND",
+    "first_seen": "2026-11-19T20:31:17.135326+00:00",
+    "last_seen": "2026-11-19T20:31:17.135326+00:00",
+    "origin": "JFK",
+    "price": 878.0,
+    "return_date": "2027-01-14",
+    "source": "google_flights_explore"
+  },
   "JFK-HND-2027-01-18-2027-02-01-b825": {
     "airline": "American",
     "currency": "USD",
@@ -7654,6 +7849,19 @@
     "origin": "JFK",
     "price": 506.0,
     "return_date": "2027-05-20",
+    "source": "google_flights_explore"
+  },
+  "JFK-LCY-2026-12-10-2026-12-24-b325": {
+    "airline": "British Airways and Iberia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-10",
+    "destination": "LCY",
+    "first_seen": "2026-11-19T20:30:46.955663+00:00",
+    "last_seen": "2026-11-19T20:30:46.955663+00:00",
+    "origin": "JFK",
+    "price": 326.0,
+    "return_date": "2026-12-24",
     "source": "google_flights_explore"
   },
   "JFK-LCY-2027-01-20-2027-02-03-b325": {
@@ -7810,6 +8018,32 @@
     "origin": "JFK",
     "price": 314.0,
     "return_date": "2026-12-14",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2026-12-10-2026-12-17-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-10",
+    "destination": "LHR",
+    "first_seen": "2026-11-19T20:30:41.353990+00:00",
+    "last_seen": "2026-11-19T20:30:41.353990+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2026-12-17",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2026-12-31-2027-01-07-b300": {
+    "airline": "American",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "LHR",
+    "first_seen": "2026-11-19T20:31:01.214943+00:00",
+    "last_seen": "2026-11-19T20:31:01.214943+00:00",
+    "origin": "JFK",
+    "price": 314.0,
+    "return_date": "2027-01-07",
     "source": "google_flights_explore"
   },
   "JFK-LHR-2027-01-15-2027-01-22-b300": {
@@ -8318,6 +8552,19 @@
     "price": 291.0,
     "return_date": "Flexible",
     "source": "secret_flying"
+  },
+  "JFK-MAD-2026-12-31-2027-01-14-b375": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "MAD",
+    "first_seen": "2026-11-19T20:31:28.986416+00:00",
+    "last_seen": "2026-11-19T20:31:28.986416+00:00",
+    "origin": "JFK",
+    "price": 392.0,
+    "return_date": "2027-01-14",
+    "source": "google_flights_explore"
   },
   "JFK-MAD-2027-01-15-2027-01-22-b400": {
     "airline": "Delta",
@@ -9164,6 +9411,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-New York, USA-January to March 2027-Flexible-b325": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to March 2027",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-19T20:31:34.570422+00:00",
+    "last_seen": "2026-11-19T20:31:34.570422+00:00",
+    "origin": "JFK",
+    "price": 336.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-New York, USA-January to March 2027-Flexible-b350": {
     "airline": "American Airlines",
     "currency": "USD",
@@ -9202,6 +9462,19 @@
     "price": 338.0,
     "return_date": "Flexible",
     "source": "secret_flying"
+  },
+  "JFK-ORY-2026-12-31-2027-01-07-b350": {
+    "airline": "LEVEL and Vueling",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "ORY",
+    "first_seen": "2026-11-19T20:31:10.935851+00:00",
+    "last_seen": "2026-11-19T20:31:10.935851+00:00",
+    "origin": "JFK",
+    "price": 367.0,
+    "return_date": "2027-01-07",
+    "source": "google_flights_explore"
   },
   "JFK-Porto Alegre, Brazil-2026-11-16-Flexible-b450": {
     "airline": "Various Airlines",
@@ -9709,6 +9982,19 @@
     "price": 680.0,
     "return_date": "Flexible",
     "source": "secret_flying"
+  },
+  "JFK-VIE-2026-12-31-2027-01-14-b425": {
+    "airline": "Air Serbia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-31",
+    "destination": "VIE",
+    "first_seen": "2026-11-19T20:31:32.307109+00:00",
+    "last_seen": "2026-11-19T20:31:32.307109+00:00",
+    "origin": "JFK",
+    "price": 442.0,
+    "return_date": "2027-01-14",
+    "source": "google_flights_explore"
   },
   "JFK-VIE-2027-01-17-2027-01-31-b400": {
     "airline": "Air Serbia",
