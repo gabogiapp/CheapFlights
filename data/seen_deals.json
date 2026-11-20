@@ -25,6 +25,19 @@
     "return_date": "2027-04-30",
     "source": "google_flights_explore"
   },
+  "EWR-BCN-2027-05-07-2027-05-21-b325": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "BCN",
+    "first_seen": "2026-11-20T23:27:36.686337+00:00",
+    "last_seen": "2026-11-20T23:27:36.686337+00:00",
+    "origin": "EWR",
+    "price": 341.0,
+    "return_date": "2027-05-21",
+    "source": "google_flights_explore"
+  },
   "EWR-CDG-2026-12-11-2026-12-18-b300": {
     "airline": "United",
     "currency": "USD",
@@ -116,6 +129,19 @@
     "return_date": "2027-02-26",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2027-04-16-2027-04-23-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-16",
+    "destination": "DUB",
+    "first_seen": "2026-11-20T23:26:56.240541+00:00",
+    "last_seen": "2026-11-20T23:26:56.240541+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-04-23",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2027-04-16-2027-04-30-b375": {
     "airline": "Icelandair",
     "currency": "USD",
@@ -123,7 +149,7 @@
     "departure_date": "2027-04-16",
     "destination": "DUB",
     "first_seen": "2026-11-20T16:01:37.415582+00:00",
-    "last_seen": "2026-11-20T16:01:37.415582+00:00",
+    "last_seen": "2026-11-20T23:27:10.345797+00:00",
     "origin": "EWR",
     "price": 399.0,
     "return_date": "2027-04-30",
@@ -140,6 +166,19 @@
     "origin": "EWR",
     "price": 314.0,
     "return_date": "2027-05-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-DUB-2027-05-07-2027-05-21-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-20T23:27:14.871992+00:00",
+    "last_seen": "2026-11-20T23:27:14.871992+00:00",
+    "origin": "EWR",
+    "price": 319.0,
+    "return_date": "2027-05-21",
     "source": "google_flights_explore"
   },
   "EWR-EDI-2027-05-07-2027-05-14-b400": {
@@ -233,6 +272,19 @@
     "return_date": "2027-05-20",
     "source": "google_flights_explore"
   },
+  "EWR-LGW-2027-05-07-2027-05-21-b325": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "LGW",
+    "first_seen": "2026-11-20T23:27:33.841114+00:00",
+    "last_seen": "2026-11-20T23:27:33.841114+00:00",
+    "origin": "EWR",
+    "price": 330.0,
+    "return_date": "2027-05-21",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2026-12-11-2026-12-18-b300": {
     "airline": "Air Canada",
     "currency": "USD",
@@ -322,6 +374,19 @@
     "origin": "EWR",
     "price": 382.0,
     "return_date": "2027-02-26",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-04-16-2027-04-23-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-16",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T23:26:53.458114+00:00",
+    "last_seen": "2026-11-20T23:26:53.458114+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-04-23",
     "source": "google_flights_explore"
   },
   "EWR-LHR-2027-05-07-2027-05-14-b300": {
@@ -506,6 +571,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-BCN-2027-04-16-2027-04-30-b325": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-16",
+    "destination": "BCN",
+    "first_seen": "2026-11-20T23:27:39.722620+00:00",
+    "last_seen": "2026-11-20T23:27:39.722620+00:00",
+    "origin": "JFK",
+    "price": 345.0,
+    "return_date": "2027-04-30",
+    "source": "google_flights_explore"
+  },
   "JFK-BOM-2027-03-02-2027-03-09-b350": {
     "airline": "Royal Jordanian",
     "currency": "USD",
@@ -610,6 +688,45 @@
     "return_date": "2026-12-18",
     "source": "google_flights_explore"
   },
+  "JFK-DUB-2027-04-16-2027-04-30-b375": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-16",
+    "destination": "DUB",
+    "first_seen": "2026-11-20T23:26:45.656043+00:00",
+    "last_seen": "2026-11-20T23:26:45.656043+00:00",
+    "origin": "JFK",
+    "price": 399.0,
+    "return_date": "2027-04-30",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2027-05-07-2027-05-14-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-20T23:27:02.313786+00:00",
+    "last_seen": "2026-11-20T23:27:02.313786+00:00",
+    "origin": "JFK",
+    "price": 318.0,
+    "return_date": "2027-05-14",
+    "source": "google_flights_explore"
+  },
+  "JFK-DUB-2027-05-07-2027-05-21-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "DUB",
+    "first_seen": "2026-11-20T23:26:51.043952+00:00",
+    "last_seen": "2026-11-20T23:26:51.043952+00:00",
+    "origin": "JFK",
+    "price": 304.0,
+    "return_date": "2027-05-21",
+    "source": "google_flights_explore"
+  },
   "JFK-Dublin, Ireland-February to March 2027-Flexible-b350": {
     "airline": "Icelandair",
     "currency": "USD",
@@ -647,6 +764,32 @@
     "origin": "JFK",
     "price": 324.0,
     "return_date": "2027-02-05",
+    "source": "google_flights_explore"
+  },
+  "JFK-FCO-2027-04-16-2027-04-30-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-16",
+    "destination": "FCO",
+    "first_seen": "2026-11-20T23:27:28.524822+00:00",
+    "last_seen": "2026-11-20T23:27:28.524822+00:00",
+    "origin": "JFK",
+    "price": 324.0,
+    "return_date": "2027-04-30",
+    "source": "google_flights_explore"
+  },
+  "JFK-FCO-2027-05-07-2027-05-21-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "FCO",
+    "first_seen": "2026-11-20T23:27:19.508850+00:00",
+    "last_seen": "2026-11-20T23:27:19.508850+00:00",
+    "origin": "JFK",
+    "price": 321.0,
+    "return_date": "2027-05-21",
     "source": "google_flights_explore"
   },
   "JFK-Frankfurt, Germany-January to February 2027-Flexible-b350": {
@@ -779,6 +922,19 @@
     "return_date": "2027-05-13",
     "source": "google_flights_explore"
   },
+  "JFK-LGW-2027-04-16-2027-04-30-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-16",
+    "destination": "LGW",
+    "first_seen": "2026-11-20T23:27:24.242524+00:00",
+    "last_seen": "2026-11-20T23:27:24.242524+00:00",
+    "origin": "JFK",
+    "price": 323.0,
+    "return_date": "2027-04-30",
+    "source": "google_flights_explore"
+  },
   "JFK-LHR-2026-12-11-2026-12-18-b300": {
     "airline": "American",
     "currency": "USD",
@@ -855,6 +1011,32 @@
     "origin": "JFK",
     "price": 310.0,
     "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2027-05-07-2027-05-14-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T23:26:59.451410+00:00",
+    "last_seen": "2026-11-20T23:26:59.451410+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-05-14",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2027-05-07-2027-05-21-b300": {
+    "airline": "Iberia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-05-07",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T23:27:05.699142+00:00",
+    "last_seen": "2026-11-20T23:27:05.699142+00:00",
+    "origin": "JFK",
+    "price": 318.0,
+    "return_date": "2027-05-21",
     "source": "google_flights_explore"
   },
   "JFK-Liberia, Costa Rica-2026-11-13-Flexible-b275": {

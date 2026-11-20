@@ -4,7 +4,7 @@
       "date": "2026-11-20",
       "dep_month": "2027-04",
       "price": 399.0,
-      "timestamp": 1795190497
+      "timestamp": 1795217230
     }
   ],
   "JFK-CDG": [
@@ -13,6 +13,14 @@
       "dep_month": "2027-01",
       "price": 330.0,
       "timestamp": 1795197379
+    }
+  ],
+  "JFK-DUB": [
+    {
+      "date": "2026-11-20",
+      "dep_month": "2027-04",
+      "price": 399.0,
+      "timestamp": 1795217205
     }
   ]
 }
