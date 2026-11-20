@@ -51,6 +51,19 @@
     "return_date": "2026-12-25",
     "source": "google_flights_explore"
   },
+  "EWR-CDG-2027-01-22-2027-01-29-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "CDG",
+    "first_seen": "2026-11-20T17:56:13.812454+00:00",
+    "last_seen": "2026-11-20T17:56:13.812454+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-01-29",
+    "source": "google_flights_explore"
+  },
   "EWR-CDG-2027-05-07-2027-05-14-b350": {
     "airline": "United",
     "currency": "USD",
@@ -90,6 +103,19 @@
     "return_date": "2027-01-08",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2027-02-12-2027-02-26-b375": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-12",
+    "destination": "DUB",
+    "first_seen": "2026-11-20T17:56:55.466746+00:00",
+    "last_seen": "2026-11-20T17:56:55.466746+00:00",
+    "origin": "EWR",
+    "price": 388.0,
+    "return_date": "2027-02-26",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2027-04-16-2027-04-30-b375": {
     "airline": "Icelandair",
     "currency": "USD",
@@ -127,6 +153,19 @@
     "origin": "EWR",
     "price": 402.0,
     "return_date": "2027-05-14",
+    "source": "google_flights_explore"
+  },
+  "EWR-FCO-2027-01-22-2027-02-05-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "FCO",
+    "first_seen": "2026-11-20T17:56:31.884308+00:00",
+    "last_seen": "2026-11-20T17:56:31.884308+00:00",
+    "origin": "EWR",
+    "price": 324.0,
+    "return_date": "2027-02-05",
     "source": "google_flights_explore"
   },
   "EWR-FCO-2027-04-16-2027-04-30-b300": {
@@ -233,6 +272,58 @@
     "return_date": "2027-01-08",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2027-01-22-2027-01-29-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:26.806180+00:00",
+    "last_seen": "2026-11-20T17:56:26.806180+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2027-01-29",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-01-22-2027-02-05-b350": {
+    "airline": "Lufthansa and Lufthansa City Airlines",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:48.456517+00:00",
+    "last_seen": "2026-11-20T17:56:48.456517+00:00",
+    "origin": "EWR",
+    "price": 354.0,
+    "return_date": "2027-02-05",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-02-12-2027-02-19-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-12",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:29.725331+00:00",
+    "last_seen": "2026-11-20T17:56:29.725331+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-02-12-2027-02-26-b375": {
+    "airline": "Austrian",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-12",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:53.233524+00:00",
+    "last_seen": "2026-11-20T17:56:53.233524+00:00",
+    "origin": "EWR",
+    "price": 382.0,
+    "return_date": "2027-02-26",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2027-05-07-2027-05-14-b300": {
     "airline": "Air Canada",
     "currency": "USD",
@@ -258,6 +349,19 @@
     "price": 628.0,
     "return_date": "2027-01-19",
     "source": "fli_search_flights"
+  },
+  "EWR-MAD-2027-01-22-2027-02-05-b300": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "MAD",
+    "first_seen": "2026-11-20T17:56:07.954218+00:00",
+    "last_seen": "2026-11-20T17:56:07.954218+00:00",
+    "origin": "EWR",
+    "price": 305.0,
+    "return_date": "2027-02-05",
+    "source": "google_flights_explore"
   },
   "EWR-MEL-2026-12-07-2026-12-14-b7350": {
     "airline": "Qantas and United",
@@ -441,6 +545,32 @@
     "return_date": "2026-12-18",
     "source": "google_flights_explore"
   },
+  "JFK-CDG-2027-01-22-2027-01-29-b325": {
+    "airline": "Condor",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "CDG",
+    "first_seen": "2026-11-20T17:56:19.158259+00:00",
+    "last_seen": "2026-11-20T17:56:19.158259+00:00",
+    "origin": "JFK",
+    "price": 330.0,
+    "return_date": "2027-01-29",
+    "source": "google_flights_explore"
+  },
+  "JFK-CDG-2027-01-22-2027-02-05-b325": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "CDG",
+    "first_seen": "2026-11-20T17:56:36.955162+00:00",
+    "last_seen": "2026-11-20T17:56:36.955162+00:00",
+    "origin": "JFK",
+    "price": 327.0,
+    "return_date": "2027-02-05",
+    "source": "google_flights_explore"
+  },
   "JFK-Calgary, Canada-Limited availability in-Flexible-b250": {
     "airline": "WestJet",
     "currency": "USD",
@@ -505,6 +635,19 @@
     "price": 244.0,
     "return_date": "Flexible",
     "source": "secret_flying"
+  },
+  "JFK-FCO-2027-01-22-2027-02-05-b300": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "FCO",
+    "first_seen": "2026-11-20T17:56:34.013794+00:00",
+    "last_seen": "2026-11-20T17:56:34.013794+00:00",
+    "origin": "JFK",
+    "price": 324.0,
+    "return_date": "2027-02-05",
+    "source": "google_flights_explore"
   },
   "JFK-Frankfurt, Germany-January to February 2027-Flexible-b350": {
     "airline": "Condor",
@@ -675,6 +818,45 @@
     "return_date": "2027-01-08",
     "source": "google_flights_explore"
   },
+  "JFK-LHR-2027-01-22-2027-01-29-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:16.229554+00:00",
+    "last_seen": "2026-11-20T17:56:16.229554+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-01-29",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2027-01-22-2027-02-05-b325": {
+    "airline": "Delta and KLM",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:41.021678+00:00",
+    "last_seen": "2026-11-20T17:56:41.021678+00:00",
+    "origin": "JFK",
+    "price": 339.0,
+    "return_date": "2027-02-05",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2027-02-12-2027-02-19-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-12",
+    "destination": "LHR",
+    "first_seen": "2026-11-20T17:56:24.623395+00:00",
+    "last_seen": "2026-11-20T17:56:24.623395+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
   "JFK-Liberia, Costa Rica-2026-11-13-Flexible-b275": {
     "airline": "Various Airlines",
     "currency": "USD",
@@ -739,6 +921,19 @@
     "price": 291.0,
     "return_date": "Flexible",
     "source": "secret_flying"
+  },
+  "JFK-MAD-2027-01-22-2027-02-05-b300": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-22",
+    "destination": "MAD",
+    "first_seen": "2026-11-20T17:56:11.681604+00:00",
+    "last_seen": "2026-11-20T17:56:11.681604+00:00",
+    "origin": "JFK",
+    "price": 305.0,
+    "return_date": "2027-02-05",
+    "source": "google_flights_explore"
   },
   "JFK-New York, USA-2026-11-13-Flexible-b325": {
     "airline": "Various Airlines",
