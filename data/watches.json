@@ -29,7 +29,7 @@
     "id": "pvg-ewr-37346",
     "origin": "PVG",
     "destination": "EWR",
-    "target_price": 700.0,
+    "target_price": 600.0,
     "mode": "UNIFIED",
     "trip_type": "ONE_WAY",
     "destination_name": "Study Abroad Return",
@@ -47,7 +47,7 @@
     "booked_price": null,
     "active": true,
     "notes": null,
-    "created_at": "2026-11-20T20:31:43.222131+00:00",
+    "created_at": "2026-11-20T20:37:49.727762+00:00",
     "last_checked": null,
     "lowest_price_found": null
   }
