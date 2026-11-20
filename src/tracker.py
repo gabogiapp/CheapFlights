@@ -106,34 +106,60 @@ def run_tracker(
 
     new_alert_deals: list[FlightDeal] = []
     if unseen_candidates:
-        logger.info(f"\n>>> Running Live Verification on {len(unseen_candidates)} candidate deals...")
-        verifier = FlightVerifier(config)
-        for cand in unseen_candidates:
+        # Sort candidates by price to verify most attractive deals first
+        unseen_candidates.sort(key=lambda d: d.price)
+
+        # Cap verifications per run (top 15) to maintain speed and avoid Google bot blocking on CI runners
+        candidates_to_verify = unseen_candidates[:15]
+        logger.info(
+            f"\n>>> Running Live Verification on top {len(candidates_to_verify)} "
+            f"of {len(unseen_candidates)} unseen candidates..."
+        )
+
+        verifier = FlightVerifier(config, state_mgr=state_mgr)
+        import time as _t
+        for idx, cand in enumerate(candidates_to_verify):
+            if idx > 0:
+                _t.sleep(1.5)  # Polite pause between queries prevents rate limits
             verified_deal = verifier.verify_deal(cand)
             if verified_deal:
                 new_alert_deals.append(verified_deal)
                 state_mgr.mark_deal_seen(verified_deal)
             else:
-                # Mark rejected/phantom candidates as seen so we don't repeatedly re-verify them
+                # Mark rejected/non-qualifying candidates as seen so we don't repeatedly re-verify them
                 state_mgr.mark_deal_seen(cand)
 
         logger.info(
-            f"Verification complete: {len(new_alert_deals)} of {len(unseen_candidates)} "
+            f"Verification complete: {len(new_alert_deals)} of {len(candidates_to_verify)} "
             f"candidates confirmed live and bookable."
         )
 
     # Dispatch alerts for new deals (prioritized and rate-limited to protect carrier SMS limits)
     if new_alert_deals:
-        # Prioritize reprice credits and mistake fares first, then lowest price
-        new_alert_deals.sort(
-            key=lambda d: (
-                0 if d.deal_type == DealType.REPRICE_CREDIT else (1 if d.deal_type == DealType.MISTAKE_FARE else 2),
-                d.price,
-            )
-        )
+        # Separate deals by category so mistake fares never starve price drop alerts
+        reprice_deals = [d for d in new_alert_deals if d.deal_type == DealType.REPRICE_CREDIT]
+        mistake_deals = [
+            d for d in new_alert_deals if d.deal_type in (DealType.MISTAKE_FARE, DealType.SECRET_FLYING)
+        ]
+        drop_deals = [d for d in new_alert_deals if d.deal_type == DealType.EXPLORE_DROP]
 
+        reprice_deals.sort(key=lambda d: d.price)
+        mistake_deals.sort(key=lambda d: d.price)
+        drop_deals.sort(key=lambda d: d.price)
+
+        # Allocate alerts: Reprice credits first, then interleave price drops and mistake fares
         max_alerts = config.max_sms_alerts_per_run
-        alerts_to_send = new_alert_deals[:max_alerts] if len(new_alert_deals) > max_alerts else new_alert_deals
+        alerts_to_send: list[FlightDeal] = []
+        alerts_to_send.extend(reprice_deals[:max_alerts])
+
+        remaining = max_alerts - len(alerts_to_send)
+        if remaining > 0:
+            import itertools
+            for deal in itertools.chain.from_iterable(itertools.zip_longest(drop_deals, mistake_deals)):
+                if deal is not None and deal not in alerts_to_send:
+                    alerts_to_send.append(deal)
+                    if len(alerts_to_send) >= max_alerts:
+                        break
 
         logger.info(
             f"\n>>> Dispatching {len(alerts_to_send)} of {len(new_alert_deals)} "

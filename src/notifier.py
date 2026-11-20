@@ -230,47 +230,56 @@ class Notifier:
         if not (self.telegram_token and self.telegram_chat_id):
             return False
 
+        import html
+
+        origin_esc = html.escape(deal.origin)
+        dest_esc = html.escape(deal.destination)
+        dest_name_esc = f" ({html.escape(deal.destination_name)})" if deal.destination_name else ""
+        airline_esc = html.escape(deal.airline)
+        stops_esc = html.escape(deal.formatted_stops)
+        duration_esc = html.escape(deal.formatted_duration)
+        badge_esc = html.escape(deal.headline_badge)
+        deep_link_esc = html.escape(deal.deep_link)
+
         if deal.deal_type == DealType.REPRICE_CREDIT:
             text = (
-                f"<b>{deal.headline_badge}</b>\n"
+                f"<b>{badge_esc}</b>\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
-                f"✈️ <b>Route:</b> {deal.origin} → {deal.destination}"
-                f"{f' ({deal.destination_name})' if deal.destination_name else ''}\n"
+                f"✈️ <b>Route:</b> {origin_esc} → {dest_esc}{dest_name_esc}\n"
                 f"💰 <b>Current Price:</b> ${deal.price:,.0f} {deal.currency} round-trip\n"
                 f"💳 <b>Booked Price:</b> ${deal.booked_price:,.0f} {deal.currency}\n"
                 f"💵 <b>Airline eCredit:</b> <b>${deal.potential_savings:,.0f} savings!</b>\n"
-                f"🛫 <b>Airline:</b> {deal.airline} ({deal.formatted_stops})\n"
+                f"🛫 <b>Airline:</b> {airline_esc} ({stops_esc})\n"
                 f"📅 <b>Travel Dates:</b> {deal.departure_date} to {deal.return_date}\n"
-                f"⏱️ <b>Flight Duration:</b> {deal.formatted_duration}\n"
+                f"⏱️ <b>Flight Duration:</b> {duration_esc}\n"
                 f"💡 <i>Cancel and rebook in Main Cabin to claim your eCredit voucher.</i>\n\n"
-                f"👉 <a href=\"{deal.deep_link}\">View on Google Flights</a>"
+                f"👉 <a href=\"{deep_link_esc}\">View on Google Flights</a>"
             )
         elif deal.deal_type == DealType.SECRET_FLYING:
+            notes_esc = f"📝 <b>Details:</b> {html.escape(deal.notes)}\n\n" if deal.notes else ""
             text = (
-                f"<b>{deal.headline_badge}</b>\n"
+                f"<b>{badge_esc}</b>\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
-                f"✈️ <b>Route:</b> {deal.origin} → {deal.destination}"
-                f"{f' ({deal.destination_name})' if deal.destination_name else ''}\n"
+                f"✈️ <b>Route:</b> {origin_esc} → {dest_esc}{dest_name_esc}\n"
                 f"💰 <b>Price:</b> ${deal.price:,.0f} {deal.currency} round-trip\n"
-                f"🛫 <b>Airline:</b> {deal.airline}\n"
+                f"🛫 <b>Airline:</b> {airline_esc}\n"
                 f"📅 <b>Dates:</b> {deal.departure_date}\n"
-                f"{f'📝 <b>Details:</b> {deal.notes}' if deal.notes else ''}\n\n"
-                f"👉 <a href=\"{deal.deep_link}\">Open Secret Flying Deal</a>"
+                f"{notes_esc}"
+                f"👉 <a href=\"{deep_link_esc}\">Open Secret Flying Deal</a>"
             )
         else:
             drop_str = f" ({deal.drop_pct:.0f}% below baseline)" if deal.drop_pct else ""
             baseline_str = f"\n📉 <b>Baseline:</b> ${deal.baseline_price:,.0f} {deal.currency}" if deal.baseline_price else ""
             text = (
-                f"<b>{deal.headline_badge}</b>\n"
+                f"<b>{badge_esc}</b>\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
-                f"✈️ <b>Route:</b> {deal.origin} → {deal.destination}"
-                f"{f' ({deal.destination_name})' if deal.destination_name else ''}\n"
+                f"✈️ <b>Route:</b> {origin_esc} → {dest_esc}{dest_name_esc}\n"
                 f"💰 <b>Price:</b> <b>${deal.price:,.0f} {deal.currency}</b> round-trip{drop_str}"
                 f"{baseline_str}\n"
-                f"🛫 <b>Airline:</b> {deal.airline} ({deal.formatted_stops})\n"
+                f"🛫 <b>Airline:</b> {airline_esc} ({stops_esc})\n"
                 f"📅 <b>Dates:</b> {deal.departure_date} → {deal.return_date}\n"
-                f"⏱️ <b>Flight Duration:</b> {deal.formatted_duration}\n\n"
-                f"👉 <a href=\"{deal.deep_link}\">One-Tap Booking on Google Flights</a>"
+                f"⏱️ <b>Flight Duration:</b> {duration_esc}\n\n"
+                f"👉 <a href=\"{deep_link_esc}\">One-Tap Booking on Google Flights</a>"
             )
 
         url = f"https://api.telegram.org/bot{self.telegram_token}/sendMessage"

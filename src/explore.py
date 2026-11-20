@@ -145,14 +145,6 @@ class ExploreScanner:
 
                     dep_month = (dest.departure_date or dep_date)[:7]
 
-                    # Record price into historical baseline tracker
-                    self.state_mgr.record_price(
-                        origin=origin_code,
-                        destination=dest_code,
-                        price=dest.price,
-                        dep_month=dep_month,
-                    )
-
                     # Classify region and retrieve price ceiling
                     region = self.config.get_region_for_destination(
                         country=country,

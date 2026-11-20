@@ -11,6 +11,7 @@ from fli.search.flights import FlightSearchFilters, SearchFlights
 
 from src.config import TrackerConfig
 from src.models import DealType, FlightDeal
+from src.state import StateManager
 
 logger = logging.getLogger(__name__)
 
@@ -27,8 +28,9 @@ def _get_airport_enum(code: str) -> Optional[Airport]:
 class FlightVerifier:
     """Verifies that discovered deals actually exist in live airline inventory before alerting."""
 
-    def __init__(self, config: TrackerConfig):
+    def __init__(self, config: TrackerConfig, state_mgr: Optional[StateManager] = None):
         self.config = config
+        self.state_mgr = state_mgr
         self.search_client = SearchFlights()
 
     def verify_deal(self, deal: FlightDeal) -> Optional[FlightDeal]:
@@ -92,6 +94,8 @@ class FlightVerifier:
             outbound = combo[0]
             live_price = float(outbound.price)
             live_airline = getattr(outbound, "primary_airline_name", None) or deal.airline
+            live_stops = getattr(outbound, "stops", deal.stops)
+            live_duration = getattr(outbound, "duration", deal.duration_minutes)
 
             # Classify region and ceiling for live price validation
             region = deal.region or self.config.get_region_for_destination(
@@ -101,29 +105,60 @@ class FlightVerifier:
             )
             ceiling = self.config.get_ceiling_for_region(region)
 
-            # Check if live price exceeds user's ceiling
-            if ceiling is not None and live_price > ceiling:
+            drop_pct = None
+            baseline = None
+            if self.state_mgr:
+                dep_month = deal.departure_date[:7] if deal.departure_date else None
+                drop_pct, baseline = self.state_mgr.evaluate_price_drop(
+                    origin=deal.origin,
+                    destination=deal.destination,
+                    current_price=live_price,
+                    days=self.config.baseline_window_days,
+                    min_observations=self.config.min_baseline_observations,
+                    dep_month=dep_month,
+                )
+
+            meets_ceiling = ceiling is not None and live_price <= ceiling
+            meets_drop = drop_pct is not None and drop_pct >= self.config.drop_threshold_pct
+
+            if not (meets_ceiling or meets_drop):
+                drop_info = f" (drop {drop_pct:.1f}% below {baseline:,.0f} baseline)" if drop_pct else ""
                 logger.warning(
                     f"[VERIFY REJECTED] {deal.origin} -> {deal.destination}: "
-                    f"Explore claimed ${deal.price:,.0f}, but live round-trip is ${live_price:,.0f} "
-                    f"(exceeds ${ceiling:,.0f} ceiling for {region})."
+                    f"Live round-trip is ${live_price:,.0f} (exceeds ${ceiling:,.0f} ceiling for {region}{drop_info})."
                 )
                 return None
 
-            # Check if live price drastically exceeds claimed price (phantom or one-way misquote)
-            if live_price > (deal.price * 1.30):
-                logger.warning(
-                    f"[VERIFY REJECTED] {deal.origin} -> {deal.destination}: "
-                    f"Claimed ${deal.price:,.0f}, but live round-trip is ${live_price:,.0f} (phantom/one-way discrepancy)."
-                )
-                return None
+            is_mistake_fare = False
+            if drop_pct and drop_pct >= 50.0:
+                is_mistake_fare = True
+            elif ceiling and live_price <= (ceiling * 0.65):
+                is_mistake_fare = True
+
+            deal_type = DealType.MISTAKE_FARE if is_mistake_fare else DealType.EXPLORE_DROP
 
             logger.info(
                 f"[VERIFIED] {deal.origin} -> {deal.destination}: "
-                f"Confirmed live round-trip at ${live_price:,.0f} on {live_airline}!"
+                f"Confirmed live round-trip at ${live_price:,.0f} on {live_airline} "
+                f"({'MISTAKE FARE' if is_mistake_fare else 'deal below ceiling/drop'})!"
             )
             deal.price = live_price
             deal.airline = live_airline
+            deal.stops = live_stops
+            deal.duration_minutes = live_duration
+            deal.baseline_price = baseline
+            deal.drop_pct = drop_pct
+            deal.deal_type = deal_type
+
+            if self.state_mgr:
+                dep_month = deal.departure_date[:7] if deal.departure_date else None
+                self.state_mgr.record_price(
+                    origin=deal.origin,
+                    destination=deal.destination,
+                    price=live_price,
+                    dep_month=dep_month,
+                )
+
             return deal
 
         except Exception as e:
@@ -174,24 +209,54 @@ class FlightVerifier:
             )
             ceiling = self.config.get_ceiling_for_region(region)
 
-            if ceiling is not None and live_price > ceiling:
+            drop_pct = None
+            baseline = None
+            if self.state_mgr:
+                dep_month = deal.departure_date[:7] if deal.departure_date else None
+                drop_pct, baseline = self.state_mgr.evaluate_price_drop(
+                    origin=deal.origin,
+                    destination=deal.destination,
+                    current_price=live_price,
+                    days=self.config.baseline_window_days,
+                    min_observations=self.config.min_baseline_observations,
+                    dep_month=dep_month,
+                )
+
+            meets_ceiling = ceiling is not None and live_price <= ceiling
+            meets_drop = drop_pct is not None and drop_pct >= self.config.drop_threshold_pct
+
+            if not (meets_ceiling or meets_drop):
                 logger.warning(
                     f"[VERIFY REJECTED via fallback] {deal.origin} -> {deal.destination}: "
-                    f"Live price ${live_price:,.0f} exceeds ceiling ${ceiling:,.0f}"
+                    f"Live price ${live_price:,.0f} exceeds ceiling ${ceiling:,.0f} and no drop"
                 )
                 return None
 
-            if live_price > (deal.price * 1.30):
-                logger.warning(
-                    f"[VERIFY REJECTED via fallback] {deal.origin} -> {deal.destination}: "
-                    f"Claimed ${deal.price:,.0f}, live is ${live_price:,.0f}"
-                )
-                return None
+            is_mistake_fare = False
+            if drop_pct and drop_pct >= 50.0:
+                is_mistake_fare = True
+            elif ceiling and live_price <= (ceiling * 0.65):
+                is_mistake_fare = True
+
+            deal_type = DealType.MISTAKE_FARE if is_mistake_fare else DealType.EXPLORE_DROP
 
             airlines = getattr(best_flight, "airlines", [deal.airline])
             airline_str = ", ".join(airlines) if isinstance(airlines, list) else str(airlines)
             deal.price = live_price
             deal.airline = airline_str
+            deal.baseline_price = baseline
+            deal.drop_pct = drop_pct
+            deal.deal_type = deal_type
+
+            if self.state_mgr:
+                dep_month = deal.departure_date[:7] if deal.departure_date else None
+                self.state_mgr.record_price(
+                    origin=deal.origin,
+                    destination=deal.destination,
+                    price=live_price,
+                    dep_month=dep_month,
+                )
+
             logger.info(f"[VERIFIED via fallback] {deal.origin} -> {deal.destination} at ${live_price:,.0f}")
             return deal
         except Exception as ex:
