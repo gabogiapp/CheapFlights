@@ -242,21 +242,32 @@ class Notifier:
         deep_link_esc = html.escape(deal.deep_link)
 
         if deal.deal_type == DealType.REPRICE_CREDIT:
+            booked_str = f"${deal.booked_price:,.0f} {deal.currency}" if deal.booked_price is not None else "N/A"
+            savings_str = f"${deal.potential_savings:,.0f} savings!" if deal.potential_savings is not None else "eCredit savings!"
             text = (
                 f"<b>{badge_esc}</b>\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
                 f"✈️ <b>Route:</b> {origin_esc} → {dest_esc}{dest_name_esc}\n"
                 f"💰 <b>Current Price:</b> ${deal.price:,.0f} {deal.currency} round-trip\n"
-                f"💳 <b>Booked Price:</b> ${deal.booked_price:,.0f} {deal.currency}\n"
-                f"💵 <b>Airline eCredit:</b> <b>${deal.potential_savings:,.0f} savings!</b>\n"
+                f"💳 <b>Booked Price:</b> {booked_str}\n"
+                f"💵 <b>Airline eCredit:</b> <b>{savings_str}</b>\n"
                 f"🛫 <b>Airline:</b> {airline_esc} ({stops_esc})\n"
                 f"📅 <b>Travel Dates:</b> {deal.departure_date} to {deal.return_date}\n"
                 f"⏱️ <b>Flight Duration:</b> {duration_esc}\n"
                 f"💡 <i>Cancel and rebook in Main Cabin to claim your eCredit voucher.</i>\n\n"
-                f"👉 <a href=\"{deep_link_esc}\">View on Google Flights</a>"
+                f"👉 <a href=\"{deep_link_esc}\">One-Tap Booking on Google Flights</a>\n"
+                f"🔗 {deep_link_esc}"
             )
         elif deal.deal_type == DealType.SECRET_FLYING:
-            notes_esc = f"📝 <b>Details:</b> {html.escape(deal.notes)}\n\n" if deal.notes else ""
+            notes_esc = f"📝 <b>Details:</b> {html.escape(deal.notes)}\n" if deal.notes else ""
+            import urllib.parse
+            dest_query = deal.destination_name or deal.destination
+            gf_q = f"Flights from {deal.origin} to {dest_query}"
+            if deal.departure_date and len(deal.departure_date) == 10:
+                gf_q += f" on {deal.departure_date}"
+            gf_link = f"https://www.google.com/travel/flights?q={urllib.parse.quote(gf_q)}&curr={deal.currency or 'USD'}&hl=en-US&gl=US"
+            gf_link_esc = html.escape(gf_link)
+
             text = (
                 f"<b>{badge_esc}</b>\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
@@ -264,8 +275,10 @@ class Notifier:
                 f"💰 <b>Price:</b> ${deal.price:,.0f} {deal.currency} round-trip\n"
                 f"🛫 <b>Airline:</b> {airline_esc}\n"
                 f"📅 <b>Dates:</b> {deal.departure_date}\n"
-                f"{notes_esc}"
-                f"👉 <a href=\"{deep_link_esc}\">Open Secret Flying Deal</a>"
+                f"{notes_esc}\n"
+                f"👉 <a href=\"{gf_link_esc}\">One-Tap Search on Google Flights</a>\n"
+                f"🔗 {gf_link_esc}\n\n"
+                f"📰 <a href=\"{deep_link_esc}\">View Secret Flying Deal Post</a>"
             )
         else:
             drop_str = f" ({deal.drop_pct:.0f}% below baseline)" if deal.drop_pct else ""
@@ -279,7 +292,8 @@ class Notifier:
                 f"🛫 <b>Airline:</b> {airline_esc} ({stops_esc})\n"
                 f"📅 <b>Dates:</b> {deal.departure_date} → {deal.return_date}\n"
                 f"⏱️ <b>Flight Duration:</b> {duration_esc}\n\n"
-                f"👉 <a href=\"{deep_link_esc}\">One-Tap Booking on Google Flights</a>"
+                f"👉 <a href=\"{deep_link_esc}\">One-Tap Booking on Google Flights</a>\n"
+                f"🔗 {deep_link_esc}"
             )
 
         url = f"https://api.telegram.org/bot{self.telegram_token}/sendMessage"
@@ -288,6 +302,7 @@ class Notifier:
             "text": text,
             "parse_mode": "HTML",
             "disable_web_page_preview": False,
+            "link_preview_options": {"is_disabled": False},
         }
 
         try:
