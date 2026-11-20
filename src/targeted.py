@@ -84,8 +84,167 @@ class TargetedTripScanner:
         elif watch.mode == WatchMode.FIXED_DATES:
             return self._scan_fixed_dates(watch)
         else:
-            logger.warning(f"Unknown watch mode: {watch.mode}")
-            return []
+            return self._scan_unified(watch)
+
+    def _scan_unified(self, watch: TargetedWatch) -> list[FlightDeal]:
+        """Scan a unified watch with optional/wildcard fields and flexible date ranges."""
+        # 1. Origins (support comma separated or default)
+        raw_origins = [o.strip().upper() for o in watch.origin.split(",") if o.strip()]
+        origins = raw_origins if raw_origins and raw_origins != ["ANY"] else ["EWR", "JFK"]
+
+        # 2. Destinations (support comma separated or default)
+        raw_dests = [d.strip().upper() for d in watch.destination.split(",") if d.strip()]
+        if not raw_dests or raw_dests == ["ANY"]:
+            dests = ["FCO", "CDG", "LHR", "BCN", "MIA", "CUN", "NRT", "PVG"]
+        else:
+            dests = raw_dests
+
+        is_one_way = watch.trip_type.upper() in ("ONE_WAY", "ONE-WAY")
+        deals = []
+        lowest_overall = float("inf")
+
+        # 3. Determine departure candidate dates
+        dep_candidates = []
+        if watch.departure_date and watch.departure_date_end:
+            try:
+                s_dt = datetime.strptime(watch.departure_date, "%Y-%m-%d")
+                e_dt = datetime.strptime(watch.departure_date_end, "%Y-%m-%d")
+                curr = s_dt
+                step = max(1, (e_dt - s_dt).days // 4) if (e_dt - s_dt).days > 4 else 1
+                while curr <= e_dt and len(dep_candidates) < 5:
+                    dep_candidates.append(curr.strftime("%Y-%m-%d"))
+                    curr += timedelta(days=step)
+            except Exception:
+                dep_candidates = [watch.departure_date]
+        elif watch.departure_date:
+            dep_candidates = [watch.departure_date]
+        elif watch.must_arrive_by:
+            try:
+                deadline_dt = datetime.strptime(watch.must_arrive_by, "%Y-%m-%d")
+                dep_candidates = [
+                    (deadline_dt - timedelta(days=1)).strftime("%Y-%m-%d"),
+                    deadline_dt.strftime("%Y-%m-%d"),
+                ]
+            except Exception:
+                pass
+        elif watch.window_start:
+            dep_candidates = [watch.window_start]
+
+        if not dep_candidates:
+            dep_candidates = [(datetime.now() + timedelta(days=14)).strftime("%Y-%m-%d")]
+
+        # 4. Generate candidate search pairs (dep_date, ret_date)
+        search_pairs = []
+        for dep_d in dep_candidates:
+            if is_one_way:
+                search_pairs.append((dep_d, None))
+            else:
+                if watch.return_date and watch.return_date_end:
+                    try:
+                        s_ret = datetime.strptime(watch.return_date, "%Y-%m-%d")
+                        e_ret = datetime.strptime(watch.return_date_end, "%Y-%m-%d")
+                        ret_curr = s_ret
+                        while ret_curr <= e_ret and len(search_pairs) < 6:
+                            search_pairs.append((dep_d, ret_curr.strftime("%Y-%m-%d")))
+                            ret_curr += timedelta(days=2)
+                    except Exception:
+                        search_pairs.append((dep_d, watch.return_date))
+                elif watch.return_date:
+                    search_pairs.append((dep_d, watch.return_date))
+                else:
+                    try:
+                        dep_dt = datetime.strptime(dep_d, "%Y-%m-%d")
+                        nights = (watch.min_nights + watch.max_nights) // 2 if watch.min_nights else 7
+                        search_pairs.append((dep_d, (dep_dt + timedelta(days=nights)).strftime("%Y-%m-%d")))
+                    except Exception:
+                        pass
+
+        if len(search_pairs) > 6:
+            search_pairs = search_pairs[:6]
+
+        # 5. Execute searches across combinations
+        for orig in origins[:2]:
+            for dest in dests[:3]:
+                for dep_date, ret_date in search_pairs:
+                    flights = self._query_fast_flights(
+                        origin=orig,
+                        destination=dest,
+                        dep_date=dep_date,
+                        ret_date=ret_date if not is_one_way else None,
+                        max_stops=watch.max_stops,
+                        seat=watch.cabin_class,
+                    )
+
+                    for f in flights:
+                        legs = f.get("legs", [])
+                        if not legs:
+                            continue
+
+                        # Check arrival deadline if specified
+                        if watch.must_arrive_by:
+                            outbound_arrival_leg = None
+                            for leg in legs:
+                                if leg.get("to") == dest:
+                                    outbound_arrival_leg = leg
+                                    break
+                            if not outbound_arrival_leg:
+                                outbound_arrival_leg = legs[-1]
+
+                            arr_date = outbound_arrival_leg.get("arrival_date", "")
+                            if arr_date > watch.must_arrive_by:
+                                continue
+
+                        price = f["price"]
+                        if price < lowest_overall:
+                            lowest_overall = price
+
+                        if watch.target_price > 0 and price > watch.target_price:
+                            continue
+
+                        deep_link = build_google_flights_url(
+                            origin=orig,
+                            destination=dest,
+                            departure_date=dep_date,
+                            return_date=ret_date if not is_one_way else None,
+                            trip_type=watch.trip_type,
+                            currency=self.currency,
+                        )
+
+                        airline_name = ", ".join(f["airlines"]) if f["airlines"] else "Various"
+                        note_parts = []
+                        if watch.notes:
+                            note_parts.append(watch.notes)
+                        if watch.must_arrive_by:
+                            note_parts.append(f"Lands on {legs[-1].get('arrival_date')} at {legs[-1].get('arrival_time')}")
+
+                        deal = FlightDeal(
+                            origin=orig,
+                            destination=dest,
+                            departure_date=dep_date,
+                            return_date=ret_date or dep_date,
+                            price=price,
+                            currency=self.currency,
+                            deal_type=DealType.TARGETED_TRIP,
+                            destination_name=watch.destination_name or dest,
+                            airline=airline_name,
+                            stops=f["stops"],
+                            duration_minutes=f["total_duration"],
+                            deep_link=deep_link,
+                            notes=" • ".join(note_parts),
+                            source="targeted_unified",
+                            extra_metadata={
+                                "watch_id": watch.id,
+                                "target_price": watch.target_price,
+                                "must_arrive_by": watch.must_arrive_by,
+                            },
+                        )
+                        deals.append(deal)
+
+        if lowest_overall < float("inf"):
+            self.watch_manager.update_result(watch.id, lowest_overall)
+
+        deals.sort(key=lambda d: d.price)
+        return deals[:3]
 
     def _query_fast_flights(
         self,

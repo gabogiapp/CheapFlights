@@ -54,6 +54,34 @@ def test_watch_manager_crud():
         Path(temp_path).unlink(missing_ok=True)
 
 
+def test_unified_watch_defaults():
+    with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as tf:
+        temp_path = tf.name
+
+    try:
+        wm = WatchManager(temp_path)
+        # Add unified watch with blank fields
+        w = TargetedWatch(
+            id="wildcard-test",
+            origin="EWR, JFK",
+            destination="ANY",
+            target_price=350.0,
+            mode=WatchMode.UNIFIED,
+            trip_type="ROUND_TRIP",
+            departure_date="2027-03-14",
+            departure_date_end="2027-03-21",
+            notes="Spring break wildcard",
+        )
+        wm.add(w)
+        watches = wm.get_all()
+        assert len(watches) == 1
+        assert watches[0].origin == "EWR, JFK"
+        assert watches[0].destination == "ANY"
+        assert watches[0].departure_date_end == "2027-03-21"
+    finally:
+        Path(temp_path).unlink(missing_ok=True)
+
+
 def test_targeted_trip_notification_formatting():
     deal = FlightDeal(
         origin="FCO",

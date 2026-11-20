@@ -39,27 +39,29 @@ class WatchManager:
 
             watches = []
             for item in raw_data:
-                mode_str = item.get("mode", "FIXED_DATES")
+                mode_str = item.get("mode", "UNIFIED")
                 try:
                     mode = WatchMode(mode_str)
                 except ValueError:
-                    mode = WatchMode.FIXED_DATES
+                    mode = WatchMode.UNIFIED
 
                 watch = TargetedWatch(
                     id=item.get("id", str(uuid.uuid4())[:8]),
-                    origin=item.get("origin", "").upper(),
-                    destination=item.get("destination", "").upper(),
+                    origin=item.get("origin", "").upper() or "EWR, JFK",
+                    destination=item.get("destination", "").upper() or "ANY",
                     destination_name=item.get("destination_name", ""),
                     target_price=float(item.get("target_price", 0.0)),
                     mode=mode,
                     trip_type=item.get("trip_type", "ROUND_TRIP").upper(),
                     departure_date=item.get("departure_date"),
+                    departure_date_end=item.get("departure_date_end"),
                     return_date=item.get("return_date"),
+                    return_date_end=item.get("return_date_end"),
                     must_arrive_by=item.get("must_arrive_by"),
                     window_start=item.get("window_start"),
                     window_end=item.get("window_end"),
-                    min_nights=int(item.get("min_nights", 7)),
-                    max_nights=int(item.get("max_nights", 7)),
+                    min_nights=int(item.get("min_nights", 5)),
+                    max_nights=int(item.get("max_nights", 10)),
                     cabin_class=item.get("cabin_class", "ECONOMY").upper(),
                     max_stops=int(item.get("max_stops", 1)),
                     booked_price=float(item["booked_price"]) if item.get("booked_price") else None,

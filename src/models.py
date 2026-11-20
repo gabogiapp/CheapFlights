@@ -96,6 +96,7 @@ class FlightDeal:
 class WatchMode(str, Enum):
     """Modes for custom user-configured trip watches."""
 
+    UNIFIED = "UNIFIED"                    # Unified flexible watch (wildcards, windows, optional fields)
     ARRIVAL_DEADLINE = "ARRIVAL_DEADLINE"  # Must land on or before a specific date (e.g. land in China Jan 4th)
     VACATION_WINDOW = "VACATION_WINDOW"    # Flexible vacation window (e.g. Spring Break March 14–21)
     FIXED_DATES = "FIXED_DATES"            # Exact departure/return or booked flight
@@ -106,19 +107,21 @@ class TargetedWatch:
     """Configured flight watch for specific destinations, deadlines, or vacation windows."""
 
     id: str
-    origin: str
-    destination: str
-    target_price: float
-    mode: WatchMode = WatchMode.FIXED_DATES
+    origin: str = "EWR, JFK"
+    destination: str = "ANY"
+    target_price: float = 500.0
+    mode: WatchMode = WatchMode.UNIFIED
     trip_type: str = "ROUND_TRIP"  # "ONE_WAY" or "ROUND_TRIP"
     destination_name: str = ""
-    departure_date: Optional[str] = None
-    return_date: Optional[str] = None
-    must_arrive_by: Optional[str] = None  # e.g. "2027-01-04"
-    window_start: Optional[str] = None    # e.g. "2027-03-14"
-    window_end: Optional[str] = None      # e.g. "2027-03-21"
-    min_nights: int = 7
-    max_nights: int = 7
+    departure_date: Optional[str] = None       # Earliest departure or exact date
+    departure_date_end: Optional[str] = None   # Latest departure (optional window)
+    return_date: Optional[str] = None          # Earliest return or exact return
+    return_date_end: Optional[str] = None      # Latest return (optional window)
+    must_arrive_by: Optional[str] = None       # e.g. "2027-01-04"
+    window_start: Optional[str] = None         # Legacy/compat window
+    window_end: Optional[str] = None           # Legacy/compat window
+    min_nights: int = 5
+    max_nights: int = 10
     cabin_class: str = "ECONOMY"
     max_stops: int = 1
     booked_price: Optional[float] = None

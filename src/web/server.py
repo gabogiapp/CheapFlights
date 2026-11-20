@@ -88,22 +88,18 @@ class FlightWatcherHandler(BaseHTTPRequestHandler):
 
         if path == "/api/watches":
             body = self._read_json_body()
-            origin = body.get("origin", "").strip().upper()
-            dest = body.get("destination", "").strip().upper()
+            origin = body.get("origin", "").strip().upper() or "EWR, JFK"
+            dest = body.get("destination", "").strip().upper() or "ANY"
             target_price = float(body.get("target_price", 0.0))
-            mode_str = body.get("mode", "ARRIVAL_DEADLINE")
+            mode_str = body.get("mode", "UNIFIED")
             trip_type = body.get("trip_type", "ROUND_TRIP").strip().upper()
-
-            if not origin or not dest or target_price <= 0:
-                self._send_json({"success": False, "error": "Origin, destination, and target price are required."}, 400)
-                return
 
             try:
                 mode = WatchMode(mode_str)
             except ValueError:
-                mode = WatchMode.ARRIVAL_DEADLINE
+                mode = WatchMode.UNIFIED
 
-            watch_id = body.get("id") or f"{origin.lower()}-{dest.lower()}-{str(abs(hash(origin+dest+mode_str)))[:5]}"
+            watch_id = body.get("id") or f"{origin.replace(' ', '').replace(',', '-').lower()}-{dest.replace(' ', '').lower()}-{str(abs(hash(origin+dest+mode_str+str(target_price))))[:5]}"
 
             new_watch = TargetedWatch(
                 id=watch_id,
@@ -114,14 +110,16 @@ class FlightWatcherHandler(BaseHTTPRequestHandler):
                 mode=mode,
                 trip_type=trip_type,
                 departure_date=body.get("departure_date") or None,
+                departure_date_end=body.get("departure_date_end") or None,
                 return_date=body.get("return_date") or None,
+                return_date_end=body.get("return_date_end") or None,
                 must_arrive_by=body.get("must_arrive_by") or None,
                 window_start=body.get("window_start") or None,
                 window_end=body.get("window_end") or None,
-                min_nights=int(body.get("min_nights", 7)),
-                max_nights=int(body.get("max_nights", 7)),
+                min_nights=int(body.get("min_nights", 5)) if body.get("min_nights") else 5,
+                max_nights=int(body.get("max_nights", 10)) if body.get("max_nights") else 10,
                 cabin_class=body.get("cabin_class", "ECONOMY").upper(),
-                max_stops=int(body.get("max_stops", 1)),
+                max_stops=int(body.get("max_stops", 1)) if body.get("max_stops") is not None else 1,
                 notes=body.get("notes") or None,
             )
 
