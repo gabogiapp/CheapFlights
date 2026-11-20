@@ -47,8 +47,8 @@
     "booked_price": null,
     "active": true,
     "notes": null,
-    "created_at": "2026-11-20T20:23:03.787893+00:00",
-    "last_checked": "2026-11-20T20:24:02.014930+00:00",
-    "lowest_price_found": 705.0
+    "created_at": "2026-11-20T20:31:43.222131+00:00",
+    "last_checked": null,
+    "lowest_price_found": null
   }
 ]

@@ -368,11 +368,12 @@
 
   <div class="grid">
     <!-- Unified Watch Creator Form -->
-    <div class="card">
-      <div class="card-title">Add Flight Watch</div>
-      <div class="card-subtitle">Fill in what you need. Any fields left blank are unconstrained.</div>
+    <div class="card" id="formCard">
+      <div class="card-title" id="formTitle">Add Flight Watch</div>
+      <div class="card-subtitle" id="formSubtitle">Fill in what you need. Any fields left blank are unconstrained.</div>
 
       <form id="watchForm" onsubmit="submitWatch(event)">
+        <input type="hidden" id="editWatchId" value="">
         <!-- Route & Budget -->
         <div class="input-row form-group">
           <div>
@@ -481,9 +482,14 @@
           <input type="text" id="notes" placeholder="e.g. Must land Jan 4th or Christmas in Italy">
         </div>
 
-        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
-          Save & Watch Route
-        </button>
+        <div style="display: flex; gap: 8px; margin-top: 10px;">
+          <button type="submit" id="submitBtn" class="btn-primary" style="flex: 1; justify-content: center;">
+            Save & Watch Route
+          </button>
+          <button type="button" id="cancelEditBtn" onclick="cancelEdit()" style="display: none; justify-content: center;">
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
 
@@ -531,6 +537,8 @@
 <div id="toast"></div>
 
 <script>
+  let cachedWatches = [];
+
   function onTripTypeChange() {
     const isOneWay = document.getElementById('tripType').value === 'ONE_WAY';
     document.getElementById('returnSection').style.display = isOneWay ? 'none' : 'block';
@@ -555,10 +563,76 @@
     setTimeout(() => { toast.style.display = 'none'; }, 3500);
   }
 
+  function startEditWatch(id) {
+    const w = cachedWatches.find(item => item.id === id);
+    if (!w) return;
+
+    document.getElementById('editWatchId').value = w.id;
+    document.getElementById('origin').value = w.origin || '';
+    document.getElementById('dest').value = w.destination || '';
+    document.getElementById('tripType').value = w.trip_type || 'ROUND_TRIP';
+    onTripTypeChange();
+
+    document.getElementById('targetPrice').value = w.target_price > 0 ? w.target_price : '';
+
+    document.getElementById('depStart').value = w.departure_date || '';
+    if (w.departure_date_end) {
+      document.getElementById('depRangeToggle').checked = true;
+      document.getElementById('depEnd').value = w.departure_date_end;
+    } else {
+      document.getElementById('depRangeToggle').checked = false;
+      document.getElementById('depEnd').value = '';
+    }
+    toggleDepRange();
+
+    if (w.trip_type !== 'ONE_WAY') {
+      document.getElementById('retStart').value = w.return_date || '';
+      if (w.return_date_end) {
+        document.getElementById('retRangeToggle').checked = true;
+        document.getElementById('retEnd').value = w.return_date_end;
+      } else {
+        document.getElementById('retRangeToggle').checked = false;
+        document.getElementById('retEnd').value = '';
+      }
+      toggleRetRange();
+      document.getElementById('minNights').value = w.min_nights || '';
+      document.getElementById('maxNights').value = w.max_nights || '';
+    }
+
+    document.getElementById('mustArriveBy').value = w.must_arrive_by || '';
+    document.getElementById('maxStops').value = w.max_stops !== undefined ? w.max_stops : 99;
+    document.getElementById('destName').value = w.destination_name || '';
+    document.getElementById('notes').value = w.notes || '';
+
+    // Switch UI into edit mode
+    document.getElementById('formTitle').textContent = `Edit Flight Watch (${w.origin} -> ${w.destination})`;
+    document.getElementById('formSubtitle').textContent = 'Modify criteria and save your changes.';
+    document.getElementById('submitBtn').textContent = 'Save Changes';
+    document.getElementById('cancelEditBtn').style.display = 'inline-flex';
+
+    document.getElementById('formCard').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function cancelEdit() {
+    document.getElementById('watchForm').reset();
+    document.getElementById('editWatchId').value = '';
+    document.getElementById('formTitle').textContent = 'Add Flight Watch';
+    document.getElementById('formSubtitle').textContent = 'Fill in what you need. Any fields left blank are unconstrained.';
+    document.getElementById('submitBtn').textContent = 'Save & Watch Route';
+    document.getElementById('cancelEditBtn').style.display = 'none';
+
+    document.getElementById('depRangeToggle').checked = false;
+    document.getElementById('retRangeToggle').checked = false;
+    toggleDepRange();
+    toggleRetRange();
+    onTripTypeChange();
+  }
+
   async function loadWatches() {
     try {
       const res = await fetch('/api/watches');
       const data = await res.json();
+      cachedWatches = data.watches || [];
       const tbody = document.getElementById('watchTableBody');
       const countEl = document.getElementById('watchCount');
 
@@ -628,8 +702,9 @@
               ${statusPill}
             </button>
           </td>
-          <td style="text-align: right;">
+          <td style="text-align: right; white-space: nowrap;">
             <button style="padding: 4px 8px; font-size: 11px;" onclick="checkSingleWatch('${w.id}')">Check</button>
+            <button style="padding: 4px 8px; font-size: 11px; margin-left: 4px;" onclick="startEditWatch('${w.id}')">Edit</button>
             <button class="btn-danger" style="padding: 4px 8px; font-size: 11px; margin-left: 4px;" onclick="deleteWatch('${w.id}')">Delete</button>
           </td>
         `;
@@ -643,6 +718,7 @@
 
   async function submitWatch(e) {
     e.preventDefault();
+    const editId = document.getElementById('editWatchId').value;
     const origin = document.getElementById('origin').value.trim().toUpperCase() || 'EWR, JFK';
     const dest = document.getElementById('dest').value.trim().toUpperCase() || 'ANY';
     const targetPriceVal = document.getElementById('targetPrice').value;
@@ -669,6 +745,7 @@
     const notes = document.getElementById('notes').value.trim();
 
     const payload = {
+      id: editId || undefined,
       origin,
       destination: dest,
       target_price: targetPrice,
@@ -695,19 +772,14 @@
       });
       const data = await res.json();
       if (data.success) {
-        showToast(`Watch saved: ${origin} -> ${dest}`);
-        document.getElementById('watchForm').reset();
-        document.getElementById('depRangeToggle').checked = false;
-        document.getElementById('retRangeToggle').checked = false;
-        toggleDepRange();
-        toggleRetRange();
-        onTripTypeChange();
+        showToast(editId ? `Watch updated: ${origin} -> ${dest}` : `Watch saved: ${origin} -> ${dest}`);
+        cancelEdit();
         loadWatches();
       } else {
         alert(data.error || 'Failed to save watch');
       }
     } catch (err) {
-      alert('Error creating watch');
+      alert('Error saving watch');
     }
   }
 

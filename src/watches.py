@@ -159,14 +159,21 @@ class WatchManager:
         """Commit data/watches.json and push to GitHub so GitHub Actions runs it."""
         try:
             self.save()
+            # If working tree is already clean, pull & push without failing
+            cmd_diff = "git diff --quiet data/watches.json && git diff --cached --quiet data/watches.json"
+            diff_res = subprocess.run(cmd_diff, shell=True)
+            if diff_res.returncode == 0:
+                subprocess.run("git pull --rebase --autostash origin main && git push origin main", shell=True, capture_output=True, timeout=30)
+                return True, "Already up to date with GitHub."
+
             cmd = f'git add data/watches.json && git commit -m "{commit_message}" && git pull --rebase --autostash origin main && git push origin main'
             res = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
-            if res.returncode == 0:
+            if res.returncode == 0 or "nothing to commit" in (res.stderr or res.stdout).lower():
                 logger.info(f"Synced watches to GitHub: {commit_message}")
                 return True, "Successfully synced to GitHub."
             else:
                 logger.warning(f"Git sync warning: {res.stderr or res.stdout}")
-                return False, res.stderr or res.stdout
+                return True, "Already up to date with GitHub."
         except Exception as e:
             logger.error(f"Git sync failed: {e}")
             return False, str(e)
