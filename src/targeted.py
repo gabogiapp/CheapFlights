@@ -5,12 +5,35 @@ from __future__ import annotations
 import logging
 from datetime import datetime, timedelta
 from typing import Optional
+import urllib.parse
 
-from fli.core.links import google_flights_url
 from src.models import DealType, FlightDeal, TargetedWatch, WatchMode
 from src.watches import WatchManager
 
 logger = logging.getLogger(__name__)
+
+
+def build_google_flights_url(
+    origin: str,
+    destination: str,
+    departure_date: str,
+    return_date: Optional[str] = None,
+    trip_type: str = "ROUND_TRIP",
+    currency: str = "USD",
+) -> str:
+    """Build a Google Flights deep link that strictly respects one-way vs round-trip."""
+    is_one_way = (
+        trip_type.upper() in ("ONE_WAY", "ONE-WAY")
+        or not return_date
+        or return_date == departure_date
+    )
+
+    if is_one_way:
+        query = f"One-way flights from {origin} to {destination} on {departure_date}"
+    else:
+        query = f"Flights from {origin} to {destination} on {departure_date} through {return_date}"
+
+    return f"https://www.google.com/travel/flights?q={urllib.parse.quote(query)}&curr={currency}&hl=en-US&gl=US"
 
 
 class TargetedTripScanner:
@@ -214,11 +237,12 @@ class TargetedTripScanner:
                 if watch.target_price > 0 and price > watch.target_price:
                     continue
 
-                deep_link = google_flights_url(
-                    watch.origin,
-                    watch.destination,
-                    dep_date,
-                    watch.return_date if watch.trip_type == "ROUND_TRIP" else None,
+                deep_link = build_google_flights_url(
+                    origin=watch.origin,
+                    destination=watch.destination,
+                    departure_date=dep_date,
+                    return_date=watch.return_date if watch.trip_type == "ROUND_TRIP" else None,
+                    trip_type=watch.trip_type,
                     currency=self.currency,
                 )
 
@@ -306,11 +330,12 @@ class TargetedTripScanner:
                 if watch.target_price > 0 and price > watch.target_price:
                     continue
 
-                deep_link = google_flights_url(
-                    watch.origin,
-                    watch.destination,
-                    dep_date,
-                    ret_date,
+                deep_link = build_google_flights_url(
+                    origin=watch.origin,
+                    destination=watch.destination,
+                    departure_date=dep_date,
+                    return_date=ret_date,
+                    trip_type="ROUND_TRIP",
                     currency=self.currency,
                 )
 
@@ -375,11 +400,12 @@ class TargetedTripScanner:
             if watch.target_price > 0 and price > watch.target_price:
                 continue
 
-            deep_link = google_flights_url(
-                watch.origin,
-                watch.destination,
-                watch.departure_date,
-                watch.return_date if watch.trip_type == "ROUND_TRIP" else None,
+            deep_link = build_google_flights_url(
+                origin=watch.origin,
+                destination=watch.destination,
+                departure_date=watch.departure_date,
+                return_date=watch.return_date if watch.trip_type == "ROUND_TRIP" else None,
+                trip_type=watch.trip_type,
                 currency=self.currency,
             )
 
