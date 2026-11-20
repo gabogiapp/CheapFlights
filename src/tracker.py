@@ -80,15 +80,30 @@ def run_tracker(
 
     # 5. Secret Flying NYC Mistake-Fare Feed
     if config.secret_flying_enabled:
-        logger.info("\n>>> [3/3] Scanning Secret Flying NYC feed for mistake fares...")
+        logger.info("\n>>> [3/4] Scanning Secret Flying NYC feed for mistake fares...")
         sf_scanner = SecretFlyingScanner(keywords=config.secret_flying_keywords)
         sf_deals = sf_scanner.scan()
         logger.info(f"Secret Flying scan completed: {len(sf_deals)} candidate deals found.")
         all_candidate_deals.extend(sf_deals)
     else:
-        logger.info("\n>>> [3/3] Secret Flying feed disabled in config.yaml.")
+        logger.info("\n>>> [3/4] Secret Flying feed disabled in config.yaml.")
 
-    # 6. Deduplication, Live Verification, and Alert Dispatch
+    # 6. Targeted Trip Watches (custom destinations, deadlines, vacation windows)
+    from src.targeted import TargetedTripScanner
+    from src.watches import WatchManager
+
+    watch_mgr = WatchManager()
+    active_watches = watch_mgr.get_active()
+    if active_watches:
+        logger.info(f"\n>>> [4/4] Scanning {len(active_watches)} Custom Targeted Watches...")
+        targeted_scanner = TargetedTripScanner(watch_manager=watch_mgr, currency=config.currency)
+        targeted_deals = targeted_scanner.scan_all()
+        logger.info(f"Targeted watches scan completed: found {len(targeted_deals)} qualified deals.")
+        all_candidate_deals.extend(targeted_deals)
+    else:
+        logger.info("\n>>> [4/4] No custom targeted watches active in data/watches.json.")
+
+    # 7. Deduplication, Live Verification, and Alert Dispatch
     logger.info("\n>>> Evaluating deals against seen_deals.json...")
     unseen_candidates: list[FlightDeal] = []
     skipped_duplicates = 0
@@ -136,21 +151,27 @@ def run_tracker(
 
     # Dispatch alerts for new deals (prioritized and rate-limited to protect carrier SMS limits)
     if new_alert_deals:
-        # Separate deals by category so mistake fares never starve price drop alerts
+        # Separate deals by category so targeted trips and mistake fares never starve
+        targeted_deals = [d for d in new_alert_deals if d.deal_type == DealType.TARGETED_TRIP]
         reprice_deals = [d for d in new_alert_deals if d.deal_type == DealType.REPRICE_CREDIT]
         mistake_deals = [
             d for d in new_alert_deals if d.deal_type in (DealType.MISTAKE_FARE, DealType.SECRET_FLYING)
         ]
         drop_deals = [d for d in new_alert_deals if d.deal_type == DealType.EXPLORE_DROP]
 
+        targeted_deals.sort(key=lambda d: d.price)
         reprice_deals.sort(key=lambda d: d.price)
         mistake_deals.sort(key=lambda d: d.price)
         drop_deals.sort(key=lambda d: d.price)
 
-        # Allocate alerts: Reprice credits first, then interleave price drops and mistake fares
+        # Allocate alerts: Custom targeted watches and reprice credits first, then interleave drops & mistakes
         max_alerts = config.max_sms_alerts_per_run
         alerts_to_send: list[FlightDeal] = []
-        alerts_to_send.extend(reprice_deals[:max_alerts])
+        alerts_to_send.extend(targeted_deals[:max_alerts])
+
+        remaining = max_alerts - len(alerts_to_send)
+        if remaining > 0:
+            alerts_to_send.extend(reprice_deals[:remaining])
 
         remaining = max_alerts - len(alerts_to_send)
         if remaining > 0:

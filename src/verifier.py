@@ -39,8 +39,8 @@ class FlightVerifier:
         Returns updated FlightDeal with live verified price and airline if confirmed,
         or None if deal is a phantom fare, one-way misquote, or above budget ceiling.
         """
-        # Reprice credits on pinned routes are already queried against live inventory
-        if deal.deal_type == DealType.REPRICE_CREDIT:
+        # Reprice credits and targeted trips are already queried against live inventory
+        if deal.deal_type in (DealType.REPRICE_CREDIT, DealType.TARGETED_TRIP):
             return deal
 
         # Secret Flying posts with flexible dates bypass round-trip date locking

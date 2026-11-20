@@ -14,6 +14,7 @@ class DealType(str, Enum):
     MISTAKE_FARE = "MISTAKE_FARE"
     REPRICE_CREDIT = "REPRICE_CREDIT"
     SECRET_FLYING = "SECRET_FLYING"
+    TARGETED_TRIP = "TARGETED_TRIP"
 
 
 @dataclass
@@ -73,7 +74,9 @@ class FlightDeal:
     @property
     def headline_badge(self) -> str:
         """Return headline badge for notifications."""
-        if self.deal_type == DealType.REPRICE_CREDIT:
+        if self.deal_type == DealType.TARGETED_TRIP:
+            return "🎯 TARGET TRIP ALERT"
+        elif self.deal_type == DealType.REPRICE_CREDIT:
             return "💳 POST-BOOKING REPRICE CREDIT ALERT"
         elif self.deal_type == DealType.MISTAKE_FARE:
             return "🔥 MISTAKE FARE / FLASH DROP"
@@ -88,6 +91,42 @@ class FlightDeal:
         """
         bucket = int(self.price // bucket_size) * int(bucket_size)
         return f"{self.origin}-{self.destination}-{self.departure_date}-{self.return_date}-b{bucket}"
+
+
+class WatchMode(str, Enum):
+    """Modes for custom user-configured trip watches."""
+
+    ARRIVAL_DEADLINE = "ARRIVAL_DEADLINE"  # Must land on or before a specific date (e.g. land in China Jan 4th)
+    VACATION_WINDOW = "VACATION_WINDOW"    # Flexible vacation window (e.g. Spring Break March 14–21)
+    FIXED_DATES = "FIXED_DATES"            # Exact departure/return or booked flight
+
+
+@dataclass
+class TargetedWatch:
+    """Configured flight watch for specific destinations, deadlines, or vacation windows."""
+
+    id: str
+    origin: str
+    destination: str
+    target_price: float
+    mode: WatchMode = WatchMode.FIXED_DATES
+    trip_type: str = "ROUND_TRIP"  # "ONE_WAY" or "ROUND_TRIP"
+    destination_name: str = ""
+    departure_date: Optional[str] = None
+    return_date: Optional[str] = None
+    must_arrive_by: Optional[str] = None  # e.g. "2027-01-04"
+    window_start: Optional[str] = None    # e.g. "2027-03-14"
+    window_end: Optional[str] = None      # e.g. "2027-03-21"
+    min_nights: int = 7
+    max_nights: int = 7
+    cabin_class: str = "ECONOMY"
+    max_stops: int = 1
+    booked_price: Optional[float] = None
+    active: bool = True
+    notes: Optional[str] = None
+    created_at: str = ""
+    last_checked: Optional[str] = None
+    lowest_price_found: Optional[float] = None
 
 
 @dataclass

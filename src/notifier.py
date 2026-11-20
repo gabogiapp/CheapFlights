@@ -82,6 +82,19 @@ class Notifier:
                 f"Dates: {deal.departure_date} to {deal.return_date}\n\n"
                 f"Rebook: {deal.deep_link}"
             )
+        elif deal.deal_type == DealType.TARGETED_TRIP:
+            target_val = deal.extra_metadata.get("target_price")
+            target_str = f" (Target: <${target_val:,.0f})" if target_val else ""
+            subject = f"🎯 TARGET TRIP: {deal.origin}->{deal.destination} ${deal.price:,.0f}{target_str}"
+            body = (
+                f"🎯 TARGETED TRIP ALERT!\n"
+                f"{deal.origin} -> {deal.destination} ({deal.destination_name or 'Trip'})\n"
+                f"Price: ${deal.price:,.0f} {deal.currency}\n"
+                f"{deal.airline} • {deal.formatted_stops} • {deal.formatted_duration}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n"
+                f"{deal.notes or ''}\n\n"
+                f"Book: {deal.deep_link}"
+            )
         elif deal.deal_type == DealType.SECRET_FLYING:
             subject = f"🚨 DEAL: {deal.destination_name or deal.destination} ${deal.price:,.0f}"
             body = (
@@ -181,6 +194,20 @@ class Notifier:
                 f"Dates: {deal.departure_date} to {deal.return_date}\n\n"
                 f"👉 Rebook now to claim voucher:\n{deal.deep_link}\n"
             )
+        elif deal.deal_type == DealType.TARGETED_TRIP:
+            target_val = deal.extra_metadata.get("target_price")
+            target_str = f" (Target: <${target_val:,.0f})" if target_val else ""
+            subject = f"🎯 TARGET TRIP: {deal.origin} -> {deal.destination} ${deal.price:,.0f}{target_str}!"
+            body = (
+                f"🎯 TARGETED TRIP ALERT!\n"
+                f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+                f"Route: {deal.origin} -> {deal.destination} ({deal.destination_name or 'Trip'})\n"
+                f"Price: ${deal.price:,.0f} {deal.currency}\n"
+                f"Airline: {deal.airline} • {deal.formatted_stops} • {deal.formatted_duration}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n"
+                f"Notes: {deal.notes or 'None'}\n\n"
+                f"👉 Book now on Google Flights:\n{deal.deep_link}\n"
+            )
         elif deal.deal_type == DealType.SECRET_FLYING:
             subject = f"🚨 MISTAKE FARE: {deal.destination_name or deal.destination} ${deal.price:,.0f}!"
             body = (
@@ -258,6 +285,26 @@ class Notifier:
                 f"👉 <a href=\"{deep_link_esc}\">One-Tap Booking on Google Flights</a>\n"
                 f"🔗 {deep_link_esc}"
             )
+        elif deal.deal_type == DealType.TARGETED_TRIP:
+            target_val = deal.extra_metadata.get("target_price")
+            target_str = f"🎯 <b>Target Ceiling:</b> Under ${target_val:,.0f} {deal.currency}\n" if target_val else ""
+            notes_esc = f"📝 <b>Note:</b> {html.escape(deal.notes)}\n" if deal.notes else ""
+            trip_label = "one-way" if deal.return_date == deal.departure_date else "round-trip"
+            date_str = deal.departure_date if deal.return_date == deal.departure_date else f"{deal.departure_date} → {deal.return_date}"
+
+            text = (
+                f"<b>{badge_esc}</b>\n"
+                f"━━━━━━━━━━━━━━━━━━\n"
+                f"✈️ <b>Route:</b> {origin_esc} → {dest_esc}{dest_name_esc}\n"
+                f"💰 <b>Price:</b> <b>${deal.price:,.0f} {deal.currency}</b> ({trip_label})\n"
+                f"{target_str}"
+                f"🛫 <b>Airline:</b> {airline_esc} ({stops_esc})\n"
+                f"📅 <b>Travel Dates:</b> {date_str}\n"
+                f"⏱️ <b>Flight Duration:</b> {duration_esc}\n"
+                f"{notes_esc}\n"
+                f"👉 <a href=\"{deep_link_esc}\">One-Tap Booking on Google Flights</a>\n"
+                f"🔗 {deep_link_esc}"
+            )
         elif deal.deal_type == DealType.SECRET_FLYING:
             notes_esc = f"📝 <b>Details:</b> {html.escape(deal.notes)}\n" if deal.notes else ""
             import urllib.parse
@@ -323,6 +370,10 @@ class Notifier:
             color = 0x3498DB  # Blue
             title = f"{deal.headline_badge}: {deal.origin} → {deal.destination}"
             desc = f"Fare dropped! Cancel and rebook your ticket to claim **${deal.potential_savings:,.0f} in airline eCredits**."
+        elif deal.deal_type == DealType.TARGETED_TRIP:
+            color = 0x2ECC71  # Green
+            title = f"{deal.headline_badge}: {deal.origin} → {deal.destination} (${deal.price:,.0f})"
+            desc = deal.notes or f"Custom watch criteria matched for {deal.origin} → {deal.destination}."
         elif deal.deal_type == DealType.SECRET_FLYING:
             color = 0x9B59B6  # Purple
             title = f"{deal.headline_badge}: {deal.destination_name or deal.destination}"
@@ -386,6 +437,14 @@ class Notifier:
                 f"Dates: {deal.departure_date} to {deal.return_date}"
             )
             tags = "moneybag,credit_card,airplane"
+        elif deal.deal_type == DealType.TARGETED_TRIP:
+            body = (
+                f"Target Trip Matched! ${deal.price:,.0f} {deal.currency}\n"
+                f"{deal.airline} • {deal.formatted_stops} • {deal.formatted_duration}\n"
+                f"Dates: {deal.departure_date} to {deal.return_date}\n"
+                f"{deal.notes or ''}"
+            )
+            tags = "dart,airplane,tada"
         else:
             drop_info = f" ({deal.drop_pct:.0f}% drop)" if deal.drop_pct else ""
             body = (

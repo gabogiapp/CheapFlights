@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Watcher • Local Dashboard</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #94a3b8;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0f172a;
+      --primary-hover: #1e293b;
+      --accent: #2563eb;
+      --success: #15803d;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
+      --danger: #b91c1c;
+      --danger-hover: #991b1b;
+      --radius: 6px;
+      --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090d16;
+        --surface: #111827;
+        --border: #1f2937;
+        --border-focus: #374151;
+        --text: #f3f4f6;
+        --text-muted: #9ca3af;
+        --primary: #f3f4f6;
+        --primary-hover: #e5e7eb;
+        --accent: #3b82f6;
+        --success: #22c55e;
+        --success-bg: #052e16;
+        --success-border: #14532d;
+        --danger: #ef4444;
+        --danger-hover: #dc2626;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 32px 20px;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--border);
+      color: var(--text-muted);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Buttons */
+    button {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.1s ease, border-color 0.1s ease;
+    }
+
+    button:hover { background: var(--border); }
+    button.btn-primary {
+      background: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+    button.btn-primary:hover { background: var(--primary-hover); }
+    button.btn-danger { color: var(--danger); }
+    button.btn-danger:hover { background: rgba(185, 28, 28, 0.08); border-color: var(--danger); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Layout Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Mode Selector */
+    .mode-tabs {
+      display: flex;
+      background: var(--bg);
+      padding: 3px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+    }
+
+    .mode-tab.active {
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-family: inherit;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .code-input {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Watch Table */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .route-badge {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+    }
+
+    .price-target {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .price-best {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--success);
+    }
+
+    .criteria-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .status-pill {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      margin-right: 5px;
+    }
+
+    .status-pill.paused {
+      background: var(--text-muted);
+    }
+
+    /* Live Check Results Box */
+    #liveResult {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      display: none;
+    }
+
+    #liveResult h4 {
+      font-size: 13px;
+      color: var(--success);
+      margin-bottom: 6px;
+    }
+
+    #liveResult ul {
+      list-style: none;
+      font-size: 12px;
+    }
+
+    #liveResult li {
+      padding: 4px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Banner / Toast */
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: var(--bg);
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <div class="brand-title">
+        <span>Flight Watcher</span>
+        <span class="brand-tag">Localhost :5000</span>
+      </div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
+        Monitors Google Flights for arrival deadlines, vacation windows, and mistake fares.
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="syncGitBtn" onclick="syncGit()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        Sync with GitHub
+      </button>
+      <button class="btn-primary" id="scanAllBtn" onclick="runFullScan()">
+        Run Check Now
+      </button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- Left Column: Add Watch Form -->
+    <div class="card">
+      <div class="card-title">Create Trip Watch</div>
+
+      <div class="mode-tabs">
+        <button type="button" class="mode-tab active" onclick="setMode('ARRIVAL_DEADLINE', this)">Land by Date</button>
+        <button type="button" class="mode-tab" onclick="setMode('VACATION_WINDOW', this)">Vacation Week</button>
+        <button type="button" class="mode-tab" onclick="setMode('FIXED_DATES', this)">Specific Dates</button>
+      </div>
+
+      <form id="watchForm" onsubmit="submitWatch(event)">
+        <input type="hidden" id="watchMode" value="ARRIVAL_DEADLINE">
+
+        <div class="input-row form-group">
+          <div>
+            <label>From (Airport Code)</label>
+            <input type="text" id="origin" class="code-input" placeholder="FCO" required maxlength="3">
+          </div>
+          <div>
+            <label>To (Airport Code)</label>
+            <input type="text" id="dest" class="code-input" placeholder="PVG" required maxlength="3">
+          </div>
+        </div>
+
+        <div class="input-row form-group">
+          <div>
+            <label>Target Price ($ USD)</label>
+            <input type="number" id="targetPrice" placeholder="700" required min="1">
+          </div>
+          <div>
+            <label>Trip Type</label>
+            <select id="tripType">
+              <option value="ONE_WAY">One-Way</option>
+              <option value="ROUND_TRIP">Round-Trip</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Mode Specific: Arrival Deadline -->
+        <div id="modeArrivalDeadline" class="form-group">
+          <label>Must Land in Destination On / By</label>
+          <input type="date" id="mustArriveBy" value="2027-01-04">
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+            Verifies flight arrival timestamp (handles overnight long-hauls).
+          </div>
+        </div>
+
+        <!-- Mode Specific: Vacation Window -->
+        <div id="modeVacationWindow" class="form-group" style="display: none;">
+          <div class="input-row">
+            <div>
+              <label>Window Start</label>
+              <input type="date" id="windowStart" value="2027-03-14">
+            </div>
+            <div>
+              <label>Window End</label>
+              <input type="date" id="windowEnd" value="2027-03-21">
+            </div>
+          </div>
+          <div class="input-row" style="margin-top: 10px;">
+            <div>
+              <label>Min Nights</label>
+              <input type="number" id="minNights" value="6" min="1" max="30">
+            </div>
+            <div>
+              <label>Max Nights</label>
+              <input type="number" id="maxNights" value="8" min="1" max="30">
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode Specific: Fixed Dates -->
+        <div id="modeFixedDates" class="form-group" style="display: none;">
+          <div class="input-row">
+            <div>
+              <label>Departure Date</label>
+              <input type="date" id="fixedDep">
+            </div>
+            <div>
+              <label>Return Date (Optional)</label>
+              <input type="date" id="fixedRet">
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row form-group">
+          <div>
+            <label>Max Stops</label>
+            <select id="maxStops">
+              <option value="1">Up to 1 stop</option>
+              <option value="0">Nonstop only</option>
+              <option value="2">Up to 2 stops</option>
+            </select>
+          </div>
+          <div>
+            <label>City Label</label>
+            <input type="text" id="destName" placeholder="Shanghai">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Trip Note</label>
+          <input type="text" id="notes" placeholder="e.g. Land in China Jan 4th">
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 6px;">
+          Save & Watch Route
+        </button>
+      </form>
+    </div>
+
+    <!-- Right Column: Active Watches Table -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div class="card-title" style="margin-bottom: 0;">Monitored Routes</div>
+        <div id="watchCount" style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">0 watches</div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Criteria</th>
+              <th>Target</th>
+              <th>Best Found</th>
+              <th>Status</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="watchTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 30px;">
+                Loading watches...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Live check inline results -->
+      <div id="liveResult">
+        <h4 id="liveResultTitle">Live Check Result</h4>
+        <ul id="liveResultList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  let currentMode = 'ARRIVAL_DEADLINE';
+
+  function setMode(mode, tabEl) {
+    currentMode = mode;
+    document.getElementById('watchMode').value = mode;
+    document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+    tabEl.classList.add('active');
+
+    document.getElementById('modeArrivalDeadline').style.display = mode === 'ARRIVAL_DEADLINE' ? 'block' : 'none';
+    document.getElementById('modeVacationWindow').style.display = mode === 'VACATION_WINDOW' ? 'block' : 'none';
+    document.getElementById('modeFixedDates').style.display = mode === 'FIXED_DATES' ? 'block' : 'none';
+
+    if (mode === 'ARRIVAL_DEADLINE') {
+      document.getElementById('tripType').value = 'ONE_WAY';
+    } else if (mode === 'VACATION_WINDOW') {
+      document.getElementById('tripType').value = 'ROUND_TRIP';
+    }
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 3500);
+  }
+
+  async function loadWatches() {
+    try {
+      const res = await fetch('/api/watches');
+      const data = await res.json();
+      const tbody = document.getElementById('watchTableBody');
+      const countEl = document.getElementById('watchCount');
+
+      if (!data.watches || data.watches.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 36px;">No flight watches configured yet. Create your first watch on the left!</td></tr>';
+        countEl.textContent = '0 watches';
+        return;
+      }
+
+      countEl.textContent = `${data.watches.length} watch${data.watches.length === 1 ? '' : 'es'}`;
+      tbody.innerHTML = '';
+
+      data.watches.forEach(w => {
+        const tr = document.createElement('tr');
+
+        let criteriaStr = '';
+        if (w.mode === 'ARRIVAL_DEADLINE') {
+          criteriaStr = `Must land by <strong>${w.must_arrive_by || 'N/A'}</strong>`;
+        } else if (w.mode === 'VACATION_WINDOW') {
+          criteriaStr = `${w.window_start} → ${w.window_end} (${w.min_nights}-${w.max_nights} nights)`;
+        } else {
+          criteriaStr = `${w.departure_date || 'Any'} ${w.return_date ? '→ ' + w.return_date : ''}`;
+        }
+
+        const bestPriceDisplay = w.lowest_price_found
+          ? `<span class="price-best">$${Math.round(w.lowest_price_found).toLocaleString()}</span>`
+          : '<span style="color: var(--text-muted); font-size: 12px;">Not checked</span>';
+
+        const statusPill = w.active
+          ? '<span class="status-pill"></span> Active'
+          : '<span class="status-pill paused"></span> Paused';
+
+        tr.innerHTML = `
+          <td>
+            <div class="route-badge">${w.origin} → ${w.destination}</div>
+            <div class="criteria-sub">${w.destination_name || (w.trip_type === 'ONE_WAY' ? 'One-Way' : 'Round-Trip')}</div>
+          </td>
+          <td>
+            <div>${criteriaStr}</div>
+            ${w.notes ? `<div class="criteria-sub">${w.notes}</div>` : ''}
+          </td>
+          <td class="price-target">&lt; $${Math.round(w.target_price).toLocaleString()}</td>
+          <td>${bestPriceDisplay}</td>
+          <td>
+            <button style="padding: 3px 8px; font-size: 11px;" onclick="toggleWatch('${w.id}')">
+              ${statusPill}
+            </button>
+          </td>
+          <td style="text-align: right;">
+            <button style="padding: 4px 8px; font-size: 11px;" onclick="checkSingleWatch('${w.id}')">Check</button>
+            <button class="btn-danger" style="padding: 4px 8px; font-size: 11px; margin-left: 4px;" onclick="deleteWatch('${w.id}')">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } catch (err) {
+      console.error(err);
+      showToast('Error loading watches');
+    }
+  }
+
+  async function submitWatch(e) {
+    e.preventDefault();
+    const mode = document.getElementById('watchMode').value;
+    const origin = document.getElementById('origin').value.trim().toUpperCase();
+    const dest = document.getElementById('dest').value.trim().toUpperCase();
+    const targetPrice = parseFloat(document.getElementById('targetPrice').value);
+    const tripType = document.getElementById('tripType').value;
+    const destName = document.getElementById('destName').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+    const maxStops = parseInt(document.getElementById('maxStops').value);
+
+    const payload = {
+      origin,
+      destination: dest,
+      target_price: targetPrice,
+      mode,
+      trip_type: tripType,
+      destination_name: destName,
+      notes,
+      max_stops: maxStops,
+      auto_push: true,
+    };
+
+    if (mode === 'ARRIVAL_DEADLINE') {
+      payload.must_arrive_by = document.getElementById('mustArriveBy').value;
+    } else if (mode === 'VACATION_WINDOW') {
+      payload.window_start = document.getElementById('windowStart').value;
+      payload.window_end = document.getElementById('windowEnd').value;
+      payload.min_nights = parseInt(document.getElementById('minNights').value);
+      payload.max_nights = parseInt(document.getElementById('maxNights').value);
+    } else if (mode === 'FIXED_DATES') {
+      payload.departure_date = document.getElementById('fixedDep').value;
+      payload.return_date = document.getElementById('fixedRet').value;
+    }
+
+    try {
+      const res = await fetch('/api/watches', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast(`Watch added: ${origin} → ${dest} & synced with GitHub`);
+        loadWatches();
+      } else {
+        alert(data.error || 'Failed to save watch');
+      }
+    } catch (err) {
+      alert('Error creating watch');
+    }
+  }
+
+  async function deleteWatch(id) {
+    if (!confirm('Delete this flight watch?')) return;
+    try {
+      await fetch(`/api/watches/${id}/delete`, { method: 'POST' });
+      showToast('Watch deleted');
+      loadWatches();
+    } catch (err) {
+      showToast('Failed to delete watch');
+    }
+  }
+
+  async function toggleWatch(id) {
+    try {
+      await fetch(`/api/watches/${id}/toggle`, { method: 'POST' });
+      loadWatches();
+    } catch (err) {
+      showToast('Failed to toggle status');
+    }
+  }
+
+  async function checkSingleWatch(id) {
+    showToast(`Checking live fares for watch ${id}...`);
+    try {
+      const res = await fetch(`/api/watches/${id}/check`, { method: 'POST' });
+      const data = await res.json();
+      loadWatches();
+
+      const box = document.getElementById('liveResult');
+      const title = document.getElementById('liveResultTitle');
+      const list = document.getElementById('liveResultList');
+
+      box.style.display = 'block';
+      title.textContent = `Live Check Result (Lowest: $${data.lowest_price ? Math.round(data.lowest_price) : 'N/A'})`;
+      list.innerHTML = '';
+
+      if (!data.deals || data.deals.length === 0) {
+        list.innerHTML = '<li style="color: var(--text-muted);">No flights found under criteria.</li>';
+      } else {
+        data.deals.forEach(d => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <span>
+              <strong>$${Math.round(d.price)}</strong> • ${d.airline} (${d.stops === 0 ? 'Nonstop' : d.stops + ' stop'}) • ${d.notes || ''}
+            </span>
+            <a href="${d.deep_link}" target="_blank" style="color: var(--accent); font-weight: 500; font-size: 11px;">View on Google Flights ↗</a>
+          `;
+          list.appendChild(li);
+        });
+      }
+    } catch (err) {
+      showToast('Live check failed');
+    }
+  }
+
+  async function syncGit() {
+    const btn = document.getElementById('syncGitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Syncing...';
+    try {
+      const res = await fetch('/api/sync', { method: 'POST' });
+      const data = await res.json();
+      showToast(data.success ? 'Synced watches with GitHub main branch!' : 'Git sync notice: ' + data.message);
+    } catch (err) {
+      showToast('Git sync error');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg> Sync with GitHub';
+    }
+  }
+
+  async function runFullScan() {
+    const btn = document.getElementById('scanAllBtn');
+    btn.disabled = true;
+    btn.textContent = 'Scanning...';
+    showToast('Scanning all active watches against Google Flights...');
+    try {
+      const res = await fetch('/api/scan', { method: 'POST' });
+      const data = await res.json();
+      showToast(`Scan complete: ${data.count} qualified deals found.`);
+      loadWatches();
+    } catch (err) {
+      showToast('Scan error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Run Check Now';
+    }
+  }
+
+  // Initial load
+  loadWatches();
+</script>
+
+</body>
+</html>
