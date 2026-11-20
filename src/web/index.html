@@ -175,6 +175,23 @@
       margin-bottom: 5px;
     }
 
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 0;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+      cursor: pointer;
+    }
+
     input, select {
       width: 100%;
       padding: 7px 10px;
@@ -382,34 +399,42 @@
           </div>
         </div>
 
-        <!-- Date Flexibility -->
-        <div class="form-section-title">Departure Window</div>
-        <div class="input-row form-group">
-          <div>
-            <label>Earliest Depart</label>
-            <input type="date" id="depStart">
-          </div>
-          <div>
-            <label>Latest Depart (Window)</label>
-            <input type="date" id="depEnd">
-          </div>
+        <!-- Departure Date with Optional Range Toggle -->
+        <div class="form-section-title">Departure</div>
+        <div class="form-group">
+          <label>Departure Date</label>
+          <input type="date" id="depStart">
         </div>
-        <div class="helper-text">Pick one date for exact departure, or both for a flexible window.</div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="depRangeToggle" onchange="toggleDepRange()">
+            <span>Flexible departure window (add range)</span>
+          </label>
+        </div>
+        <div id="depRangeContainer" class="form-group" style="display: none;">
+          <label>Latest Departure Date</label>
+          <input type="date" id="depEnd">
+          <div class="helper-text">Searches flights departing between Earliest and Latest Departure.</div>
+        </div>
 
-        <!-- Return Window (Round-Trip Only) -->
+        <!-- Return Date with Optional Range Toggle (Round-Trip Only) -->
         <div id="returnSection">
-          <div class="form-section-title">Return Window</div>
-          <div class="input-row form-group">
-            <div>
-              <label>Earliest Return</label>
-              <input type="date" id="retStart">
-            </div>
-            <div>
-              <label>Latest Return</label>
-              <input type="date" id="retEnd">
-            </div>
+          <div class="form-section-title">Return</div>
+          <div class="form-group">
+            <label>Return Date</label>
+            <input type="date" id="retStart">
           </div>
-          <div class="input-row form-group">
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="retRangeToggle" onchange="toggleRetRange()">
+              <span>Flexible return window (add range)</span>
+            </label>
+          </div>
+          <div id="retRangeContainer" class="form-group" style="display: none;">
+            <label>Latest Return Date</label>
+            <input type="date" id="retEnd">
+          </div>
+          <div class="input-row form-group" style="margin-top: 8px;">
             <div>
               <label>Min Nights</label>
               <input type="number" id="minNights" placeholder="5" min="1" max="60">
@@ -419,16 +444,16 @@
               <input type="number" id="maxNights" placeholder="10" min="1" max="60">
             </div>
           </div>
-          <div class="helper-text">Leave blank to default to flexible 5–10 day trip length.</div>
+          <div class="helper-text">Leave return dates blank to search flexible 5-10 day durations.</div>
         </div>
 
         <!-- Optional Arrival Deadline Constraint -->
-        <div class="form-section-title">Arrival Deadline Constraint (Optional)</div>
+        <div class="form-section-title">Arrival Constraint (Optional)</div>
         <div class="form-group">
-          <label>Must Touch Down By</label>
+          <label>Must Arrive On or Before</label>
           <input type="date" id="mustArriveBy">
           <div class="helper-text">
-            Strict check: ensures flight arrives on or before this date (e.g. land in China on Jan 4).
+            Strict check: ensures flight lands on or before this date (e.g. land in China on Jan 4).
           </div>
         </div>
 
@@ -438,9 +463,11 @@
           <div>
             <label>Max Stops</label>
             <select id="maxStops">
+              <option value="99">Any number of stops</option>
+              <option value="0">Nonstop only (0)</option>
               <option value="1">Up to 1 stop</option>
-              <option value="0">Nonstop only</option>
               <option value="2">Up to 2 stops</option>
+              <option value="3">Up to 3 stops</option>
             </select>
           </div>
           <div>
@@ -509,6 +536,18 @@
     document.getElementById('returnSection').style.display = isOneWay ? 'none' : 'block';
   }
 
+  function toggleDepRange() {
+    const show = document.getElementById('depRangeToggle').checked;
+    document.getElementById('depRangeContainer').style.display = show ? 'block' : 'none';
+    if (!show) document.getElementById('depEnd').value = '';
+  }
+
+  function toggleRetRange() {
+    const show = document.getElementById('retRangeToggle').checked;
+    document.getElementById('retRangeContainer').style.display = show ? 'block' : 'none';
+    if (!show) document.getElementById('retEnd').value = '';
+  }
+
   function showToast(msg) {
     const toast = document.getElementById('toast');
     toast.textContent = msg;
@@ -524,7 +563,7 @@
       const countEl = document.getElementById('watchCount');
 
       if (!data.watches || data.watches.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 36px;">No flight watches configured yet. Add your first watch on the left!</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 36px;">No flight watches configured yet. Add your first watch on the left.</td></tr>';
         countEl.textContent = '0 watches';
         return;
       }
@@ -535,14 +574,13 @@
       data.watches.forEach(w => {
         const tr = document.createElement('tr');
 
-        // Format dates cleanly
         let datesDesc = '';
         if (w.must_arrive_by) {
-          datesDesc += `<div>🛬 Land by <strong>${w.must_arrive_by}</strong></div>`;
+          datesDesc += `<div>Land by <strong>${w.must_arrive_by}</strong></div>`;
         }
 
         if (w.departure_date && w.departure_date_end) {
-          datesDesc += `<div>Dep: ${w.departure_date} → ${w.departure_date_end}</div>`;
+          datesDesc += `<div>Dep: ${w.departure_date} to ${w.departure_date_end}</div>`;
         } else if (w.departure_date) {
           datesDesc += `<div>Dep: ${w.departure_date}</div>`;
         } else if (!w.must_arrive_by) {
@@ -551,7 +589,7 @@
 
         if (w.trip_type !== 'ONE_WAY') {
           if (w.return_date && w.return_date_end) {
-            datesDesc += `<div>Ret: ${w.return_date} → ${w.return_date_end}</div>`;
+            datesDesc += `<div>Ret: ${w.return_date} to ${w.return_date_end}</div>`;
           } else if (w.return_date) {
             datesDesc += `<div>Ret: ${w.return_date}</div>`;
           } else {
@@ -571,7 +609,7 @@
           ? '<span class="status-pill"></span> Active'
           : '<span class="status-pill paused"></span> Paused';
 
-        const routeLabel = `${w.origin || 'EWR/JFK'} → ${w.destination || 'ANY'}`;
+        const routeLabel = `${w.origin || 'EWR/JFK'} -> ${w.destination || 'ANY'}`;
         const typeBadge = w.trip_type === 'ONE_WAY' ? 'One-Way' : 'Round-Trip';
 
         tr.innerHTML = `
@@ -612,9 +650,13 @@
     const tripType = document.getElementById('tripType').value;
 
     const depStart = document.getElementById('depStart').value || null;
-    const depEnd = document.getElementById('depEnd').value || null;
+    const isDepRange = document.getElementById('depRangeToggle').checked;
+    const depEnd = isDepRange ? (document.getElementById('depEnd').value || null) : null;
+
     const retStart = document.getElementById('retStart').value || null;
-    const retEnd = document.getElementById('retEnd').value || null;
+    const isRetRange = document.getElementById('retRangeToggle').checked;
+    const retEnd = isRetRange ? (document.getElementById('retEnd').value || null) : null;
+
     const mustArriveBy = document.getElementById('mustArriveBy').value || null;
 
     const minNightsVal = document.getElementById('minNights').value;
@@ -653,8 +695,12 @@
       });
       const data = await res.json();
       if (data.success) {
-        showToast(`Watch saved: ${origin} → ${dest} & pushed to GitHub`);
+        showToast(`Watch saved: ${origin} -> ${dest}`);
         document.getElementById('watchForm').reset();
+        document.getElementById('depRangeToggle').checked = false;
+        document.getElementById('retRangeToggle').checked = false;
+        toggleDepRange();
+        toggleRetRange();
         onTripTypeChange();
         loadWatches();
       } else {
@@ -705,11 +751,12 @@
       } else {
         data.deals.forEach(d => {
           const li = document.createElement('li');
+          const stopsText = d.stops === 0 ? 'Nonstop' : (d.stops === 1 ? '1 stop' : d.stops + ' stops');
           li.innerHTML = `
             <span>
-              <strong>$${Math.round(d.price)}</strong> • ${d.airline} (${d.stops === 0 ? 'Nonstop' : d.stops + ' stop'}) • ${d.notes || ''}
+              <strong>$${Math.round(d.price)}</strong> • ${d.airline} (${stopsText}) • ${d.notes || ''}
             </span>
-            <a href="${d.deep_link}" target="_blank" style="color: var(--accent); font-weight: 500; font-size: 11px; margin-left: 12px; white-space: nowrap;">View on Google Flights ↗</a>
+            <a href="${d.deep_link}" target="_blank" style="color: var(--accent); font-weight: 500; font-size: 11px; margin-left: 12px; white-space: nowrap;">View on Google Flights -></a>
           `;
           list.appendChild(li);
         });
@@ -726,7 +773,7 @@
     try {
       const res = await fetch('/api/sync', { method: 'POST' });
       const data = await res.json();
-      showToast(data.success ? 'Synced watches with GitHub main branch!' : 'Git sync notice: ' + data.message);
+      showToast(data.success ? 'Synced watches with GitHub main branch' : 'Git sync notice: ' + data.message);
     } catch (err) {
       showToast('Git sync error');
     } finally {

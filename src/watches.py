@@ -87,7 +87,7 @@ class WatchManager:
             data = []
             for w in self.watches:
                 d = asdict(w)
-                d["mode"] = w.mode.value
+                d["mode"] = w.mode.value if hasattr(w.mode, "value") else str(w.mode)
                 data.append(d)
 
             with open(self.file_path, "w", encoding="utf-8") as f:
@@ -118,7 +118,8 @@ class WatchManager:
         self.save()
 
         if auto_push:
-            self.sync_git(f"feat(watches): add watch {watch.origin}->{watch.destination} ({watch.mode.value})")
+            mode_str = watch.mode.value if hasattr(watch.mode, "value") else str(watch.mode)
+            self.sync_git(f"feat(watches): add watch {watch.origin}->{watch.destination} ({mode_str})")
 
         return watch
 

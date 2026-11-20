@@ -260,12 +260,13 @@ class TargetedTripScanner:
             import fast_flights
             from fast_flights import FlightQuery, Passengers, create_query, get_flights
 
+            stops_filter = None if (max_stops is None or max_stops >= 99 or max_stops < 0) else max_stops
             queries = [
                 FlightQuery(
                     date=dep_date,
                     from_airport=origin,
                     to_airport=destination,
-                    max_stops=max_stops,
+                    max_stops=stops_filter,
                 )
             ]
 
@@ -277,7 +278,7 @@ class TargetedTripScanner:
                         date=ret_date,
                         from_airport=destination,
                         to_airport=origin,
-                        max_stops=max_stops,
+                        max_stops=stops_filter,
                     )
                 )
 
