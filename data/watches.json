@@ -24,5 +24,31 @@
     "created_at": "2026-11-20T20:16:29.427459+00:00",
     "last_checked": "2026-11-20T20:19:36.884510+00:00",
     "lowest_price_found": 547.0
+  },
+  {
+    "id": "pvg-ewr-37346",
+    "origin": "PVG",
+    "destination": "EWR",
+    "target_price": 700.0,
+    "mode": "UNIFIED",
+    "trip_type": "ONE_WAY",
+    "destination_name": "Study Abroad Return",
+    "departure_date": "2027-05-08",
+    "departure_date_end": null,
+    "return_date": null,
+    "return_date_end": null,
+    "must_arrive_by": null,
+    "window_start": null,
+    "window_end": null,
+    "min_nights": 5,
+    "max_nights": 10,
+    "cabin_class": "ECONOMY",
+    "max_stops": 99,
+    "booked_price": null,
+    "active": true,
+    "notes": null,
+    "created_at": "2026-11-20T20:23:03.787893+00:00",
+    "last_checked": null,
+    "lowest_price_found": null
   }
 ]
