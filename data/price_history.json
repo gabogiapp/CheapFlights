@@ -5,6 +5,12 @@
       "dep_month": "2027-04",
       "price": 399.0,
       "timestamp": 1795217230
+    },
+    {
+      "date": "2026-11-21",
+      "dep_month": "2027-04",
+      "price": 399.0,
+      "timestamp": 1795290459
     }
   ],
   "JFK-CDG": [
