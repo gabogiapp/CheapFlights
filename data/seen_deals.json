@@ -571,6 +571,19 @@
     "return_date": "2027-01-08",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2027-01-03-2027-01-10-b300": {
+    "airline": "Delta",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-03",
+    "destination": "LHR",
+    "first_seen": "2026-11-22T12:55:21.393416+00:00",
+    "last_seen": "2026-11-22T12:55:21.393416+00:00",
+    "origin": "EWR",
+    "price": 314.0,
+    "return_date": "2027-01-10",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2027-01-03-2027-01-10-b350": {
     "airline": "Delta",
     "currency": "USD",
@@ -1777,6 +1790,19 @@
     "last_seen": "2026-11-16T02:03:31.343080+00:00",
     "origin": "JFK",
     "price": 359.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-December 2026 to March 20-Flexible-b350": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "December 2026 to March 20",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-22T12:55:22.893732+00:00",
+    "last_seen": "2026-11-22T12:55:22.893732+00:00",
+    "origin": "JFK",
+    "price": 360.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
