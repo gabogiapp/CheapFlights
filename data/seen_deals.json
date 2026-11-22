@@ -1026,6 +1026,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-Cartagena, Colombia-January to February 2027-Flexible-b375": {
+    "airline": "United Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to February 2027",
+    "destination": "Cartagena, Colombia",
+    "first_seen": "2026-11-22T20:00:56.042985+00:00",
+    "last_seen": "2026-11-22T20:00:56.042985+00:00",
+    "origin": "JFK",
+    "price": 376.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-DUB-2026-12-11-2026-12-18-b375": {
     "airline": "British Airways",
     "currency": "USD",
@@ -1129,6 +1142,19 @@
     "price": 304.0,
     "return_date": "2027-05-22",
     "source": "google_flights_explore"
+  },
+  "JFK-Dubai, UAE-April to June 2027-Flexible-b500": {
+    "airline": "Gulf Air",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "April to June 2027",
+    "destination": "Dubai, UAE",
+    "first_seen": "2026-11-22T20:00:57.543273+00:00",
+    "last_seen": "2026-11-22T20:00:57.543273+00:00",
+    "origin": "JFK",
+    "price": 524.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
   },
   "JFK-Dublin, Ireland-February to March 2027-Flexible-b350": {
     "airline": "Icelandair",
@@ -1363,6 +1389,19 @@
     "price": 2656.0,
     "return_date": "2027-05-13",
     "source": "google_flights_explore"
+  },
+  "JFK-International-January to May 2027-Flexible-b200": {
+    "airline": "American Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to May 2027",
+    "destination": "International",
+    "first_seen": "2026-11-22T20:00:53.042390+00:00",
+    "last_seen": "2026-11-22T20:00:53.042390+00:00",
+    "origin": "JFK",
+    "price": 201.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
   },
   "JFK-LGW-2027-04-16-2027-04-30-b300": {
     "airline": "Icelandair",
@@ -1842,6 +1881,19 @@
     "last_seen": "2026-11-15T09:17:56.898605+00:00",
     "origin": "JFK",
     "price": 308.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-Limited availability in-Flexible-b300": {
+    "airline": "Condor",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "Limited availability in",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-22T20:00:54.542682+00:00",
+    "last_seen": "2026-11-22T20:00:54.542682+00:00",
+    "origin": "JFK",
+    "price": 301.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
