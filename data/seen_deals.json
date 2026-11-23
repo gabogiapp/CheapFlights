@@ -220,6 +220,19 @@
     "return_date": "2027-01-10",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2027-01-04-2027-01-11-b400": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-04",
+    "destination": "DUB",
+    "first_seen": "2026-11-23T00:37:32.551070+00:00",
+    "last_seen": "2026-11-23T00:37:32.551070+00:00",
+    "origin": "EWR",
+    "price": 402.0,
+    "return_date": "2027-01-11",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2027-02-12-2027-02-26-b375": {
     "airline": "British Airways",
     "currency": "USD",
@@ -558,6 +571,32 @@
     "return_date": "2026-12-27",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2026-12-14-2026-12-21-b325": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-14",
+    "destination": "LHR",
+    "first_seen": "2026-11-23T00:37:20.018611+00:00",
+    "last_seen": "2026-11-23T00:37:20.018611+00:00",
+    "origin": "EWR",
+    "price": 348.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2026-12-14-2026-12-28-b350": {
+    "airline": "Austrian",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-14",
+    "destination": "LHR",
+    "first_seen": "2026-11-23T00:37:24.778439+00:00",
+    "last_seen": "2026-11-23T00:37:24.778439+00:00",
+    "origin": "EWR",
+    "price": 371.0,
+    "return_date": "2026-12-28",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2027-01-01-2027-01-08-b375": {
     "airline": "Delta",
     "currency": "USD",
@@ -595,6 +634,19 @@
     "origin": "EWR",
     "price": 360.0,
     "return_date": "2027-01-10",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-01-04-2027-01-11-b375": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-04",
+    "destination": "LHR",
+    "first_seen": "2026-11-23T00:37:27.045089+00:00",
+    "last_seen": "2026-11-23T00:37:27.045089+00:00",
+    "origin": "EWR",
+    "price": 386.0,
+    "return_date": "2027-01-11",
     "source": "google_flights_explore"
   },
   "EWR-LHR-2027-01-22-2027-01-29-b300": {
@@ -779,6 +831,19 @@
     "return_date": "2027-05-13",
     "source": "google_flights_explore"
   },
+  "FCO-PVG-2027-01-03-2027-01-03-b475": {
+    "airline": "Qatar Airways",
+    "currency": "USD",
+    "deal_type": "TARGETED_TRIP",
+    "departure_date": "2027-01-03",
+    "destination": "PVG",
+    "first_seen": "2026-11-23T00:37:34.051231+00:00",
+    "last_seen": "2026-11-23T00:37:34.051231+00:00",
+    "origin": "FCO",
+    "price": 497.0,
+    "return_date": "2027-01-03",
+    "source": "targeted_unified"
+  },
   "FCO-PVG-2027-01-03-2027-01-03-b550": {
     "airline": "Finnair",
     "currency": "USD",
@@ -907,6 +972,32 @@
     "origin": "JFK",
     "price": 634.0,
     "return_date": "2027-01-10",
+    "source": "google_flights_explore"
+  },
+  "JFK-BKK-2027-01-04-2027-01-11-b625": {
+    "airline": "Condor and Etihad",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-04",
+    "destination": "BKK",
+    "first_seen": "2026-11-23T00:37:36.266298+00:00",
+    "last_seen": "2026-11-23T00:37:36.266298+00:00",
+    "origin": "JFK",
+    "price": 634.0,
+    "return_date": "2027-01-11",
+    "source": "google_flights_explore"
+  },
+  "JFK-BOM-2027-01-04-2027-01-11-b650": {
+    "airline": "IndiGo and American",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-04",
+    "destination": "BOM",
+    "first_seen": "2026-11-23T00:37:41.449834+00:00",
+    "last_seen": "2026-11-23T00:37:41.449834+00:00",
+    "origin": "JFK",
+    "price": 672.0,
+    "return_date": "2027-01-11",
     "source": "google_flights_explore"
   },
   "JFK-BOM-2027-03-02-2027-03-09-b350": {
@@ -1481,6 +1572,19 @@
     "return_date": "2026-12-20",
     "source": "google_flights_explore"
   },
+  "JFK-LHR-2026-12-14-2026-12-21-b325": {
+    "airline": "Delta and Virgin Atlantic",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2026-12-14",
+    "destination": "LHR",
+    "first_seen": "2026-11-23T00:37:22.478449+00:00",
+    "last_seen": "2026-11-23T00:37:22.478449+00:00",
+    "origin": "JFK",
+    "price": 349.0,
+    "return_date": "2026-12-21",
+    "source": "google_flights_explore"
+  },
   "JFK-LHR-2027-01-01-2027-01-08-b375": {
     "airline": "Delta and Virgin Atlantic",
     "currency": "USD",
@@ -1505,6 +1609,19 @@
     "origin": "JFK",
     "price": 399.0,
     "return_date": "2027-01-10",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2027-01-04-2027-01-11-b375": {
+    "airline": "Delta and Virgin Atlantic",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-04",
+    "destination": "LHR",
+    "first_seen": "2026-11-23T00:37:29.535015+00:00",
+    "last_seen": "2026-11-23T00:37:29.535015+00:00",
+    "origin": "JFK",
+    "price": 387.0,
+    "return_date": "2027-01-11",
     "source": "google_flights_explore"
   },
   "JFK-LHR-2027-01-22-2027-01-29-b300": {
@@ -2013,6 +2130,19 @@
     "price": 398.0,
     "return_date": "Flexible",
     "source": "secret_flying"
+  },
+  "JFK-SIN-2027-01-04-2027-01-18-b625": {
+    "airline": "Qatar Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-04",
+    "destination": "SIN",
+    "first_seen": "2026-11-23T00:37:39.320366+00:00",
+    "last_seen": "2026-11-23T00:37:39.320366+00:00",
+    "origin": "JFK",
+    "price": 648.0,
+    "return_date": "2027-01-18",
+    "source": "google_flights_explore"
   },
   "JFK-San Juan, Puerto Ric-December 2026 to February-Flexible-b175": {
     "airline": "United Airlines",
