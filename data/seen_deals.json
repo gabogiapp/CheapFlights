@@ -142,6 +142,32 @@
     "return_date": "2027-01-29",
     "source": "google_flights_explore"
   },
+  "EWR-CDG-2027-01-27-2027-02-03-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-27",
+    "destination": "CDG",
+    "first_seen": "2026-11-25T17:38:21.763160+00:00",
+    "last_seen": "2026-11-25T17:38:21.763160+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-02-03",
+    "source": "google_flights_explore"
+  },
+  "EWR-CDG-2027-02-17-2027-02-24-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-17",
+    "destination": "CDG",
+    "first_seen": "2026-11-25T17:38:24.089481+00:00",
+    "last_seen": "2026-11-25T17:38:24.089481+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-02-24",
+    "source": "google_flights_explore"
+  },
   "EWR-CDG-2027-04-17-2027-04-24-b350": {
     "airline": "United",
     "currency": "USD",
@@ -922,6 +948,19 @@
     "return_date": "2027-02-05",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2027-01-27-2027-02-03-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-27",
+    "destination": "LHR",
+    "first_seen": "2026-11-25T17:38:36.051197+00:00",
+    "last_seen": "2026-11-25T17:38:36.051197+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2027-02-03",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2027-02-12-2027-02-19-b300": {
     "airline": "Air Canada",
     "currency": "USD",
@@ -946,6 +985,19 @@
     "origin": "EWR",
     "price": 382.0,
     "return_date": "2027-02-26",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-02-17-2027-02-24-b300": {
+    "airline": "Air Canada",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-17",
+    "destination": "LHR",
+    "first_seen": "2026-11-25T17:38:38.307967+00:00",
+    "last_seen": "2026-11-25T17:38:38.307967+00:00",
+    "origin": "EWR",
+    "price": 313.0,
+    "return_date": "2027-02-24",
     "source": "google_flights_explore"
   },
   "EWR-LHR-2027-03-10-2027-03-17-b300": {
@@ -1091,6 +1143,32 @@
     "return_date": "2027-02-05",
     "source": "google_flights_explore"
   },
+  "EWR-MAD-2027-01-27-2027-02-10-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-01-27",
+    "destination": "MAD",
+    "first_seen": "2026-11-25T17:38:08.378969+00:00",
+    "last_seen": "2026-11-25T17:38:08.378969+00:00",
+    "origin": "EWR",
+    "price": 235.0,
+    "return_date": "2027-02-10",
+    "source": "google_flights_explore"
+  },
+  "EWR-MAD-2027-02-17-2027-03-03-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-02-17",
+    "destination": "MAD",
+    "first_seen": "2026-11-25T17:38:10.727098+00:00",
+    "last_seen": "2026-11-25T17:38:10.727098+00:00",
+    "origin": "EWR",
+    "price": 235.0,
+    "return_date": "2027-03-03",
+    "source": "google_flights_explore"
+  },
   "EWR-MAD-2027-03-10-2027-03-24-b225": {
     "airline": "Tap Air Portugal",
     "currency": "USD",
@@ -1154,6 +1232,32 @@
     "origin": "EWR",
     "price": 1596.0,
     "return_date": "2027-05-13",
+    "source": "google_flights_explore"
+  },
+  "EWR-ORY-2027-01-27-2027-02-10-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-01-27",
+    "destination": "ORY",
+    "first_seen": "2026-11-25T17:38:17.373908+00:00",
+    "last_seen": "2026-11-25T17:38:17.373908+00:00",
+    "origin": "EWR",
+    "price": 240.0,
+    "return_date": "2027-02-10",
+    "source": "google_flights_explore"
+  },
+  "EWR-ORY-2027-02-17-2027-03-03-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-02-17",
+    "destination": "ORY",
+    "first_seen": "2026-11-25T17:38:19.527858+00:00",
+    "last_seen": "2026-11-25T17:38:19.527858+00:00",
+    "origin": "EWR",
+    "price": 240.0,
+    "return_date": "2027-03-03",
     "source": "google_flights_explore"
   },
   "EWR-ORY-2027-03-10-2027-03-24-b275": {
@@ -1453,6 +1557,32 @@
     "origin": "JFK",
     "price": 327.0,
     "return_date": "2027-02-05",
+    "source": "google_flights_explore"
+  },
+  "JFK-CDG-2027-01-27-2027-02-03-b300": {
+    "airline": "Air France",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-27",
+    "destination": "CDG",
+    "first_seen": "2026-11-25T17:38:28.805632+00:00",
+    "last_seen": "2026-11-25T17:38:28.805632+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-02-03",
+    "source": "google_flights_explore"
+  },
+  "JFK-CDG-2027-02-17-2027-02-24-b300": {
+    "airline": "Air France",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-17",
+    "destination": "CDG",
+    "first_seen": "2026-11-25T17:38:33.767309+00:00",
+    "last_seen": "2026-11-25T17:38:33.767309+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-02-24",
     "source": "google_flights_explore"
   },
   "JFK-CDG-2027-04-17-2027-04-24-b350": {
@@ -2118,6 +2248,19 @@
     "return_date": "Flexible",
     "source": "secret_flying"
   },
+  "JFK-LCY-2027-02-17-2027-03-03-b325": {
+    "airline": "British Airways and Iberia",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-17",
+    "destination": "LCY",
+    "first_seen": "2026-11-25T17:38:40.392927+00:00",
+    "last_seen": "2026-11-25T17:38:40.392927+00:00",
+    "origin": "JFK",
+    "price": 326.0,
+    "return_date": "2027-03-03",
+    "source": "google_flights_explore"
+  },
   "JFK-LGW-2027-03-31-2027-04-14-b250": {
     "airline": "Icelandair",
     "currency": "USD",
@@ -2326,6 +2469,19 @@
     "return_date": "2027-02-05",
     "source": "google_flights_explore"
   },
+  "JFK-LHR-2027-01-27-2027-02-03-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-01-27",
+    "destination": "LHR",
+    "first_seen": "2026-11-25T17:38:26.485327+00:00",
+    "last_seen": "2026-11-25T17:38:26.485327+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-02-03",
+    "source": "google_flights_explore"
+  },
   "JFK-LHR-2027-02-12-2027-02-19-b300": {
     "airline": "British Airways",
     "currency": "USD",
@@ -2337,6 +2493,19 @@
     "origin": "JFK",
     "price": 310.0,
     "return_date": "2027-02-19",
+    "source": "google_flights_explore"
+  },
+  "JFK-LHR-2027-02-17-2027-02-24-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-02-17",
+    "destination": "LHR",
+    "first_seen": "2026-11-25T17:38:31.504705+00:00",
+    "last_seen": "2026-11-25T17:38:31.504705+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-02-24",
     "source": "google_flights_explore"
   },
   "JFK-LHR-2027-03-10-2027-03-17-b300": {
@@ -2532,6 +2701,32 @@
     "origin": "JFK",
     "price": 305.0,
     "return_date": "2027-02-05",
+    "source": "google_flights_explore"
+  },
+  "JFK-MAD-2027-01-27-2027-02-10-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-01-27",
+    "destination": "MAD",
+    "first_seen": "2026-11-25T17:38:12.921322+00:00",
+    "last_seen": "2026-11-25T17:38:12.921322+00:00",
+    "origin": "JFK",
+    "price": 235.0,
+    "return_date": "2027-02-10",
+    "source": "google_flights_explore"
+  },
+  "JFK-MAD-2027-02-17-2027-03-03-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-02-17",
+    "destination": "MAD",
+    "first_seen": "2026-11-25T17:38:15.226512+00:00",
+    "last_seen": "2026-11-25T17:38:15.226512+00:00",
+    "origin": "JFK",
+    "price": 235.0,
+    "return_date": "2027-03-03",
     "source": "google_flights_explore"
   },
   "JFK-MAD-2027-03-10-2027-03-24-b225": {
