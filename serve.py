@@ -6,70 +6,139 @@ from __future__ import annotations
 import argparse
 import logging
 import os
+import socket
+import subprocess
 import sys
 from pathlib import Path
 
-# Configure logging
+PROJECT_DIR = Path(__file__).resolve().parent
+# Always run from project root so relative paths (data/watches.json, .env, git) work from any caller
+os.chdir(PROJECT_DIR)
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+LOG_FILE = Path("/tmp/flights-watcher.log")
+
+# Configure logging to both console and /tmp/flights-watcher.log for headless diagnostics
 LOG_FORMAT = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
-logging.basicConfig(level=logging.INFO, format=LOG_FORMAT, datefmt="%H:%M:%S")
+handlers: list[logging.Handler] = [logging.StreamHandler()]
+try:
+    handlers.append(logging.FileHandler(LOG_FILE, encoding="utf-8"))
+except Exception:
+    pass
+
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT, datefmt="%H:%M:%S", handlers=handlers)
 logger = logging.getLogger("serve")
 
-PROJECT_DIR = Path(__file__).resolve().parent
-
-# Windows Startup folder path when running inside WSL
+# Windows paths when running inside WSL
 WINDOWS_STARTUP_DIR = Path(
     "/mnt/c/Users/gabog/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
 )
+POWERSHELL_EXE = Path("/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe")
+TASK_NAME = "FlightsWatcherAutoStart"
+
+
+def is_port_listening(port: int, host: str = "127.0.0.1") -> bool:
+    """Return True if a local server is already listening on the given port."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.5)
+        return sock.connect_ex((host, port)) == 0
 
 
 def install_windows_startup() -> bool:
-    """Install silent background auto-start VBS script in Windows Startup folder."""
+    """Install silent background auto-start VBS script and Windows Scheduled Task."""
     if not WINDOWS_STARTUP_DIR.exists():
         logger.error(f"Windows startup directory not found at: {WINDOWS_STARTUP_DIR}")
         print("[-] Could not locate Windows Startup folder. Ensure WSL has access to /mnt/c.")
         return False
 
+    distro = os.environ.get("WSL_DISTRO_NAME", "Ubuntu")
     vbs_path = WINDOWS_STARTUP_DIR / "flights-watcher.vbs"
-    # Command executes WSL headless in background (0 = hide window, False = don't block)
+    # Explicitly specify distro, working directory (--cd), and full python3 + script paths
+    wsl_cmd = f"wsl.exe -d {distro} --cd {PROJECT_DIR} -e /usr/bin/python3 {PROJECT_DIR}/serve.py"
     vbs_content = (
         'Set WshShell = CreateObject("WScript.Shell")\n'
-        f'WshShell.Run "wsl.exe -e python3 {PROJECT_DIR}/serve.py", 0, False\n'
+        f'WshShell.Run "{wsl_cmd}", 0, False\n'
     )
 
     try:
         with open(vbs_path, "w", encoding="utf-8") as f:
             f.write(vbs_content)
-
-        print("[+] Success! Auto-start installed successfully.")
-        print(f"    Startup script: {vbs_path}")
-        print("    Every time your computer turns on, Flight Watcher will start automatically in the background.")
-        print("    No terminal popup or manual launch needed.")
-        return True
+        print(f"[+] Updated Windows Startup script: {vbs_path}")
     except Exception as e:
         logger.error(f"Failed to write startup script: {e}")
         return False
 
+    # Also register a Windows Scheduled Task (runs at Log On with 15s delay + periodic watchdog every 10 min)
+    # This handles Windows Fast Startup, sleep/wake cycles, and WSL/Docker restarts reliably.
+    if POWERSHELL_EXE.exists():
+        win_vbs = r"C:\Users\gabog\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\flights-watcher.vbs"
+        ps_script = f"""
+$action = New-ScheduledTaskAction -Execute 'wscript.exe' -Argument '"{win_vbs}"'
+$tLogon = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+$tLogon.Delay = 'PT15S'
+$tRepeat = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 10)
+$settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Seconds 0) -StartWhenAvailable
+Register-ScheduledTask -TaskName '{TASK_NAME}' -Action $action -Trigger @($tLogon, $tRepeat) -Settings $settings -Force | Out-Null
+Write-Output 'TASK_OK'
+"""
+        try:
+            res = subprocess.run(
+                [str(POWERSHELL_EXE), "-NoProfile", "-NonInteractive", "-Command", ps_script],
+                stdin=subprocess.DEVNULL,
+                capture_output=True,
+                text=True,
+                timeout=15,
+            )
+            if res.returncode == 0 and "TASK_OK" in res.stdout:
+                print(f"[+] Registered Windows Scheduled Task '{TASK_NAME}' (at logon + watchdog).")
+            else:
+                logger.warning(f"Scheduled task registration note: {res.stderr.strip() or res.stdout.strip()}")
+                print(f"[!] Note: Scheduled task registration returned: {res.stderr.strip() or res.stdout.strip()}")
+        except Exception as e:
+            logger.warning(f"Could not register scheduled task: {e}")
+
+    print("    Flight Watcher will start silently on login and stay online automatically.")
+    return True
+
 
 def remove_windows_startup() -> bool:
-    """Remove auto-start script from Windows Startup folder."""
+    """Remove auto-start script from Windows Startup folder and Task Scheduler."""
     vbs_path = WINDOWS_STARTUP_DIR / "flights-watcher.vbs"
     if vbs_path.exists():
         try:
             vbs_path.unlink()
             print("[+] Removed auto-start script from Windows Startup folder.")
-            return True
         except Exception as e:
             logger.error(f"Failed to remove startup script: {e}")
             return False
     else:
         print("[i] No startup script found in Windows Startup folder.")
-        return True
+
+    if POWERSHELL_EXE.exists():
+        try:
+            subprocess.run(
+                [
+                    str(POWERSHELL_EXE),
+                    "-NoProfile",
+                    "-NonInteractive",
+                    "-Command",
+                    f"Unregister-ScheduledTask -TaskName '{TASK_NAME}' -Confirm:$false -ErrorAction SilentlyContinue",
+                ],
+                stdin=subprocess.DEVNULL,
+                capture_output=True,
+                timeout=10,
+            )
+            print(f"[+] Removed Windows Scheduled Task '{TASK_NAME}' (if present).")
+        except Exception:
+            pass
+    return True
 
 
 def show_hosts_instructions() -> None:
     """Display instructions for aliasing localhost to http://flights.local:5000."""
     print("\n" + "=" * 65)
-    print("🌐 HOW TO ACCESS VIA http://flights.local:5000")
+    print("HOW TO ACCESS VIA http://flights.local:5000")
     print("=" * 65)
     print("To open http://flights.local:5000 instead of remembering localhost:")
     print("1. In Windows, open Notepad as Administrator.")
@@ -88,12 +157,12 @@ def main() -> None:
     parser.add_argument(
         "--install-startup",
         action="store_true",
-        help="Install auto-start script to Windows Startup folder so it boots with computer",
+        help="Install auto-start script and scheduled task so it boots with computer",
     )
     parser.add_argument(
         "--remove-startup",
         action="store_true",
-        help="Remove auto-start script from Windows Startup folder",
+        help="Remove auto-start script and scheduled task",
     )
     parser.add_argument(
         "--setup-alias",
@@ -121,6 +190,18 @@ def main() -> None:
         show_hosts_instructions()
         return
 
+    # Load .env explicitly from project root before importing/starting components
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(PROJECT_DIR / ".env")
+    except Exception:
+        pass
+
+    # Avoid duplicate instance / port-in-use error when watchdog/startup triggers while already running
+    if is_port_listening(args.port):
+        logger.info(f"Flight Watcher is already running on port {args.port}; exiting duplicate launch.")
+        return
+
     # Start Telegram Interactive Bot in background
     if not args.no_telegram:
         try:
@@ -134,7 +215,8 @@ def main() -> None:
     from src.web.server import run_server
 
     print("=" * 65)
-    print(f"🚀 Flight Watcher Dashboard running at http://localhost:{args.port}")
+    print(f"Flight Watcher Dashboard running at http://localhost:{args.port}")
+    print(f"   Working directory: {os.getcwd()}")
     print(f"   Network accessible at: http://127.0.0.1:{args.port} or http://flights.local:{args.port}")
     print(f"   Telegram bot listener: {'Disabled' if args.no_telegram else 'Active'}")
     print("   Press Ctrl+C to stop.")

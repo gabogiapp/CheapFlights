@@ -214,9 +214,15 @@ class FlightWatcherHandler(BaseHTTPRequestHandler):
         pass
 
 
+class ReusableThreadingHTTPServer(ThreadingHTTPServer):
+    """Multithreaded HTTP server that allows immediate socket reuse."""
+
+    allow_reuse_address = True
+
+
 def run_server(host: str = "0.0.0.0", port: int = 5000) -> None:
     """Run multithreaded HTTP server."""
     server_address = (host, port)
-    httpd = ThreadingHTTPServer(server_address, FlightWatcherHandler)
+    httpd = ReusableThreadingHTTPServer(server_address, FlightWatcherHandler)
     logger.info(f"Flight Watcher dashboard active at http://localhost:{port} (bound to {host}:{port})")
     httpd.serve_forever()
