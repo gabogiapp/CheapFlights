@@ -51,6 +51,19 @@
     "return_date": "2027-05-18",
     "source": "google_flights_explore"
   },
+  "EWR-BCN-2027-04-02-2027-04-16-b225": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "MISTAKE_FARE",
+    "departure_date": "2027-04-02",
+    "destination": "BCN",
+    "first_seen": "2026-11-27T10:48:49.810842+00:00",
+    "last_seen": "2026-11-27T10:48:49.810842+00:00",
+    "origin": "EWR",
+    "price": 235.0,
+    "return_date": "2027-04-16",
+    "source": "google_flights_explore"
+  },
   "EWR-BCN-2027-04-16-2027-04-30-b325": {
     "airline": "Tap Air Portugal",
     "currency": "USD",
@@ -467,6 +480,32 @@
     "return_date": "2027-04-07",
     "source": "google_flights_explore"
   },
+  "EWR-DUB-2027-04-02-2027-04-09-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "DUB",
+    "first_seen": "2026-11-27T10:48:55.377996+00:00",
+    "last_seen": "2026-11-27T10:48:55.377996+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-04-09",
+    "source": "google_flights_explore"
+  },
+  "EWR-DUB-2027-04-02-2027-04-16-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "DUB",
+    "first_seen": "2026-11-27T10:49:02.793427+00:00",
+    "last_seen": "2026-11-27T10:49:02.793427+00:00",
+    "origin": "EWR",
+    "price": 319.0,
+    "return_date": "2027-04-16",
+    "source": "google_flights_explore"
+  },
   "EWR-DUB-2027-04-16-2027-04-23-b300": {
     "airline": "United",
     "currency": "USD",
@@ -662,6 +701,32 @@
     "return_date": "2027-05-27",
     "source": "google_flights_explore"
   },
+  "EWR-EDI-2027-03-12-2027-03-19-b400": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-12",
+    "destination": "EDI",
+    "first_seen": "2026-11-27T10:49:19.716731+00:00",
+    "last_seen": "2026-11-27T10:49:19.716731+00:00",
+    "origin": "EWR",
+    "price": 405.0,
+    "return_date": "2027-03-19",
+    "source": "google_flights_explore"
+  },
+  "EWR-EDI-2027-04-02-2027-04-09-b400": {
+    "airline": "Air Canada and United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "EDI",
+    "first_seen": "2026-11-27T10:49:24.189878+00:00",
+    "last_seen": "2026-11-27T10:49:24.189878+00:00",
+    "origin": "EWR",
+    "price": 406.0,
+    "return_date": "2027-04-09",
+    "source": "google_flights_explore"
+  },
   "EWR-EDI-2027-05-07-2027-05-14-b400": {
     "airline": "Delta",
     "currency": "USD",
@@ -712,6 +777,19 @@
     "origin": "EWR",
     "price": 383.0,
     "return_date": "2027-03-26",
+    "source": "google_flights_explore"
+  },
+  "EWR-FCO-2027-04-02-2027-04-16-b400": {
+    "airline": "Icelandair",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "FCO",
+    "first_seen": "2026-11-27T10:49:26.292978+00:00",
+    "last_seen": "2026-11-27T10:49:26.292978+00:00",
+    "origin": "EWR",
+    "price": 407.0,
+    "return_date": "2027-04-16",
     "source": "google_flights_explore"
   },
   "EWR-FCO-2027-04-16-2027-04-30-b300": {
@@ -1299,6 +1377,32 @@
     "return_date": "2027-04-07",
     "source": "google_flights_explore"
   },
+  "EWR-LHR-2027-04-02-2027-04-09-b300": {
+    "airline": "United",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "LHR",
+    "first_seen": "2026-11-27T10:48:52.647082+00:00",
+    "last_seen": "2026-11-27T10:48:52.647082+00:00",
+    "origin": "EWR",
+    "price": 310.0,
+    "return_date": "2027-04-09",
+    "source": "google_flights_explore"
+  },
+  "EWR-LHR-2027-04-02-2027-04-16-b350": {
+    "airline": "Lufthansa",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "LHR",
+    "first_seen": "2026-11-27T10:49:05.679644+00:00",
+    "last_seen": "2026-11-27T10:49:05.679644+00:00",
+    "origin": "EWR",
+    "price": 354.0,
+    "return_date": "2027-04-16",
+    "source": "google_flights_explore"
+  },
   "EWR-LHR-2027-04-16-2027-04-23-b300": {
     "airline": "United",
     "currency": "USD",
@@ -1505,6 +1609,19 @@
     "origin": "EWR",
     "price": 235.0,
     "return_date": "2027-03-24",
+    "source": "google_flights_explore"
+  },
+  "EWR-MAD-2027-03-12-2027-03-26-b375": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-12",
+    "destination": "MAD",
+    "first_seen": "2026-11-27T10:49:14.793208+00:00",
+    "last_seen": "2026-11-27T10:49:14.793208+00:00",
+    "origin": "EWR",
+    "price": 392.0,
+    "return_date": "2027-03-26",
     "source": "google_flights_explore"
   },
   "EWR-MEL-2026-12-07-2026-12-14-b7350": {
@@ -1883,6 +2000,32 @@
     "price": 378.0,
     "return_date": "2027-03-04",
     "source": "google_flights_explore"
+  },
+  "JFK-BUD-2027-04-02-2027-04-16-b375": {
+    "airline": "SWISS",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "BUD",
+    "first_seen": "2026-11-27T10:49:10.617241+00:00",
+    "last_seen": "2026-11-27T10:49:10.617241+00:00",
+    "origin": "JFK",
+    "price": 386.0,
+    "return_date": "2027-04-16",
+    "source": "google_flights_explore"
+  },
+  "JFK-Barcelona, Spain-2026-11-27-Flexible-b375": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-27",
+    "destination": "Barcelona, Spain",
+    "first_seen": "2026-11-27T10:49:07.180014+00:00",
+    "last_seen": "2026-11-27T10:49:07.180014+00:00",
+    "origin": "JFK",
+    "price": 377.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
   },
   "JFK-Barcelona, Spain-January to March 2027-Flexible-b375": {
     "airline": "Icelandair",
@@ -2558,6 +2701,19 @@
     "origin": "JFK",
     "price": 376.0,
     "return_date": "2027-03-26",
+    "source": "google_flights_explore"
+  },
+  "JFK-FCO-2027-04-02-2027-04-16-b375": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "FCO",
+    "first_seen": "2026-11-27T10:49:12.744579+00:00",
+    "last_seen": "2026-11-27T10:49:12.744579+00:00",
+    "origin": "JFK",
+    "price": 391.0,
+    "return_date": "2027-04-16",
     "source": "google_flights_explore"
   },
   "JFK-FCO-2027-04-16-2027-04-30-b300": {
@@ -3236,6 +3392,19 @@
     "return_date": "2027-04-07",
     "source": "google_flights_explore"
   },
+  "JFK-LHR-2027-04-02-2027-04-09-b300": {
+    "airline": "British Airways",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "LHR",
+    "first_seen": "2026-11-27T10:49:00.069755+00:00",
+    "last_seen": "2026-11-27T10:49:00.069755+00:00",
+    "origin": "JFK",
+    "price": 310.0,
+    "return_date": "2027-04-09",
+    "source": "google_flights_explore"
+  },
   "JFK-LHR-2027-04-02-2027-04-16-b350": {
     "airline": "Lufthansa",
     "currency": "USD",
@@ -3507,6 +3676,19 @@
     "origin": "JFK",
     "price": 235.0,
     "return_date": "2027-03-24",
+    "source": "google_flights_explore"
+  },
+  "JFK-MAD-2027-03-12-2027-03-26-b375": {
+    "airline": "Tap Air Portugal",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-03-12",
+    "destination": "MAD",
+    "first_seen": "2026-11-27T10:49:17.664755+00:00",
+    "last_seen": "2026-11-27T10:49:17.664755+00:00",
+    "origin": "JFK",
+    "price": 392.0,
+    "return_date": "2027-03-26",
     "source": "google_flights_explore"
   },
   "JFK-Malaga, Spain-January to March 2027-Flexible-b350": {
@@ -3884,6 +4066,19 @@
     "origin": "JFK",
     "price": 648.0,
     "return_date": "2027-01-19",
+    "source": "google_flights_explore"
+  },
+  "JFK-SSA-2027-04-02-2027-04-16-b400": {
+    "airline": "Delta and LATAM",
+    "currency": "USD",
+    "deal_type": "EXPLORE_DROP",
+    "departure_date": "2027-04-02",
+    "destination": "SSA",
+    "first_seen": "2026-11-27T10:49:30.653465+00:00",
+    "last_seen": "2026-11-27T10:49:30.653465+00:00",
+    "origin": "JFK",
+    "price": 415.0,
+    "return_date": "2027-04-16",
     "source": "google_flights_explore"
   },
   "JFK-San Juan, Puerto Ric-December 2026 to February-Flexible-b175": {
