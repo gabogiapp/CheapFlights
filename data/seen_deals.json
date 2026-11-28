@@ -3886,6 +3886,32 @@
     "return_date": "2027-03-26",
     "source": "google_flights_explore"
   },
+  "JFK-Madrid, Spain-December 2026 to January -Flexible-b1375": {
+    "airline": "American Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "December 2026 to January ",
+    "destination": "Madrid, Spain",
+    "first_seen": "2026-11-28T02:12:08.381055+00:00",
+    "last_seen": "2026-11-28T02:12:08.381055+00:00",
+    "origin": "JFK",
+    "price": 1387.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-Malaga, Spain-January to June 2027-Flexible-b350": {
+    "airline": "Scandinavian Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "January to June 2027",
+    "destination": "Malaga, Spain",
+    "first_seen": "2026-11-28T02:12:05.380384+00:00",
+    "last_seen": "2026-11-28T02:12:05.380384+00:00",
+    "origin": "JFK",
+    "price": 368.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-Malaga, Spain-January to March 2027-Flexible-b350": {
     "airline": "Scandinavian Airlines",
     "currency": "USD",
@@ -4052,6 +4078,19 @@
     "last_seen": "2026-11-23T20:08:43.247224+00:00",
     "origin": "JFK",
     "price": 299.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-New York, USA-April to May 2027-Flexible-b375": {
+    "airline": "Aer Lingus",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "April to May 2027",
+    "destination": "New York, USA",
+    "first_seen": "2026-11-28T02:12:06.880732+00:00",
+    "last_seen": "2026-11-28T02:12:06.880732+00:00",
+    "origin": "JFK",
+    "price": 379.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
@@ -4419,6 +4458,19 @@
     "return_date": "2027-02-21",
     "source": "google_flights_explore"
   },
+  "JFK-Vienna, Austria-Limited availability in-Flexible-b325": {
+    "airline": "Condor",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "Limited availability in",
+    "destination": "Vienna, Austria",
+    "first_seen": "2026-11-28T02:12:03.880045+00:00",
+    "last_seen": "2026-11-28T02:12:03.880045+00:00",
+    "origin": "JFK",
+    "price": 346.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-YVR-2027-03-02-2027-03-09-b250": {
     "airline": "WestJet",
     "currency": "USD",
@@ -4471,6 +4523,19 @@
     "return_date": "2027-04-06",
     "source": "google_flights_explore"
   },
+  "JFK-Zurich, Switzerland-Limited availability from-Flexible-b325": {
+    "airline": "Condor",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "Limited availability from",
+    "destination": "Zurich, Switzerland",
+    "first_seen": "2026-11-28T02:12:02.379659+00:00",
+    "last_seen": "2026-11-28T02:12:02.379659+00:00",
+    "origin": "JFK",
+    "price": 327.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
   "JFK-the Dominican Republ-2026-11-13-Flexible-b275": {
     "airline": "Various Airlines",
     "currency": "USD",
@@ -4520,6 +4585,19 @@
     "last_seen": "2026-11-13T21:31:40.392545+00:00",
     "origin": "JFK",
     "price": 295.0,
+    "return_date": "Flexible",
+    "source": "secret_flying"
+  },
+  "JFK-the US Virgin Island-2026-11-28-Flexible-b275": {
+    "airline": "Various Airlines",
+    "currency": "USD",
+    "deal_type": "SECRET_FLYING",
+    "departure_date": "2026-11-28",
+    "destination": "the US Virgin Island",
+    "first_seen": "2026-11-28T02:12:00.879320+00:00",
+    "last_seen": "2026-11-28T02:12:00.879320+00:00",
+    "origin": "JFK",
+    "price": 281.0,
     "return_date": "Flexible",
     "source": "secret_flying"
   },
